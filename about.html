@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us – Ezer Technologies</title>
+
+<meta name="description" content="Learn the story behind Ezer Technologies — a digital innovation studio built in Accra, Ghana, solving real-world problems with elegant technology.">
+<meta name="keywords" content="about Ezer Technologies, Ghana tech company, digital studio Accra, tech team Ghana">
+<meta name="author" content="Ezer Technologies">
+
+<meta property="og:title" content="About Us – Ezer Technologies">
+<meta property="og:description" content="Built for the real world. Learn who we are, what drives us, and the team behind every project.">
+<meta property="og:type" content="website">
+
+<link rel="icon" type="image/png" href="favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+<!-- Inline SVG icons below work offline too -->
+<style>
+.svg-icon{ display:inline-block; width:1em; height:1em; vertical-align:-0.125em; fill:currentColor; flex-shrink:0; }
+</style>
+
+<style>
+:root{
+  --white:#1a1a18;
+  --off-white:#141412;
+  --gray-50:#1e1e1c;
+  --gray-100:#252523;
+  --gray-200:#2e2e2b;
+  --gray-400:#7a7a6a;
+  --gray-600:#a8a898;
+  --gray-900:#f5f0e8;
+  --black:#0f0f0e;
+  --glass-bg:rgba(30,30,28,0.82);
+  --glass-border:rgba(255,255,255,0.08);
+  --glass-shadow:0 8px 40px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.06);
+  --glass-blur:blur(24px) saturate(160%);
+  --radius-sm:10px;
+  --radius-md:16px;
+  --radius-lg:24px;
+  --radius-xl:32px;
+  --radius-pill:999px;
+  --font-display:'Sora', sans-serif;
+  --font-body:'DM Sans', sans-serif;
+}
+*{ margin:0; padding:0; box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
+body{ background:var(--off-white); color:var(--gray-900); font-family:var(--font-body); font-size:16px; line-height:1.6; overflow-x:hidden; }
+body::before{ content:''; position:fixed; inset:0; background: radial-gradient(ellipse 80% 60% at 10% 10%, rgba(60,55,40,0.25) 0%, transparent 60%), radial-gradient(ellipse 60% 50% at 90% 20%, rgba(40,50,35,0.2) 0%, transparent 55%), radial-gradient(ellipse 50% 40% at 50% 80%, rgba(50,45,30,0.15) 0%, transparent 60%); pointer-events:none; z-index:0; }
+body::after{ content:''; position:fixed; inset:0; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E"); pointer-events:none; z-index:0; opacity:0.5; }
+.navbar, section, footer, .scroll-top, .mobile-nav{ position:relative; z-index:1; }
+
+/* NAVBAR */
+.navbar{ position:fixed; top:0; left:0; right:0; display:flex; justify-content:space-between; align-items:center; padding:22px 64px; transition:all 0.55s cubic-bezier(0.4,0,0.2,1); z-index:1000; background:transparent; }
+.navbar.scrolled{ top:14px; left:50%; right:auto; transform:translateX(-50%); width:fit-content; min-width:600px; max-width:900px; padding:10px 16px 10px 20px; gap:16px; background:rgba(22,22,20,0.92); backdrop-filter:var(--glass-blur); -webkit-backdrop-filter:var(--glass-blur); border-radius:var(--radius-pill); border:1px solid rgba(255,255,255,0.09); box-shadow:0 4px 32px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.06); }
+.brand{ font-family:var(--font-display); font-size:1rem; font-weight:700; color:white; letter-spacing:-0.02em; transition:color 0.4s ease; white-space:nowrap; text-shadow:0 1px 8px rgba(0,0,0,0.2); display:flex; align-items:center; gap:10px; text-decoration:none; }
+.brand-logo{ height:36px; width:auto; object-fit:contain; display:block; filter:brightness(0) invert(1); transition:filter 0.4s ease; }
+.navbar.scrolled .brand-logo{ filter:none; }
+.navbar.scrolled .brand{ color:var(--gray-900); text-shadow:none; }
+.nav-links{ display:flex; align-items:center; gap:2px; }
+.nav-links a{ padding:6px 12px; text-decoration:none; color:rgba(255,255,255,0.88); font-family:var(--font-body); font-weight:500; font-size:0.875rem; border-radius:var(--radius-pill); transition:all 0.25s ease; white-space:nowrap; }
+.navbar.scrolled .nav-links a{ color:var(--gray-600); }
+.nav-links a:hover{ background:rgba(255,255,255,0.07); color:var(--gray-900); }
+.navbar:not(.scrolled) .nav-links a:hover{ background:rgba(255,255,255,0.1); color:white; }
+.nav-links a.active{ color:white; background:rgba(255,255,255,0.2); }
+.navbar.scrolled .nav-links a.active{ color:var(--gray-900); background:rgba(255,255,255,0.1); }
+.nav-cta{ margin-left:8px; padding:8px 20px !important; background:var(--gray-900) !important; color:var(--black) !important; border-radius:var(--radius-pill) !important; font-size:0.84rem !important; font-weight:600 !important; transition:all 0.25s ease !important; }
+.nav-cta:hover{ background:rgba(245,240,232,0.85) !important; transform:translateY(-1px) !important; box-shadow:0 4px 16px rgba(245,240,232,0.15) !important; }
+.hamburger{ display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; padding:4px; }
+.hamburger span{ display:block; width:22px; height:2px; background:white; transition:all 0.3s; border-radius:2px; }
+.navbar.scrolled .hamburger span{ background:var(--gray-900); }
+.hamburger.open span:nth-child(1){ transform:rotate(45deg) translate(5px,5px); }
+.hamburger.open span:nth-child(2){ opacity:0; }
+.hamburger.open span:nth-child(3){ transform:rotate(-45deg) translate(5px,-5px); }
+.mobile-nav{ display:none; position:fixed; inset:0; background:rgba(15,15,14,0.97); backdrop-filter:blur(24px); z-index:999; flex-direction:column; align-items:center; justify-content:center; gap:32px; }
+.mobile-nav.open{ display:flex; }
+.mobile-nav a{ font-family:var(--font-display); font-size:2rem; font-weight:600; text-decoration:none; color:var(--gray-900); transition:opacity 0.2s; }
+.mobile-nav a:hover{ opacity:0.4; }
+
+/* ABOUT HERO */
+.about-hero{ min-height:78vh; display:flex; align-items:center; justify-content:center; text-align:center; position:relative; overflow:hidden; background:var(--black); }
+.about-hero-bg{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.55; }
+.about-hero-content{ position:relative; z-index:3; color:white; max-width:800px; padding:0 24px; }
+.hero-eyebrow{ display:inline-flex; align-items:center; gap:8px; padding:6px 16px; background:rgba(255,255,255,0.1); border:1px solid rgba(255,255,255,0.2); border-radius:var(--radius-pill); font-size:0.75rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:rgba(255,255,255,0.85); margin-bottom:28px; backdrop-filter:blur(12px); }
+.hero-eyebrow .dot-pulse{ width:6px; height:6px; background:#4ade80; border-radius:50%; animation:pulse-dot 2s ease-in-out infinite; }
+@keyframes pulse-dot{ 0%,100%{ box-shadow:0 0 0 0 rgba(74,222,128,0.5); } 50%{ box-shadow:0 0 0 5px rgba(74,222,128,0); } }
+.about-hero h1{ font-family:var(--font-display); font-size:clamp(2.4rem,5vw,3.8rem); font-weight:700; line-height:1.1; letter-spacing:-0.03em; margin-bottom:20px; }
+.about-hero h1 .accent{ background:linear-gradient(135deg,#e2e8f0 0%,#94a3b8 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.about-hero p{ font-size:1.1rem; color:rgba(255,255,255,0.7); max-width:540px; margin:0 auto 36px; line-height:1.75; }
+.about-hero-actions{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+.btn-primary{ padding:14px 32px; background:white; color:var(--black); border-radius:var(--radius-pill); text-decoration:none; font-weight:600; font-size:0.92rem; transition:all 0.3s ease; display:inline-block; box-shadow:0 2px 20px rgba(255,255,255,0.25); }
+.btn-primary:hover{ transform:translateY(-2px); box-shadow:0 8px 32px rgba(255,255,255,0.35); }
+.btn-ghost{ padding:14px 32px; background:rgba(255,255,255,0.1); color:white; border-radius:var(--radius-pill); text-decoration:none; font-weight:500; font-size:0.92rem; border:1px solid rgba(255,255,255,0.25); backdrop-filter:blur(12px); transition:all 0.3s ease; display:inline-block; }
+.btn-ghost:hover{ background:rgba(255,255,255,0.18); transform:translateY(-2px); }
+.about-hero-breadcrumb{ position:absolute; bottom:36px; left:50%; transform:translateX(-50%); z-index:4; display:flex; gap:8px; align-items:center; font-size:0.75rem; color:rgba(255,255,255,0.45); white-space:nowrap; }
+.about-hero-breadcrumb a{ color:rgba(255,255,255,0.45); text-decoration:none; transition:color 0.2s; }
+.about-hero-breadcrumb a:hover{ color:white; }
+.about-hero-breadcrumb span{ color:rgba(255,255,255,0.25); }
+
+/* MARQUEE */
+.marquee-strip{ background:var(--black); padding:14px 0; overflow:hidden; white-space:nowrap; position:relative; z-index:2; }
+.marquee-track{ display:inline-flex; gap:48px; animation:marquee 22s linear infinite; }
+.marquee-item{ font-family:var(--font-display); font-size:0.75rem; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.45); display:inline-flex; align-items:center; gap:14px; }
+.marquee-item::after{ content:'·'; color:rgba(255,255,255,0.2); }
+@keyframes marquee{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+
+/* SECTION BASE */
+.section{ padding:112px 80px; text-align:center; }
+.section-header{ display:block; width:100%; text-align:center; margin-bottom:0; }
+.section-tag{ display:inline-block; font-family:var(--font-display); font-size:0.7rem; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:var(--gray-400); background:var(--gray-100); border:1px solid var(--gray-200); padding:5px 14px; border-radius:var(--radius-pill); margin-bottom:16px; }
+.section h2{ font-family:var(--font-display); font-size:clamp(1.9rem,3.5vw,2.8rem); font-weight:700; letter-spacing:-0.03em; color:var(--gray-900); line-height:1.15; margin-bottom:16px; display:block; width:100%; }
+.section-sub{ color:var(--gray-400); font-size:1rem; max-width:500px; margin:0 auto; line-height:1.75; }
+.section-line{ display:block; width:0; height:2px; background:linear-gradient(90deg,#6366f1,#ec4899); border-radius:2px; margin:0 auto 40px; transition:width 1.2s cubic-bezier(0.16,1,0.3,1); }
+.section-line.in{ width:80px; }
+
+/* GLASS CARD */
+.glass-card{ background:var(--glass-bg); backdrop-filter:var(--glass-blur); -webkit-backdrop-filter:var(--glass-blur); border:1px solid var(--glass-border); box-shadow:var(--glass-shadow); border-radius:var(--radius-lg); position:relative; overflow:hidden; }
+.glass-card::before{ content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,rgba(255,255,255,1),transparent); }
+
+/* STORY */
+#story{ background:var(--gray-50); }
+.story-grid{ display:flex; align-items:center; gap:72px; text-align:left; max-width:1080px; margin:56px auto 0; flex-wrap:wrap; }
+.story-text{ flex:1; min-width:280px; }
+.story-text p{ font-size:1rem; line-height:1.85; color:var(--gray-600); margin-bottom:20px; }
+.story-text p strong{ color:var(--gray-900); font-weight:600; }
+.story-image{ flex:1; min-width:280px; border-radius:var(--radius-xl); overflow:hidden; box-shadow:0 24px 80px rgba(0,0,0,0.4); position:relative; }
+.story-image img{ width:100%; height:380px; object-fit:cover; display:block; }
+.story-image::after{ content:''; position:absolute; inset:0; background:linear-gradient(to top,rgba(0,0,0,0.15),transparent 60%); pointer-events:none; }
+.img-badge{ position:absolute; bottom:20px; left:20px; z-index:2; background:var(--glass-bg); backdrop-filter:var(--glass-blur); border:1px solid var(--glass-border); border-radius:var(--radius-md); padding:12px 18px; display:flex; align-items:center; gap:12px; }
+.img-badge-icon{ font-size:1.4rem; }
+.img-badge-text{ font-family:var(--font-display); font-size:0.78rem; font-weight:600; color:var(--gray-900); }
+.img-badge-sub{ font-size:0.7rem; color:var(--gray-400); }
+.stats-wrapper{ margin-top:80px; border:1px solid var(--gray-200); border-radius:var(--radius-xl); overflow:hidden; background:var(--gray-100); display:flex; flex-wrap:wrap; }
+.stat{ flex:1; min-width:140px; padding:36px 28px; border-right:1px solid var(--gray-200); }
+.stat:last-child{ border-right:none; }
+.stat h3{ font-family:var(--font-display); font-size:2.8rem; font-weight:700; letter-spacing:-0.04em; color:var(--gray-900); line-height:1; }
+.stat p{ font-size:0.82rem; color:var(--gray-400); margin-top:6px; text-transform:uppercase; letter-spacing:0.06em; font-weight:500; }
+
+/* MISSION */
+#mission{ background:var(--off-white); }
+.mission-lead{ max-width:720px; margin:0 auto 64px; font-family:var(--font-display); font-size:clamp(1.3rem,2.5vw,1.85rem); font-weight:600; line-height:1.4; color:var(--gray-900); text-align:center; letter-spacing:-0.02em; }
+.mission-lead em{ font-style:normal; background:linear-gradient(135deg,#6366f1,#ec4899); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.values-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px; max-width:1080px; margin:0 auto; }
+.value-card{ padding:36px 28px; text-align:left; transition:transform 0.3s ease; }
+.value-card:hover{ transform:translateY(-6px); }
+.value-icon{ width:52px; height:52px; border-radius:var(--radius-md); background:var(--gray-200); border:1px solid var(--glass-border); display:flex; align-items:center; justify-content:center; font-size:1.4rem; margin-bottom:20px; box-shadow:0 4px 16px rgba(0,0,0,0.3); }
+.value-card h3{ font-family:var(--font-display); font-size:1rem; font-weight:600; color:var(--gray-900); margin-bottom:10px; letter-spacing:-0.01em; }
+.value-card p{ font-size:0.875rem; color:var(--gray-600); line-height:1.7; }
+
+/* TIMELINE */
+#journey{ background:var(--gray-50); }
+.timeline{ max-width:760px; margin:64px auto 0; position:relative; text-align:left; }
+.timeline::before{ content:''; position:absolute; left:28px; top:0; bottom:0; width:2px; background:linear-gradient(to bottom,#6366f1,#ec4899,transparent); }
+.timeline-item{ display:flex; gap:32px; margin-bottom:48px; position:relative; }
+.timeline-item:last-child{ margin-bottom:0; }
+.timeline-dot{ width:56px; height:56px; border-radius:50%; background:var(--gray-200); border:1px solid var(--glass-border); display:flex; align-items:center; justify-content:center; font-size:1.2rem; flex-shrink:0; z-index:1; position:relative; box-shadow:0 4px 16px rgba(0,0,0,0.3); }
+.timeline-body{ padding-top:12px; }
+.timeline-year{ font-family:var(--font-display); font-size:0.7rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; color:var(--gray-400); margin-bottom:6px; }
+.timeline-body h3{ font-family:var(--font-display); font-size:1.1rem; font-weight:600; color:var(--gray-900); margin-bottom:8px; letter-spacing:-0.01em; }
+.timeline-body p{ font-size:0.9rem; color:var(--gray-600); line-height:1.75; }
+
+/* TEAM */
+#team{ background:var(--off-white); }
+.team-grid{ display:flex; justify-content:center; gap:24px; flex-wrap:wrap; margin-top:52px; }
+.team-card{ width:230px; padding:28px 20px; text-align:center; transition:transform 0.3s ease; }
+.team-card:hover{ transform:translateY(-6px); }
+.team-photo{ width:100px; height:100px; border-radius:50%; object-fit:cover; margin:0 auto 16px; display:block; background:var(--gray-100); border:3px solid var(--gray-200); box-shadow:0 8px 28px rgba(0,0,0,0.3); }
+.team-card h4{ font-family:var(--font-display); font-size:0.95rem; font-weight:600; color:var(--gray-900); letter-spacing:-0.01em; }
+.team-role{ font-size:0.8rem; color:var(--gray-400); margin-top:4px; text-transform:uppercase; letter-spacing:0.06em; }
+.team-bio{ font-size:0.82rem; color:var(--gray-600); margin-top:12px; line-height:1.65; }
+.team-socials{ display:flex; justify-content:center; gap:8px; margin-top:16px; }
+.team-socials a{ width:32px; height:32px; border-radius:8px; background:var(--glass-bg); backdrop-filter:var(--glass-blur); border:1px solid var(--glass-border); display:flex; align-items:center; justify-content:center; font-size:0.78rem; color:var(--gray-600); text-decoration:none; transition:all 0.2s; }
+.team-socials a:hover{ background:var(--gray-900); color:white; border-color:var(--gray-900); transform:translateY(-2px); }
+
+/* WHY */
+#why{ background:var(--off-white); }
+.why-grid{ display:grid; grid-template-columns:1.2fr 1fr; gap:64px; max-width:1080px; margin:56px auto 0; text-align:left; align-items:center; }
+.why-list{ list-style:none; display:flex; flex-direction:column; gap:20px; }
+.why-item{ display:flex; gap:20px; align-items:flex-start; }
+.why-item-icon{ width:44px; height:44px; border-radius:var(--radius-sm); background:var(--gray-100); border:1px solid var(--gray-200); display:flex; align-items:center; justify-content:center; font-size:1.1rem; flex-shrink:0; }
+.why-item-text h4{ font-family:var(--font-display); font-size:0.95rem; font-weight:600; color:var(--gray-900); margin-bottom:4px; letter-spacing:-0.01em; }
+.why-item-text p{ font-size:0.875rem; color:var(--gray-600); line-height:1.65; }
+.why-visual{ border-radius:var(--radius-xl); overflow:hidden; box-shadow:0 24px 80px rgba(0,0,0,0.1); position:relative; }
+.why-visual img{ width:100%; height:440px; object-fit:cover; display:block; }
+.why-visual::after{ content:''; position:absolute; inset:0; background:linear-gradient(135deg,rgba(99,102,241,0.15),transparent 50%); pointer-events:none; }
+.cta-inline{ display:inline-flex; align-items:center; gap:8px; margin-top:32px; padding:13px 28px; background:var(--gray-900); color:white; border-radius:var(--radius-pill); text-decoration:none; font-size:0.88rem; font-weight:600; transition:all 0.25s ease; }
+.cta-inline::after{ content:'→'; transition:transform 0.2s; }
+.cta-inline:hover{ background:var(--gray-600); transform:translateY(-1px); box-shadow:0 8px 24px rgba(0,0,0,0.22); }
+.cta-inline:hover::after{ transform:translateX(4px); }
+
+/* TESTIMONIALS */
+#testimonials{ background:var(--off-white); }
+.testi-grid{ display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin-top:52px; }
+.testi-card{ max-width:340px; padding:32px 28px; transition:transform 0.3s ease; }
+.testi-card:hover{ transform:translateY(-4px); }
+.testi-stars{ display:flex; gap:3px; margin-bottom:16px; }
+.testi-stars span{ color:#f59e0b; font-size:0.9rem; }
+.testi-card blockquote{ font-size:0.9rem; line-height:1.75; color:var(--gray-600); margin-bottom:20px; font-style:italic; }
+.testi-author{ display:flex; align-items:center; gap:12px; }
+.testi-avatar{ width:40px; height:40px; border-radius:50%; object-fit:cover; background:var(--gray-100); border:2px solid var(--gray-200); box-shadow:0 2px 8px rgba(0,0,0,0.3); }
+.testi-name{ display:block; font-size:0.85rem; font-weight:600; color:var(--gray-900); }
+.testi-role{ font-size:0.75rem; color:var(--gray-400); }
+
+/* CTA BAND */
+.cta-band{ background:var(--black); padding:100px 80px; text-align:center; position:relative; overflow:hidden; }
+.cta-band::before{ content:''; position:absolute; inset:0; background: radial-gradient(ellipse 60% 80% at 20% 50%, rgba(99,102,241,0.15) 0%, transparent 60%), radial-gradient(ellipse 50% 60% at 80% 30%, rgba(236,72,153,0.1) 0%, transparent 55%); pointer-events:none; }
+.cta-band-tag{ display:inline-block; font-family:var(--font-display); font-size:0.7rem; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:rgba(255,255,255,0.4); background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); padding:5px 14px; border-radius:var(--radius-pill); margin-bottom:20px; position:relative; z-index:1; }
+.cta-band h2{ font-family:var(--font-display); font-size:clamp(2rem,4vw,3rem); font-weight:700; color:var(--gray-900); letter-spacing:-0.03em; margin-bottom:16px; position:relative; z-index:1; }
+.cta-band p{ color:rgba(255,255,255,0.55); font-size:1rem; max-width:480px; margin:0 auto 40px; line-height:1.75; position:relative; z-index:1; }
+.cta-band-actions{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; position:relative; z-index:1; }
+.btn-white{ padding:14px 32px; background:white; color:var(--black); border-radius:var(--radius-pill); text-decoration:none; font-weight:600; font-size:0.92rem; transition:all 0.3s ease; display:inline-block; }
+.btn-white:hover{ transform:translateY(-2px); box-shadow:0 8px 32px rgba(255,255,255,0.25); }
+.btn-outline{ padding:14px 32px; background:transparent; color:rgba(255,255,255,0.8); border-radius:var(--radius-pill); text-decoration:none; font-weight:500; font-size:0.92rem; border:1px solid rgba(255,255,255,0.2); transition:all 0.3s ease; display:inline-block; }
+.btn-outline:hover{ background:rgba(255,255,255,0.08); color:white; transform:translateY(-2px); }
+
+/* FOOTER */
+footer{ background:var(--gray-100); color:var(--gray-900); padding:0; position:relative; z-index:2; overflow:hidden; }
+footer .footer-mesh{ position:absolute; inset:0; background: radial-gradient(ellipse 70% 60% at 10% 0%, rgba(99,102,241,0.07) 0%, transparent 60%), radial-gradient(ellipse 50% 40% at 90% 100%, rgba(56,189,248,0.06) 0%, transparent 55%), radial-gradient(ellipse 40% 50% at 50% 50%, rgba(168,85,247,0.04) 0%, transparent 60%); pointer-events:none; z-index:0; }
+footer::before{ content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent 0%,rgba(99,102,241,0.3) 30%,rgba(255,255,255,0.08) 50%,rgba(56,189,248,0.3) 70%,transparent 100%); z-index:2; }
+footer::after{ content:''; position:absolute; inset:0; background-image:radial-gradient(circle,rgba(255,255,255,0.04) 1px,transparent 1px); background-size:32px 32px; pointer-events:none; z-index:0; }
+.footer-inner{ max-width:1200px; margin:auto; position:relative; z-index:1; }
+.footer-newsletter{ padding:48px 64px; border-bottom:1px solid var(--gray-200); display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap; }
+.footer-newsletter-text h3{ font-family:var(--font-display); font-size:1.35rem; font-weight:700; letter-spacing:-0.02em; margin-bottom:4px; color:var(--gray-900); }
+.footer-newsletter-text p{ font-size:0.85rem; color:var(--gray-600); }
+.footer-newsletter-form{ display:flex; align-items:center; gap:8px; flex-wrap:wrap; }
+.footer-newsletter-form input{ background:var(--gray-200); border:1px solid var(--gray-400); border-radius:var(--radius-pill); color:var(--gray-900); font-family:var(--font-body); font-size:0.875rem; padding:10px 20px; outline:none; width:240px; transition:all 0.25s; }
+.footer-newsletter-form input::placeholder{ color:var(--gray-400); }
+.footer-newsletter-form button{ background:var(--gray-900); color:var(--black); border:none; border-radius:var(--radius-pill); font-family:var(--font-body); font-size:0.84rem; font-weight:600; padding:10px 22px; cursor:pointer; white-space:nowrap; transition:all 0.25s; }
+.footer-newsletter-form button:hover{ background:var(--gray-600); color:white; transform:translateY(-1px); }
+.footer-stats{ display:flex; align-items:stretch; border-bottom:1px solid var(--gray-200); }
+.footer-stat{ flex:1; padding:28px 40px; border-right:1px solid var(--gray-200); display:flex; flex-direction:column; gap:4px; transition:background 0.25s; }
+.footer-stat:last-child{ border-right:none; }
+.footer-stat:hover{ background:rgba(255,255,255,0.03); }
+.footer-stat-number{ font-family:var(--font-display); font-size:1.8rem; font-weight:700; letter-spacing:-0.04em; color:var(--gray-900); line-height:1; }
+.footer-stat-label{ font-size:0.75rem; color:var(--gray-400); letter-spacing:0.02em; }
+.footer-top{ display:grid; grid-template-columns:1.8fr 1fr 1fr 1fr; gap:52px; padding:64px 64px 52px; border-bottom:1px solid var(--gray-200); }
+.footer-logo{ font-family:var(--font-display); font-size:1.3rem; font-weight:700; letter-spacing:-0.03em; color:var(--gray-900); margin-bottom:14px; display:block; }
+.footer-brand-tagline{ font-size:0.855rem; color:var(--gray-600); line-height:1.75; margin-bottom:28px; max-width:230px; }
+.footer-badge{ display:inline-flex; align-items:center; gap:8px; padding:7px 14px; border-radius:var(--radius-pill); border:1px solid rgba(74,222,128,0.35); background:rgba(74,222,128,0.1); font-size:0.75rem; font-weight:500; color:#4ade80; margin-bottom:28px; }
+.footer-badge-dot{ width:6px; height:6px; border-radius:50%; background:#4ade80; box-shadow:0 0 8px rgba(74,222,128,0.7); animation:pulse-dot 2s ease-in-out infinite; }
+.footer-contact-info{ display:flex; flex-direction:column; gap:10px; margin-bottom:28px; }
+.footer-contact-info a{ display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--gray-600); font-size:0.83rem; transition:color 0.2s; }
+.footer-contact-info a:hover{ color:var(--gray-900); }
+.footer-contact-info a i{ width:28px; height:28px; border-radius:8px; background:var(--gray-200); border:1px solid var(--gray-400); display:flex; align-items:center; justify-content:center; font-size:0.75rem; flex-shrink:0; transition:all 0.2s; color:var(--gray-600); }
+.footer-social-row{ display:flex; gap:8px; }
+.footer-social-row a{ width:38px; height:38px; border-radius:10px; background:var(--gray-200); border:1px solid var(--gray-400); display:flex; align-items:center; justify-content:center; text-decoration:none; font-size:0.88rem; transition:all 0.25s ease; color:var(--gray-600); position:relative; overflow:hidden; }
+.footer-social-row a::before{ content:''; position:absolute; inset:0; background:var(--gray-900); opacity:0; transition:opacity 0.25s; }
+.footer-social-row a i{ position:relative; z-index:1; }
+.footer-social-row a:hover{ border-color:var(--gray-900); color:var(--off-white); transform:translateY(-3px); }
+.footer-social-row a:hover::before{ opacity:1; }
+.footer-col-title{ font-family:var(--font-display); font-size:0.7rem; font-weight:600; letter-spacing:0.16em; text-transform:uppercase; color:var(--gray-400); margin-bottom:20px; padding-bottom:12px; border-bottom:1px solid var(--gray-200); }
+.footer-col ul{ list-style:none; display:flex; flex-direction:column; gap:12px; }
+.footer-col ul li a{ color:var(--gray-600); text-decoration:none; font-size:0.875rem; transition:all 0.2s; display:inline-flex; align-items:center; gap:8px; }
+.footer-col ul li a:hover{ color:var(--gray-900); transform:translateX(4px); }
+.footer-col ul li a::before{ content:'→'; font-size:0.7rem; opacity:0; margin-right:-4px; transition:all 0.2s; color:var(--gray-400); }
+.footer-col ul li a:hover::before{ opacity:1; margin-right:0; }
+.footer-bottom{ display:flex; align-items:center; justify-content:space-between; padding:24px 64px; flex-wrap:wrap; gap:12px; background:rgba(0,0,0,0.15); }
+.footer-copy{ font-size:0.75rem; color:var(--gray-400); display:flex; align-items:center; gap:6px; }
+.footer-copy span{ color:var(--gray-200); }
+.footer-bottom-links{ display:flex; gap:24px; align-items:center; }
+.footer-bottom-links a{ font-size:0.73rem; color:var(--gray-400); text-decoration:none; transition:color 0.2s; }
+.footer-bottom-links a:hover{ color:var(--gray-900); }
+.footer-bottom-links .dot-sep{ width:3px; height:3px; border-radius:50%; background:var(--gray-400); display:inline-block; }
+.footer-made{ font-size:0.72rem; color:var(--gray-400); display:flex; align-items:center; gap:4px; }
+.footer-made i{ color:#ef4444; font-size:0.65rem; }
+
+/* SCROLL TOP */
+.scroll-top{ position:fixed; bottom:28px; right:28px; width:42px; height:42px; border-radius:var(--radius-sm); background:var(--glass-bg); backdrop-filter:var(--glass-blur); border:1px solid var(--glass-border); box-shadow:var(--glass-shadow); display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1rem; opacity:0; transform:translateY(10px); transition:all 0.35s ease; z-index:998; text-decoration:none; color:var(--gray-900); }
+.scroll-top.visible{ opacity:1; transform:translateY(0); }
+.scroll-top:hover{ transform:translateY(-3px); }
+
+/* 3D ANIMATIONS */
+[data-3d]{ opacity:0; will-change:opacity,transform; transition-timing-function:cubic-bezier(0.16,1,0.3,1); }
+[data-3d="flip-up"]{ transform:perspective(500px) rotateX(70deg) translateY(100px) translateZ(-60px) scale(0.82); transform-origin:center bottom; transition:opacity 1s,transform 1s; }
+[data-3d="flip-up"].in{ opacity:1; transform:perspective(500px) rotateX(0deg) translateY(0) translateZ(0) scale(1); }
+[data-3d="swing-left"]{ transform:perspective(600px) rotateY(65deg) translateX(-80px) translateZ(-40px); transform-origin:left center; transition:opacity 1s,transform 1s; }
+[data-3d="swing-left"].in{ opacity:1; transform:perspective(600px) rotateY(0deg) translateX(0) translateZ(0); }
+[data-3d="swing-right"]{ transform:perspective(600px) rotateY(-65deg) translateX(80px) translateZ(-40px); transform-origin:right center; transition:opacity 1s,transform 1s; }
+[data-3d="swing-right"].in{ opacity:1; transform:perspective(600px) rotateY(0deg) translateX(0) translateZ(0); }
+[data-3d="rise"]{ transform:perspective(400px) rotateX(55deg) translateY(60px) scale(0.9); transform-origin:center bottom; transition:opacity 0.9s,transform 0.9s; }
+[data-3d="rise"].in{ opacity:1; transform:perspective(400px) rotateX(0deg) translateY(0) scale(1); }
+.section-tag[data-3d="rise"]{ display:inline-block; }
+.section h2[data-3d="rise"]{ display:block; }
+[data-3d="spin"]{ transform:perspective(700px) rotateY(110deg) translateX(-30px) scale(0.7); transform-origin:center center; transition:opacity 0.9s,transform 0.9s; }
+[data-3d="spin"].in{ opacity:1; transform:perspective(700px) rotateY(0deg) translateX(0) scale(1); }
+[data-3d="roll"]{ transform:perspective(1000px) rotateX(30deg) translateY(80px) scale(0.93); transform-origin:center bottom; transition:opacity 1.1s,transform 1.1s; }
+[data-3d="roll"].in{ opacity:1; transform:perspective(1000px) rotateX(0deg) translateY(0) scale(1); }
+[data-delay="1"]{ transition-delay:0.1s !important; }
+[data-delay="2"]{ transition-delay:0.22s !important; }
+[data-delay="3"]{ transition-delay:0.34s !important; }
+[data-delay="4"]{ transition-delay:0.46s !important; }
+[data-delay="5"]{ transition-delay:0.58s !important; }
+.tilt-card{ transition:transform 0.12s ease,box-shadow 0.12s ease; transform-style:preserve-3d; }
+.tilt-card .tilt-shine{ position:absolute; inset:0; border-radius:inherit; background:radial-gradient(circle at 50% 50%,rgba(255,255,255,0.18) 0%,transparent 65%); opacity:0; transition:opacity 0.3s ease; pointer-events:none; z-index:10; }
+.split-word{ display:inline-block; overflow:hidden; }
+.split-word-inner{ display:inline-block; transform:translateY(110%) rotateX(40deg); transform-origin:center bottom; opacity:0; transition:transform 0.7s cubic-bezier(0.16,1,0.3,1),opacity 0.7s ease; }
+.in .split-word-inner, .split-word-inner.in{ transform:translateY(0) rotateX(0deg); opacity:1; }
+
+/* RESPONSIVE */
+@media(max-width:1000px){
+  .footer-newsletter{ padding:40px; }
+  .footer-top{ grid-template-columns:1fr 1fr; gap:40px; padding:48px 40px 44px; }
+  .footer-stats{ display:grid; grid-template-columns:1fr 1fr; }
+  .footer-stat{ border-right:none; border-bottom:1px solid var(--gray-200); }
+  .footer-stat:nth-child(odd){ border-right:1px solid var(--gray-200); }
+  .footer-bottom{ padding:20px 40px; }
+  .why-grid{ grid-template-columns:1fr; }
+  .why-visual{ display:none; }
+}
+@media(max-width:900px){ .section{ padding:80px 32px; } }
+@media(max-width:768px){
+  .navbar{ padding:14px 20px; top:0; left:0; right:0; transform:none !important; border-radius:0 !important; width:100% !important; min-width:0 !important; max-width:none !important; background:rgba(20,20,18,0) !important; }
+  .navbar.scrolled{ background:rgba(20,20,18,0.95) !important; backdrop-filter:blur(20px) !important; padding:12px 20px !important; border-radius:0 !important; }
+  .nav-links{ display:none; }
+  .hamburger{ display:flex; }
+  .about-hero h1{ font-size:2.1rem; }
+  .about-hero-actions{ flex-direction:column; align-items:center; }
+  .section{ padding:72px 24px; }
+  .section h2{ font-size:1.85rem; }
+  .story-grid{ flex-direction:column; gap:32px; }
+  .stats-wrapper{ flex-direction:column; }
+  .stats-wrapper .stat{ border-right:none; border-bottom:1px solid var(--gray-100); }
+  .stats-wrapper .stat:last-child{ border-bottom:none; }
+  .timeline::before{ left:20px; }
+  .timeline-dot{ width:40px; height:40px; font-size:1rem; }
+  .footer-newsletter{ padding:36px 24px; flex-direction:column; align-items:flex-start; }
+  .footer-newsletter-form{ width:100%; flex-direction:column; }
+  .footer-newsletter-form input{ width:100%; }
+  .footer-newsletter-form button{ width:100%; }
+  .footer-top{ grid-template-columns:1fr; gap:36px; padding:40px 24px; }
+  .footer-stats{ grid-template-columns:1fr 1fr; }
+  .footer-bottom{ flex-direction:column; align-items:flex-start; gap:12px; padding:20px 24px; }
+  .footer-made{ display:none; }
+  .cta-band{ padding:72px 24px; }
+}
+@media(prefers-reduced-motion:reduce){
+  [data-3d],.split-word-inner,.section-line{ transition:opacity 0.3s ease !important; transform:none !important; width:80px !important; }
+}
+</style>
+</head>
+<body>
+
+<a href="#" class="scroll-top" id="scrollTop" aria-label="Back to top">↑</a>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html" onclick="closeMenu()">Home</a>
+  <a href="about.html" onclick="closeMenu()">About</a>
+  <a href="services.html" onclick="closeMenu()">Services</a>
+  <a href="clients.html" onclick="closeMenu()">Clients</a>
+  <a href="index.html#contact" onclick="closeMenu()">Contact</a>
+</div>
+
+<nav class="navbar" id="navbar">
+  <a class="brand" href="index.html">
+    <img src="logo2.jpg" alt="Ezer Tech" class="brand-logo">
+    <span class="brand-text">Ezer Tech</span>
+  </a>
+  <div class="nav-links">
+    <a href="about.html" class="active">About</a>
+    <a href="services.html">Services</a>
+    <a href="clients.html">Clients</a>
+    <a href="contact.html" class="nav-cta">Get in Touch</a>
+  </div>
+  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="about-hero">
+  <img src="hero3.jpg" class="about-hero-bg" alt="Ezer Technologies team">
+  <div class="about-hero-content">
+    <div class="hero-eyebrow">
+      <span class="dot-pulse"></span>
+      🇬🇭 Our Story
+    </div>
+    <h1>Built for the <span class="accent">Real World</span></h1>
+    <p>We're a digital innovation studio from Accra, Ghana — crafting technology that solves real problems for real people.</p>
+    <div class="about-hero-actions">
+      <a href="#story" class="btn-primary">Read Our Story</a>
+      <a href="index.html#contact" class="btn-ghost">Work With Us →</a>
+    </div>
+  </div>
+  <div class="about-hero-breadcrumb">
+    <a href="index.html">Home</a>
+    <span>/</span>
+    <span style="color:rgba(255,255,255,0.75);">About</span>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-strip">
+  <div class="marquee-track">
+    <span class="marquee-item">Our Story</span>
+    <span class="marquee-item">Our Mission</span>
+    <span class="marquee-item">Our Values</span>
+    <span class="marquee-item">Our Journey</span>
+    <span class="marquee-item">Our Team</span>
+    <span class="marquee-item">Ghana & Beyond</span>
+    <span class="marquee-item">Built with Purpose</span>
+    <span class="marquee-item">Driven by Impact</span>
+    <span class="marquee-item">Our Story</span>
+    <span class="marquee-item">Our Mission</span>
+    <span class="marquee-item">Our Values</span>
+    <span class="marquee-item">Our Journey</span>
+    <span class="marquee-item">Our Team</span>
+    <span class="marquee-item">Ghana & Beyond</span>
+    <span class="marquee-item">Built with Purpose</span>
+    <span class="marquee-item">Driven by Impact</span>
+  </div>
+</div>
+
+<!-- STORY -->
+<section class="section" data-3d="roll" id="story">
+  <div class="section-header">
+    <div class="section-tag" data-3d="rise">Who We Are</div>
+    <h2 data-3d="rise" data-delay="1">The Ezer Story</h2>
+    <span class="section-line"></span>
+    <p class="section-sub" data-3d="rise" data-delay="2">From a small idea in Accra to a full-service digital studio — here's how we got here.</p>
+  </div>
+
+  <div class="story-grid">
+    <div class="story-text" data-3d="swing-left">
+      <p><strong>Ezer Technologies was born out of frustration.</strong> We watched countless businesses in Ghana and across Africa struggle to access the quality digital tools that their counterparts elsewhere took for granted — not because those tools didn't exist, but because they weren't built for the real conditions, real budgets, and real users of this part of the world.</p>
+      <p>So in 2026, we set out to change that. Starting with a small team and a clear conviction — that <strong>technology should be accessible, practical, and beautifully built</strong> — we began designing and developing websites, mobile apps, and digital platforms from the ground up, for African businesses, schools, and organizations.</p>
+      <p>Today, Ezer Technologies is a growing full-service digital innovation studio. From our very first project, every piece of work we deliver is handled with the same care — from the initial conversation to the final launch, we build things we're proud of.</p>
+      <p>We're just getting started — and we're building for the long haul.</p>
+    </div>
+    <div class="story-image" data-3d="swing-right">
+      <img src="tab.jpg" alt="Ezer Technologies team working">
+      <div class="img-badge">
+        <div class="img-badge-icon">🏠</div>
+        <div>
+          <div class="img-badge-text">Based in Accra</div>
+          <div class="img-badge-sub">Ghana 🇬🇭, serving the world</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats-wrapper" data-3d="roll">
+    <div class="stat"><h3 class="count-up" data-target="5" data-suffix="+">0+</h3><p>Projects Delivered</p></div>
+    <div class="stat"><h3>2026</h3><p>Year Founded</p></div>
+    <div class="stat"><h3 class="count-up" data-target="5" data-suffix="+">0+</h3><p>Industries Served</p></div>
+    <div class="stat"><h3 class="count-up" data-target="100" data-suffix="%">0%</h3><p>Client Satisfaction</p></div>
+    <div class="stat"><h3 class="count-up" data-target="24" data-suffix="/7">0/7</h3><p>Support</p></div>
+  </div>
+</section>
+
+<!-- MISSION & VALUES -->
+<section class="section" data-3d="roll" id="mission">
+  <div class="section-header">
+    <div class="section-tag" data-3d="rise">What Drives Us</div>
+    <h2 data-3d="rise" data-delay="1">Mission & Values</h2>
+    <span class="section-line"></span>
+  </div>
+  <p class="mission-lead" data-3d="rise" data-delay="2">
+    Our mission is to <em>democratize access to great technology</em> for businesses and organizations across Africa and beyond — building digital solutions that are elegant, practical, and built to last.
+  </p>
+  <div class="values-grid">
+    <div class="value-card glass-card tilt-card" data-3d="flip-up" data-delay="1">
+      <div class="value-icon">🎯</div>
+      <h3>Purpose-Driven</h3>
+      <p>Every tool we build solves a real problem. We don't build for the sake of it — we build because it matters to someone, somewhere.</p>
+    </div>
+    <div class="value-card glass-card tilt-card" data-3d="flip-up" data-delay="2">
+      <div class="value-icon">✨</div>
+      <h3>Quality First</h3>
+      <p>We obsess over the details — the right animation, the right architecture, the right word. Good enough is never good enough for us.</p>
+    </div>
+    <div class="value-card glass-card tilt-card" data-3d="flip-up" data-delay="3">
+      <div class="value-icon">🤝</div>
+      <h3>Partnership, Not Service</h3>
+      <p>We treat every client as a long-term partner. We listen deeply, advise honestly, and stay invested in your success after launch.</p>
+    </div>
+    <div class="value-card glass-card tilt-card" data-3d="flip-up" data-delay="4">
+      <div class="value-icon">🌍</div>
+      <h3>African Context</h3>
+      <p>We build with our environment in mind — solutions that work on slower connections, smaller screens, and within real local budgets.</p>
+    </div>
+    <div class="value-card glass-card tilt-card" data-3d="flip-up" data-delay="5">
+      <div class="value-icon">🚀</div>
+      <h3>Relentless Growth</h3>
+      <p>Technology moves fast. So do we. We're always learning, always evolving, and always bringing the best tools to our clients.</p>
+    </div>
+    <div class="value-card glass-card tilt-card" data-3d="flip-up" data-delay="1">
+      <div class="value-icon">🔒</div>
+      <h3>Trust & Transparency</h3>
+      <p>No hidden fees, no vague timelines, no surprises. We communicate clearly and deliver what we promise — every single time.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="section" data-3d="roll" id="journey" style="background:var(--gray-50)">
+  <div class="section-header">
+    <div class="section-tag" data-3d="rise">How We Got Here</div>
+    <h2 data-3d="rise" data-delay="1">Our Journey</h2>
+    <span class="section-line"></span>
+    <p class="section-sub" data-3d="rise" data-delay="2">Key milestones that shaped who we are today.</p>
+  </div>
+
+  <div class="timeline">
+    <div class="timeline-item" data-3d="swing-left">
+      <div class="timeline-dot">🌱</div>
+      <div class="timeline-body">
+        <div class="timeline-year">Early 2026 — The Beginning</div>
+        <h3>Ezer Technologies is Founded</h3>
+        <p>Started in Accra in 2026 with a laptop, a clear vision, and a firm belief that businesses in Ghana deserved world-class digital products — built for their real conditions, real budgets, and real users. The first client website went live within weeks of launch.</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-3d="swing-left" data-delay="1">
+      <div class="timeline-dot">🔥</div>
+      <div class="timeline-body">
+        <div class="timeline-year">2026 — First Clients</div>
+        <h3>First Projects Delivered</h3>
+        <p>Within our first few months, we delivered projects for World of Discipline, VVU Nursing, Eternal Clothing, and Joy's Bites — proving that great digital work was possible right here in Ghana, at any budget.</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-3d="swing-left" data-delay="2">
+      <div class="timeline-dot">📱</div>
+      <div class="timeline-body">
+        <div class="timeline-year">2026 — Expanding Services</div>
+        <h3>Mobile Apps & AI Come Online</h3>
+        <p>Riding the momentum of early success, we expanded our service offering to include mobile application development and AI-powered automation tools — helping clients work smarter and reach their customers on every platform.</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-3d="swing-left" data-delay="3">
+      <div class="timeline-dot">🎓</div>
+      <div class="timeline-body">
+        <div class="timeline-year">2026 — Giving Back</div>
+        <h3>Tech Training Program Launched</h3>
+        <p>We believe a rising tide lifts all boats. So we launched our tech training division — equipping individuals and organizations across Ghana with practical, hands-on digital skills in web development, UI/UX design, and automation.</p>
+      </div>
+    </div>
+    <div class="timeline-item" data-3d="swing-left" data-delay="4">
+      <div class="timeline-dot">🌟</div>
+      <div class="timeline-body">
+        <div class="timeline-year">Now — The Future</div>
+        <h3>Just Getting Started</h3>
+        <p>We're only at the beginning. With a growing portfolio, a passionate team, and an expanding network of clients across industries, Ezer Technologies is on a mission to become the most trusted digital studio built in Africa — for Africa and beyond.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="section" data-3d="roll" id="team">
+  <div class="section-header">
+    <div class="section-tag" data-3d="rise">The People</div>
+    <h2 data-3d="rise" data-delay="1">Meet the Team</h2>
+    <span class="section-line"></span>
+    <p class="section-sub" data-3d="rise" data-delay="2">A small but mighty crew of builders, designers, and strategists — all obsessed with great work.</p>
+  </div>
+
+  <div class="team-grid">
+    <div class="team-card glass-card tilt-card" data-3d="spin" data-delay="1">
+      <img src="profile.jpg" alt="Founder & CEO" class="team-photo">
+      <h4>Jeffery Bonsra</h4>
+      <div class="team-role">Founder & CEO</div>
+      <p class="team-bio">Visionary builder and product thinker. Obsessed with solving real problems through elegant technology.</p>
+      <div class="team-socials">
+        <a href="#" aria-label="LinkedIn"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2" fill="none"/></svg></a>
+        <a href="#" aria-label="Twitter"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor"/></svg></a>
+      </div>
+    </div>
+    <div class="team-card glass-card tilt-card" data-3d="spin" data-delay="2">
+      <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&q=80" alt="Lead Developer" class="team-photo">
+      <h4>Team Member Name</h4>
+      <div class="team-role">Lead Developer</div>
+      <p class="team-bio">Full-stack engineer with a passion for clean code, fast products, and scalable architecture.</p>
+      <div class="team-socials">
+        <a href="#" aria-label="LinkedIn"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2" fill="none"/></svg></a>
+        <a href="#" aria-label="GitHub"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></a>
+      </div>
+    </div>
+    <div class="team-card glass-card tilt-card" data-3d="spin" data-delay="3">
+      <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&q=80" alt="UI/UX Designer" class="team-photo">
+      <h4>Team Member Name</h4>
+      <div class="team-role">UI/UX Designer</div>
+      <p class="team-bio">Crafts interfaces that feel effortless. Believes that beauty and function are never a trade-off.</p>
+      <div class="team-socials">
+        <a href="#" aria-label="LinkedIn"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2" fill="none"/></svg></a>
+        <a href="#" aria-label="Dribbble"><svg class="svg-icon" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32" stroke="currentColor" stroke-width="2" fill="none"/></svg></a>
+      </div>
+    </div>
+    <div class="team-card glass-card tilt-card" data-3d="spin" data-delay="4">
+      <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&q=80" alt="Project Manager" class="team-photo">
+      <h4>Team Member Name</h4>
+      <div class="team-role">Project Manager</div>
+      <p class="team-bio">Keeps the trains running on time. Ensures every project is delivered with clarity, calm, and precision.</p>
+      <div class="team-socials">
+        <a href="#" aria-label="LinkedIn"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2" fill="none"/></svg></a>
+        <a href="#" aria-label="Twitter"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY EZER -->
+<section class="section" data-3d="roll" id="why">
+  <div class="section-header">
+    <div class="section-tag" data-3d="rise">Why Choose Us</div>
+    <h2 data-3d="rise" data-delay="1">What Makes Us Different</h2>
+    <span class="section-line"></span>
+  </div>
+
+  <div class="why-grid">
+    <div data-3d="swing-left">
+      <ul class="why-list">
+        <li class="why-item">
+          <div class="why-item-icon">🏗️</div>
+          <div class="why-item-text">
+            <h4>End-to-End Ownership</h4>
+            <p>From strategy and design to development and launch, we own the entire process. One cohesive team that sees your project through from start to finish.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-item-icon">📍</div>
+          <div class="why-item-text">
+            <h4>Locally Grounded, Globally Capable</h4>
+            <p>We understand the Ghanaian and African market deeply — the user behaviors, infrastructure constraints, and cultural context. And we build accordingly.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-item-icon">⚡</div>
+          <div class="why-item-text">
+            <h4>Fast Without Cutting Corners</h4>
+            <p>We move quickly because we have strong systems and processes. Speed doesn't mean sloppy — our clients get timely delivery and polished results, every time.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-item-icon">💬</div>
+          <div class="why-item-text">
+            <h4>Always Available, Always Honest</h4>
+            <p>We offer 24/7 support and genuinely transparent communication. If something goes wrong, you'll hear from us first — with a clear plan to fix it.</p>
+          </div>
+        </li>
+        <li class="why-item">
+          <div class="why-item-icon">📈</div>
+          <div class="why-item-text">
+            <h4>We Grow With You</h4>
+            <p>We don't just hand over a finished product and disappear. We build relationships that evolve with your business — staying your digital partner long-term.</p>
+          </div>
+        </li>
+      </ul>
+      <a href="contact.html" class="cta-inline">Start a Conversation</a>
+    </div>
+    <div class="why-visual" data-3d="swing-right">
+      <img src="tab2.jpg" alt="Ezer Technologies workspace">
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section" data-3d="roll" id="testimonials">
+  <div class="section-header">
+    <div class="section-tag" data-3d="rise">Client Voices</div>
+    <h2 data-3d="rise" data-delay="1">What Our Clients Say</h2>
+    <span class="section-line"></span>
+    <p class="section-sub" data-3d="rise" data-delay="2">Don't take our word for it — here's what the people we've built for have to say.</p>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card glass-card tilt-card" data-3d="swing-left" data-delay="1">
+      <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <blockquote>"Ezer Technologies delivered our website on time and beyond our expectations. Professional, responsive, and truly talented."</blockquote>
+      <div class="testi-author">
+        <img src="logo.jpg" alt="Client" class="testi-avatar">
+        <div><span class="testi-name">Client Name</span><small class="testi-role">World of Discipline</small></div>
+      </div>
+    </div>
+    <div class="testi-card glass-card tilt-card" data-3d="flip-up" data-delay="2">
+      <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <blockquote>"The voting system they built for us was seamless and secure. Our entire election process ran without a single issue."</blockquote>
+      <div class="testi-author">
+        <img src="nursing-logo.png" alt="Client" class="testi-avatar">
+        <div><span class="testi-name">Client Name</span><small class="testi-role">VVU Nursing</small></div>
+      </div>
+    </div>
+    <div class="testi-card glass-card tilt-card" data-3d="swing-right" data-delay="3">
+      <div class="testi-stars"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+      <blockquote>"Our online store looks amazing. Sales have improved and customers love the experience. Highly recommend Ezer!"</blockquote>
+      <div class="testi-author">
+        <img src="Eternal.png" alt="Client" class="testi-avatar">
+        <div><span class="testi-name">Client Name</span><small class="testi-role">Eternal Clothing</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="cta-band-tag">Let's Build Together</div>
+  <h2>Ready to Start Your Project?</h2>
+  <p>Whether you have a clear brief or just an idea, we'd love to hear from you. Let's build something great together.</p>
+  <div class="cta-band-actions">
+    <a href="contact.html" class="btn-white">Get in Touch</a>
+    <a href="services.html" class="btn-outline">See Our Services →</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-mesh"></div>
+  <div class="footer-inner">
+    <div class="footer-newsletter">
+      <div class="footer-newsletter-text">
+        <h3>Stay in the loop 📡</h3>
+        <p>Get updates on new services, tech insights, and project spotlights.</p>
+      </div>
+      <form class="footer-newsletter-form" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Subscribed ✓';">
+        <input type="email" placeholder="your@email.com" required>
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+    <div class="footer-stats">
+      <div class="footer-stat"><div class="footer-stat-number">5+</div><div class="footer-stat-label">Projects delivered</div></div>
+      <div class="footer-stat"><div class="footer-stat-number">4+</div><div class="footer-stat-label">Years of experience</div></div>
+      <div class="footer-stat"><div class="footer-stat-number">98%</div><div class="footer-stat-label">Client satisfaction</div></div>
+      <div class="footer-stat"><div class="footer-stat-number">10+</div><div class="footer-stat-label">Industries served</div></div>
+    </div>
+    <div class="footer-top">
+      <div class="footer-brand-col">
+        <span class="footer-logo">Ezer Technologies</span>
+        <p class="footer-brand-tagline">Building smart digital solutions for businesses, schools, and organizations across Ghana and beyond.</p>
+        <div class="footer-badge"><span class="footer-badge-dot"></span>Available for new projects</div>
+        <div class="footer-contact-info">
+          <a href="mailto:hello@ezertechnologies.com"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M20 4H4C2.9 4 2 4.9 2 6v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>hello@ezertechnologies.com</a>
+          <a href="tel:+233000000000"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C9.61 21 3 14.39 3 6a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1.02l-2.2 2.2z"/></svg>+233 557 757 831</a>
+          <a href="#"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Accra, Ghana 🇬🇭</a>
+        </div>
+        <div class="footer-social-row">
+          <a href="#" aria-label="Facebook"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg></a>
+          <a href="https://www.instagram.com/ezer___tech" aria-label="Instagram"><svg class="svg-icon" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="2" fill="none"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" stroke="currentColor" stroke-width="2" fill="none"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="4" cy="4" r="2" stroke="currentColor" stroke-width="2" fill="none"/></svg></a>
+          <a href="#" aria-label="Twitter/X"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="WhatsApp"><svg class="svg-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.99-1.418A9.956 9.956 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.946 7.946 0 0 1-4.075-1.123l-.292-.174-3.032.861.861-3.032-.174-.292A7.946 7.946 0 0 1 4 12c0-4.418 3.582-8 8-8s8 3.582 8 8-3.582 8-8 8z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Company</div>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="clients.html">Clients</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Services</div>
+        <ul>
+          <li><a href="services.html">Web Development</a></li>
+          <li><a href="services.html">Mobile Apps</a></li>
+          <li><a href="services.html">AI &amp; Automation</a></li>
+          <li><a href="services.html">UI/UX Design</a></li>
+          <li><a href="services.html">Tech Training</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Resources</div>
+        <ul>
+          <li><a href="#">Portfolio</a></li>
+          <li><a href="contact.html">Get a Quote</a></li>
+          <li><a href="contact.html">Start a Project</a></li>
+          <li><a href="#">Case Studies</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 Ezer Technologies. All rights reserved.<span>·</span>Built in Ghana 🇬🇭</div>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy Policy</a><span class="dot-sep"></span>
+        <a href="#">Terms of Service</a><span class="dot-sep"></span>
+        <a href="#">Cookie Policy</a>
+      </div>
+      <div class="footer-made">Made with <svg class="svg-icon" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg> by Ezer Tech</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* NAV SCROLL */
+let scrollTicking = false;
+window.addEventListener("scroll", () => {
+  if (!scrollTicking) {
+    requestAnimationFrame(() => {
+      document.getElementById("navbar").classList.toggle("scrolled", window.scrollY > 80);
+      scrollTicking = false;
+    });
+    scrollTicking = true;
+  }
+});
+
+/* HAMBURGER */
+function toggleMenu(){ document.getElementById("mobileNav").classList.toggle("open"); document.getElementById("hamburger").classList.toggle("open"); }
+function closeMenu(){ document.getElementById("mobileNav").classList.remove("open"); document.getElementById("hamburger").classList.remove("open"); }
+
+/* 3D ENGINE */
+(function(){
+  document.querySelectorAll('.section > h2').forEach(h2 => {
+    const words = h2.textContent.trim().split(/\s+/);
+    h2.innerHTML = words.map((w,i) => `<span class="split-word"><span class="split-word-inner" style="transition-delay:${i*0.07}s">${w}</span></span>`).join(' ');
+    h2.style.opacity = '1';
+  });
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      el.classList.add('in');
+      el.querySelectorAll('.split-word-inner').forEach(w => w.classList.add('in'));
+      el.querySelectorAll('.section-line').forEach(l => l.classList.add('in'));
+      io.unobserve(el);
+    });
+  }, { threshold:0.12, rootMargin:'0px 0px -50px 0px' });
+
+  document.querySelectorAll('[data-3d]').forEach(el => io.observe(el));
+
+  document.querySelectorAll('.section').forEach(sec => {
+    const ioSec = new IntersectionObserver(entries => {
+      if (!entries[0].isIntersecting) return;
+      sec.querySelectorAll('.split-word-inner').forEach((w,i) => setTimeout(() => w.classList.add('in'), i*70));
+      sec.querySelectorAll('.section-line').forEach(l => l.classList.add('in'));
+      ioSec.unobserve(sec);
+    }, { threshold:0.1 });
+    ioSec.observe(sec);
+  });
+
+  document.querySelectorAll('.tilt-card').forEach(card => {
+    if (!card.querySelector('.tilt-shine')) { const s = document.createElement('div'); s.className='tilt-shine'; card.appendChild(s); }
+    const shine = card.querySelector('.tilt-shine');
+    card.addEventListener('mousemove', e => {
+      const r=card.getBoundingClientRect(), x=e.clientX-r.left, y=e.clientY-r.top, cx=r.width/2, cy=r.height/2;
+      const rotY=((x-cx)/cx)*14, rotX=-((y-cy)/cy)*10;
+      card.style.transform=`perspective(520px) rotateX(${rotX}deg) rotateY(${rotY}deg) translateZ(14px) scale(1.02)`;
+      card.style.transition='transform 0.08s ease,box-shadow 0.08s ease';
+      card.style.boxShadow=`${-rotY*1.5}px ${-rotX*1.5}px 40px rgba(0,0,0,0.16)`;
+      shine.style.background=`radial-gradient(circle at ${(x/r.width*100).toFixed(1)}% ${(y/r.height*100).toFixed(1)}%,rgba(255,255,255,0.22) 0%,transparent 60%)`;
+      shine.style.opacity='1';
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform=''; card.style.transition='transform 0.7s cubic-bezier(0.16,1,0.3,1),box-shadow 0.7s ease'; card.style.boxShadow=''; shine.style.opacity='0';
+    });
+  });
+
+  let raf;
+  window.addEventListener('scroll', () => {
+    if (raf) return;
+    raf = requestAnimationFrame(() => {
+      const vh = window.innerHeight;
+      document.querySelectorAll('.section').forEach(sec => {
+        const rect = sec.getBoundingClientRect();
+        const prog = (rect.top+rect.height/2-vh/2)/vh;
+        const clamp = Math.max(-0.5,Math.min(0.5,prog));
+        sec.style.transform=`perspective(1400px) rotateX(${clamp*5}deg) translateZ(${Math.abs(clamp)*-30}px)`;
+      });
+      raf=null;
+    });
+  }, { passive:true });
+})();
+
+/* STAT COUNTER */
+(function(){
+  const counters = document.querySelectorAll('.count-up');
+  if (!counters.length) return;
+  function animateCounter(el){
+    const target=parseInt(el.dataset.target,10), suffix=el.dataset.suffix||'', duration=1800, startTime=performance.now();
+    function easeOut(t){ return 1-Math.pow(1-t,4); }
+    function update(now){
+      const p=Math.min((now-startTime)/duration,1);
+      el.textContent=Math.floor(easeOut(p)*target)+suffix;
+      if(p<1) requestAnimationFrame(update); else el.textContent=target+suffix;
+    }
+    requestAnimationFrame(update);
+  }
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting&&!e.target.dataset.animated){ e.target.dataset.animated='true'; animateCounter(e.target); obs.unobserve(e.target); } });
+  }, { threshold:0.5 });
+  counters.forEach(el => obs.observe(el));
+})();
+
+/* SCROLL TOP */
+const scrollTopBtn = document.getElementById("scrollTop");
+window.addEventListener("scroll", () => scrollTopBtn.classList.toggle("visible", window.scrollY > 400));
+scrollTopBtn.addEventListener("click", e => { e.preventDefault(); window.scrollTo({ top:0, behavior:"smooth" }); });
+</script>
+</body>
+</html>
