@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Start a Project — Ezeron Tech</title>
+<meta name="description" content="Tell Ezeron Tech what you're looking to build — website, mobile app, AI solution, custom software or e-commerce — and we'll help turn it into a working digital product.">
+<meta property="og:title" content="Start a Project — Ezeron Tech">
+<meta property="og:description" content="Tell Ezeron Tech what you're looking to build and we'll help turn it into a working digital product.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ezeron Tech">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ===================================================================
+   EZERON TECH — DESIGN SYSTEM
+   Black + White + Liquid Glass
+=================================================================== */
+:root{
+  --black:#000000;
+  --white:#ffffff;
+  --ink-950:#050505;
+  --ink-900:#0a0a0a;
+  --ink-800:#121212;
+  --ink-700:#1a1a1a;
+  --line-1:rgba(255,255,255,0.08);
+  --line-2:rgba(255,255,255,0.14);
+  --line-3:rgba(255,255,255,0.24);
+  --mist-300:#d4d4d4;
+  --mist-500:#9a9a9a;
+  --mist-700:#6b6b6b;
+  --glass-fill:rgba(255,255,255,0.045);
+  --glass-fill-strong:rgba(255,255,255,0.08);
+  --glass-hi:rgba(255,255,255,0.5);
+  --radius-s:10px;
+  --radius-m:18px;
+  --radius-l:28px;
+  --radius-xl:40px;
+  --ease:cubic-bezier(.16,.84,.32,1);
+  --container:1240px;
+  --font-display:'Bricolage Grotesque', 'Inter', sans-serif;
+  --font-body:'Inter', -apple-system, sans-serif;
+  --font-mono:'IBM Plex Mono', monospace;
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}
+}
+body{
+  margin:0;
+  background:var(--black);
+  color:var(--white);
+  font-family:var(--font-body);
+  font-size:16px;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  position:relative;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;}
+ul{margin:0;padding:0;list-style:none;}
+h1,h2,h3,h4,p{margin:0;}
+:focus-visible{outline:2px solid var(--white);outline-offset:4px;border-radius:4px;}
+
+/* grain texture, fixed over entire viewport */
+.grain{
+  position:fixed;inset:0;pointer-events:none;z-index:9998;
+  opacity:0.035;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ===== layout helpers ===== */
+.wrap{max-width:var(--container);margin:0 auto;padding:0 32px;}
+.section{padding:140px 0;position:relative;}
+.section-tight{padding:80px 0;}
+@media (max-width:900px){
+  .section{padding:96px 0;}
+  .wrap{padding:0 22px;}
+}
+
+/* ===== eyebrow / labels ===== */
+.eyebrow{
+  font-family:var(--font-mono);
+  font-size:12.5px;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--mist-500);
+  display:inline-flex;align-items:center;gap:10px;
+}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--white);display:inline-block;}
+
+/* ===== type scale ===== */
+h1,.h1{
+  font-family:var(--font-display);
+  font-weight:600;
+  letter-spacing:-0.03em;
+  line-height:0.98;
+  font-size:clamp(42px,6.6vw,94px);
+}
+h2,.h2{
+  font-family:var(--font-display);
+  font-weight:600;
+  letter-spacing:-0.025em;
+  line-height:1.03;
+  font-size:clamp(32px,4.4vw,58px);
+}
+h3,.h3{
+  font-family:var(--font-display);
+  font-weight:600;
+  letter-spacing:-0.015em;
+  line-height:1.12;
+  font-size:clamp(21px,2.2vw,28px);
+}
+.body-lg{font-size:clamp(17px,1.7vw,21px);line-height:1.55;color:var(--mist-300);font-weight:400;}
+.body{font-size:16px;line-height:1.65;color:var(--mist-300);}
+.caption{font-family:var(--font-mono);font-size:12px;letter-spacing:0.06em;color:var(--mist-700);}
+
+/* ===== buttons ===== */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:15px 26px;border-radius:100px;
+  font-family:var(--font-body);font-weight:600;font-size:14.5px;
+  letter-spacing:0.01em;
+  cursor:pointer;border:1px solid transparent;
+  transition:transform .5s var(--ease), background .4s ease, color .4s ease, border-color .4s ease, box-shadow .4s ease;
+  white-space:nowrap;
+}
+.btn svg{transition:transform .45s var(--ease);}
+.btn:hover svg{transform:translateX(4px);}
+.btn-primary{background:var(--white);color:var(--black);}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(255,255,255,0.15);}
+.btn-ghost{
+  background:var(--glass-fill);
+  color:var(--white);
+  border-color:var(--line-2);
+  backdrop-filter:blur(18px) saturate(140%);
+  -webkit-backdrop-filter:blur(18px) saturate(140%);
+}
+.btn-ghost:hover{background:var(--glass-fill-strong);border-color:var(--line-3);transform:translateY(-2px);}
+.btn-sm{padding:11px 20px;font-size:13.5px;}
+
+/* ===== glass surfaces ===== */
+.glass{
+  background:linear-gradient(155deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02));
+  border:1px solid var(--line-2);
+  backdrop-filter:blur(22px) saturate(160%);
+  -webkit-backdrop-filter:blur(22px) saturate(160%);
+  border-radius:var(--radius-l);
+  position:relative;
+  box-shadow:0 1px 0 rgba(255,255,255,0.06) inset, 0 30px 60px -30px rgba(0,0,0,0.7);
+}
+.glass::before{
+  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:radial-gradient(420px circle at var(--mx,50%) var(--my,0%), rgba(255,255,255,0.10), transparent 60%);
+  opacity:var(--glow,0);
+  transition:opacity .4s ease;
+}
+.glass:hover::before{opacity:1;}
+
+/* ===== floating nav ===== */
+.nav-outer{
+  position:fixed;top:20px;left:0;right:0;z-index:1000;
+  display:flex;justify-content:center;
+  padding:0 20px;
+  transition:top .5s var(--ease);
+}
+.nav{
+  width:100%;max-width:1120px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 14px 12px 20px;
+  border-radius:100px;
+  background:rgba(10,10,10,0.55);
+  border:1px solid var(--line-2);
+  backdrop-filter:blur(24px) saturate(180%);
+  -webkit-backdrop-filter:blur(24px) saturate(180%);
+  box-shadow:0 1px 0 rgba(255,255,255,0.08) inset, 0 20px 50px -20px rgba(0,0,0,0.8);
+  transition:padding .5s var(--ease), background .5s var(--ease), transform .5s var(--ease), max-width .5s var(--ease), width .5s var(--ease);
+}
+.nav-outer.scrolled{top:12px;}
+.nav-outer.scrolled .nav{padding:7px 10px 7px 16px;background:rgba(6,6,6,0.82);box-shadow:0 1px 0 rgba(255,255,255,0.08) inset, 0 16px 36px -16px rgba(0,0,0,0.9);width:auto;max-width:480px;gap:18px;}
+.nav-outer.scrolled .nav-brand .mark{width:42px;height:42px;}
+.nav-outer.scrolled .nav-links a{padding:7px 13px;font-size:13.5px;}
+.nav-outer.scrolled .nav-cta{padding:9px 16px;font-size:13px;}
+.nav{position:relative;}
+.nav-links{transition:opacity .3s ease,visibility .3s ease,max-width .5s var(--ease),margin .5s var(--ease);overflow:hidden;}
+.nav-outer.scrolled .nav-links{opacity:0;visibility:hidden;pointer-events:none;max-width:0;margin:0;}
+.nav-outer.scrolled .nav-burger{display:flex;}
+.brand-text{transition:opacity .3s ease,max-width .4s var(--ease),margin .4s var(--ease);overflow:hidden;white-space:nowrap;}
+.nav-outer.scrolled .brand-text{opacity:0;max-width:0;margin:0;}
+.nav-brand .mark{transition:width .5s var(--ease),height .5s var(--ease);}
+.nav-links a{transition:color .35s ease,padding .5s var(--ease),font-size .5s var(--ease);}
+.nav-cta{transition:padding .5s var(--ease),font-size .5s var(--ease);}
+.nav-brand{display:flex;align-items:center;gap:12px;font-family:var(--font-display);font-weight:600;font-size:16px;letter-spacing:-0.01em;}
+.nav-brand .mark{width:52px;height:52px;color:var(--white);flex:none;}
+/* ===== logo placeholder image ===== */
+.mark{display:inline-flex;align-items:center;justify-content:center;}
+.logo-img{width:100%;height:100%;display:block;object-fit:contain;}
+.logo-placeholder{border-radius:8px;overflow:hidden;}
+
+.nav-links{display:flex;align-items:center;gap:2px;}
+.nav-links a{
+  position:relative;padding:9px 16px;border-radius:100px;
+  font-size:14px;font-weight:500;color:var(--mist-300);
+  transition:color .35s ease;
+}
+.nav-links a:hover{color:var(--white);}
+.nav-links a::before{
+  content:"";position:absolute;inset:0;border-radius:100px;
+  background:var(--glass-fill-strong);
+  opacity:0;transform:scale(0.85);
+  transition:opacity .35s var(--ease), transform .35s var(--ease);
+  z-index:-1;
+}
+.nav-links a:hover::before{opacity:1;transform:scale(1);}
+.nav-links a.active{color:var(--white);}
+.nav-links a.active::after{
+  content:"";position:absolute;left:16px;right:16px;bottom:5px;height:1px;background:var(--white);
+}
+.nav-right{display:flex;align-items:center;gap:10px;}
+.nav-cta{padding:11px 20px;font-size:13.5px;}
+.nav-burger{
+  display:none;width:40px;height:40px;border-radius:50%;
+  background:var(--glass-fill-strong);border:1px solid var(--line-2);
+  align-items:center;justify-content:center;cursor:pointer;
+}
+.nav-burger span{display:block;width:15px;height:1px;background:var(--white);position:relative;}
+.nav-burger span::before,.nav-burger span::after{content:"";position:absolute;left:0;width:15px;height:1px;background:var(--white);transition:transform .3s ease;}
+.nav-burger span::before{top:-5px;}
+.nav-burger span::after{top:5px;}
+
+@media (max-width:900px){
+  .nav-links{display:none;}
+  .nav-right .btn-ghost.nav-cta{display:none;}
+  .nav-burger{display:flex;}
+  .nav{padding:10px 10px 10px 18px;}
+}
+
+/* ===== mobile menu ===== */
+.mobile-menu{
+  position:fixed;inset:0;z-index:1100;
+  display:flex;flex-direction:column;
+  padding:20px;
+  background:rgba(4,4,4,0.7);
+  backdrop-filter:blur(30px) saturate(180%);
+  -webkit-backdrop-filter:blur(30px) saturate(180%);
+  opacity:0;visibility:hidden;
+  transform:translateY(-8px);
+  transition:opacity .45s var(--ease), transform .45s var(--ease), visibility 0s linear .45s;
+}
+.mobile-menu.open{opacity:1;visibility:visible;transform:translateY(0);transition:opacity .45s var(--ease), transform .45s var(--ease), visibility 0s;}
+.mobile-menu-head{display:flex;align-items:center;justify-content:space-between;padding:6px 6px 0;}
+.mobile-menu-close{
+  width:42px;height:42px;border-radius:50%;background:var(--glass-fill-strong);
+  border:1px solid var(--line-2);display:flex;align-items:center;justify-content:center;cursor:pointer;
+}
+.mobile-links{flex:1;display:flex;flex-direction:column;justify-content:center;gap:6px;padding:20px 10px;}
+.mobile-links a{
+  font-family:var(--font-display);font-size:clamp(32px,10vw,48px);font-weight:600;
+  letter-spacing:-0.02em;color:var(--white);padding:10px 4px;border-bottom:1px solid var(--line-1);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.mobile-links a span{font-family:var(--font-mono);font-size:13px;color:var(--mist-700);}
+.mobile-menu-foot{padding:10px;}
+
+/* ===== cards ===== */
+.card{
+  padding:34px;
+  transition:transform .5s var(--ease), border-color .4s ease;
+}
+.card:hover{transform:translateY(-4px);border-color:var(--line-3);}
+
+/* ===== footer ===== */
+footer{
+  border-top:1px solid var(--line-1);
+  padding:0 0 34px;
+  background:linear-gradient(180deg, transparent, rgba(255,255,255,0.015));
+}
+.footer-cta{
+  display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;
+  padding:56px 0;border-bottom:1px solid var(--line-1);
+}
+.footer-cta h3{font-size:clamp(22px,3vw,30px);letter-spacing:-0.02em;}
+.footer-top{display:flex;justify-content:space-between;gap:60px;flex-wrap:wrap;padding:60px 0;}
+.footer-brand .mark{width:44px;height:44px;color:var(--white);margin-bottom:18px;}
+.footer-cols{display:flex;gap:70px;flex-wrap:wrap;}
+.footer-col h4{font-family:var(--font-mono);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mist-700);margin-bottom:16px;}
+.footer-col a,.footer-col p{display:block;color:var(--mist-300);font-size:14.5px;margin-bottom:11px;transition:color .3s ease;}
+.footer-col a:hover{color:var(--white);}
+.footer-bottom{
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;
+  padding-top:28px;border-top:1px solid var(--line-1);
+  font-family:var(--font-mono);font-size:12px;color:var(--mist-700);
+}
+@media (max-width:700px){
+  .footer-cta{flex-direction:column;align-items:flex-start;}
+  .footer-top{flex-direction:column;gap:40px;}
+  .footer-cols{gap:40px;}
+}
+
+/* ===== reveal on scroll ===== */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease), transform .9s var(--ease);}
+.reveal.in{opacity:1;transform:translateY(0);}
+
+/* ===== misc ===== */
+.divider{height:1px;background:var(--line-1);width:100%;}
+.tag{
+  font-family:var(--font-mono);font-size:11.5px;letter-spacing:0.08em;text-transform:uppercase;
+  padding:6px 12px;border-radius:100px;border:1px solid var(--line-2);color:var(--mist-500);
+  display:inline-block;
+}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+@media (max-width:900px){.grid-2,.grid-3{grid-template-columns:1fr;}}
+
+.ph-photo{
+  position:relative;overflow:hidden;border-radius:var(--radius-l);
+  border:1px solid var(--line-2);
+}
+.ph-photo img{
+  width:100%;height:100%;object-fit:cover;
+  filter:grayscale(1) contrast(1.08) brightness(0.9);
+  transition:transform .8s var(--ease), filter .5s ease;
+}
+.ph-photo:hover img{transform:scale(1.045);filter:grayscale(0.4) contrast(1.1) brightness(0.95);}
+.ph-photo::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.55) 100%);
+}
+
+.skip-link{
+  position:absolute;left:-999px;top:0;background:var(--white);color:var(--black);
+  padding:12px 20px;border-radius:8px;z-index:2000;
+}
+.skip-link:focus{left:20px;top:20px;}
+
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+<div class="grain" aria-hidden="true"></div>
+  <div class="nav-outer">
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html" class="nav-brand">
+        <span class="mark logo-placeholder"><img src="logo.png" alt="Ezeron Tech logo — replace logo.png with your logo" class="logo-img"></span>
+        <span class="brand-text">Ezeron Tech</span>
+      </a>
+      <div class="nav-links">
+      <a href="index.html" class="">Home</a>
+      <a href="about.html" class="">About</a>
+      <a href="services.html" class="">Services</a>
+      <a href="products.html" class="">Products</a>
+      <a href="work.html" class="">Work</a>
+      <a href="pricing.html" class="">Pricing</a>
+      <a href="contact.html" class="">Contact</a>
+      </div>
+      <div class="nav-right">
+        <a href="start-a-project.html" class="btn btn-ghost nav-cta">Start a Project</a>
+        <button class="nav-burger" aria-label="Open menu" aria-expanded="false">
+          <span></span>
+        </button>
+      </div>
+    </nav>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-head">
+      <a href="index.html" class="nav-brand"><span class="mark logo-placeholder"><img src="logo.png" alt="Ezeron Tech logo — replace logo.png with your logo" class="logo-img"></span>Ezeron Tech</a>
+      <button class="mobile-menu-close" aria-label="Close menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 2L14 14M14 2L2 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+    </div>
+    <div class="mobile-links">
+      <a href="index.html"><span>Home</span><span>01</span></a>
+      <a href="about.html"><span>About</span><span>02</span></a>
+      <a href="services.html"><span>Services</span><span>03</span></a>
+      <a href="products.html"><span>Products</span><span>04</span></a>
+      <a href="work.html"><span>Work</span><span>05</span></a>
+      <a href="pricing.html"><span>Pricing</span><span>06</span></a>
+      <a href="contact.html"><span>Contact</span><span>07</span></a>
+    </div>
+    <div class="mobile-menu-foot">
+      <a href="start-a-project.html" class="btn btn-primary" style="width:100%;justify-content:center;">Start a Project <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2 7.5H13M13 7.5L8 2.5M13 7.5L8 12.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </div>
+<main id="main">
+<section class="section page-hero" style="padding-top:170px;padding-bottom:50px;">
+  <div class="page-hero-bg" aria-hidden="true">
+    <img src="https://images.unsplash.com/photo-1714079761488-e0c9b9ac4138?w=2000&q=80&auto=format&fit=crop" alt="Support representative assisting a client through a headset" loading="lazy">
+  </div>
+  <div class="wrap" style="position:relative;">
+    <span class="eyebrow reveal in">Start a Project</span>
+    <h1 class="reveal in" style="margin-top:20px;max-width:700px;">Let's build<br>something great.</h1>
+    <p class="body-lg reveal in" style="margin-top:24px;max-width:540px;">
+      Tell us what you're looking to build, and we'll help turn your idea
+      into a digital product that works.
+    </p>
+    <a href="https://wa.me/233557757831" target="_blank" rel="noopener" class="btn btn-primary reveal in" style="margin-top:28px;">
+      Chat on WhatsApp: 055 775 7831
+      <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2 7.5H13M13 7.5L8 2.5M13 7.5L8 12.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</section>
+<style>
+.page-hero{position:relative;overflow:hidden;}
+.page-hero-bg{position:absolute;inset:0;z-index:0;}
+.page-hero-bg img{width:100%;height:100%;object-fit:cover;filter:contrast(1.05) brightness(0.85) saturate(1.1);opacity:0.95;}
+.page-hero-bg::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg, rgba(0,0,0,0.15), var(--black) 92%);}
+</style>
+
+<section class="section-tight" id="sapSection">
+  <div class="wrap" style="max-width:860px;">
+
+    <!-- ===== progress indicator ===== -->
+    <div class="sap-progress reveal in" id="sapProgress" aria-hidden="false">
+      <div class="sap-progress-track"><div class="sap-progress-fill" id="sapProgressFill"></div></div>
+      <div class="sap-progress-steps" id="sapProgressSteps">
+        <button type="button" class="sap-step active" data-goto="1"><span class="sap-step-num">01</span><span class="sap-step-label">Project</span></button>
+        <button type="button" class="sap-step" data-goto="2"><span class="sap-step-num">02</span><span class="sap-step-label">Details</span></button>
+        <button type="button" class="sap-step" data-goto="3"><span class="sap-step-num">03</span><span class="sap-step-label">Stage</span></button>
+        <button type="button" class="sap-step" data-goto="4"><span class="sap-step-num">04</span><span class="sap-step-label">Budget</span></button>
+        <button type="button" class="sap-step" data-goto="5"><span class="sap-step-num">05</span><span class="sap-step-label">Timeline</span></button>
+        <button type="button" class="sap-step" data-goto="6"><span class="sap-step-num">06</span><span class="sap-step-label">Contact</span></button>
+      </div>
+    </div>
+
+    <!-- ===== step panels ===== -->
+    <div class="glass sap-panel reveal in" id="sapPanel">
+
+      <!-- STEP 1 — project type -->
+      <div class="sap-step-panel active" data-panel="1">
+        <span class="eyebrow">Step 01</span>
+        <h2 style="margin-top:14px;">What do you want to build?</h2>
+        <p class="body" style="margin-top:10px;">Choose the option that best describes your project.</p>
+        <div class="sap-type-grid" id="sapTypeGrid" role="radiogroup" aria-label="Project type">
+          <button type="button" class="sap-type-card" data-value="Website" role="radio" aria-checked="false">
+            <span class="sap-type-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M3 9h18" stroke="currentColor" stroke-width="1.4"/></svg></span>
+            <h3>Website</h3>
+            <p class="body">Business websites, corporate websites, landing pages, portfolios, institutional websites and other web experiences.</p>
+          </button>
+          <button type="button" class="sap-type-card" data-value="Mobile App" role="radio" aria-checked="false">
+            <span class="sap-type-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="6" y="2.5" width="12" height="19" rx="2.4" stroke="currentColor" stroke-width="1.4"/><path d="M10.5 18h3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span>
+            <h3>Mobile App</h3>
+            <p class="body">iOS, Android or cross-platform mobile applications.</p>
+          </button>
+          <button type="button" class="sap-type-card" data-value="AI Solution" role="radio" aria-checked="false">
+            <span class="sap-type-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.4"/><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span>
+            <h3>AI Solution</h3>
+            <p class="body">AI assistants, automation, intelligent tools, AI-powered platforms and custom AI integrations.</p>
+          </button>
+          <button type="button" class="sap-type-card" data-value="Custom Software" role="radio" aria-checked="false">
+            <span class="sap-type-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M8 10l-2 2 2 2M16 10l2 2-2 2M13 9l-2 6" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <h3>Custom Software</h3>
+            <p class="body">Business systems, dashboards, management systems, internal tools, SaaS platforms and other custom software.</p>
+          </button>
+          <button type="button" class="sap-type-card" data-value="E-Commerce" role="radio" aria-checked="false">
+            <span class="sap-type-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 4h2l1.4 10.2A2 2 0 0 0 8.4 16H18a2 2 0 0 0 2-1.6L21.5 7H6.2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="9" cy="20" r="1.4" stroke="currentColor" stroke-width="1.4"/><circle cx="18" cy="20" r="1.4" stroke="currentColor" stroke-width="1.4"/></svg></span>
+            <h3>E-Commerce</h3>
+            <p class="body">Online stores, product catalogs, shopping experiences and commerce platforms.</p>
+          </button>
+          <button type="button" class="sap-type-card" data-value="UI/UX Design" role="radio" aria-checked="false">
+            <span class="sap-type-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 20l3.2-1L18 8.2a1.6 1.6 0 0 0 0-2.3l-.9-.9a1.6 1.6 0 0 0-2.3 0L4 15.8 3 19a1 1 0 0 0 1 1Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg></span>
+            <h3>UI/UX Design</h3>
+            <p class="body">User interfaces, product design, prototypes, redesigns and user experience improvements.</p>
+          </button>
+          <button type="button" class="sap-type-card" data-value="Existing Project" role="radio" aria-checked="false">
+            <span class="sap-type-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M3 12a9 9 0 1 0 3-6.7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M3 4v5h5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <h3>Existing Project</h3>
+            <p class="body">Maintenance, improvements, redesigns, bug fixes, new features, hosting or technical support for an existing product.</p>
+          </button>
+          <button type="button" class="sap-type-card" data-value="Something Else" role="radio" aria-checked="false">
+            <span class="sap-type-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="5" cy="12" r="1.4" fill="currentColor"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/><circle cx="19" cy="12" r="1.4" fill="currentColor"/></svg></span>
+            <h3>Something Else</h3>
+            <p class="body">For projects that don't fit the categories above.</p>
+          </button>
+        </div>
+        <p class="sap-error" id="sapError-1">Please choose an option to continue.</p>
+      </div>
+
+      <!-- STEP 2 — description -->
+      <div class="sap-step-panel" data-panel="2">
+        <span class="eyebrow">Step 02</span>
+        <h2 style="margin-top:14px;">Tell us about your project</h2>
+        <p class="body" style="margin-top:10px;">A few sentences is enough to get us started.</p>
+        <div class="form-row" style="margin-top:26px;">
+          <label for="sapDescription">Project description <span class="req">*</span></label>
+          <textarea id="sapDescription" rows="7" placeholder="What are you trying to build? What problem should it solve?"></textarea>
+        </div>
+        <p class="sap-error" id="sapError-2">Please tell us a little about your project.</p>
+      </div>
+
+      <!-- STEP 3 — project stage -->
+      <div class="sap-step-panel" data-panel="3">
+        <span class="eyebrow">Step 03</span>
+        <h2 style="margin-top:14px;">Where are you with the project?</h2>
+        <div class="sap-option-list" id="sapStageList" role="radiogroup" aria-label="Project stage" style="margin-top:26px;">
+          <button type="button" class="sap-option" data-value="Just an idea" role="radio" aria-checked="false"><span class="sap-option-dot"></span><span>Just an idea</span></button>
+          <button type="button" class="sap-option" data-value="Planning / Research" role="radio" aria-checked="false"><span class="sap-option-dot"></span><span>Planning / Research</span></button>
+          <button type="button" class="sap-option" data-value="Ready to build" role="radio" aria-checked="false"><span class="sap-option-dot"></span><span>Ready to build</span></button>
+          <button type="button" class="sap-option" data-value="Already have a product" role="radio" aria-checked="false"><span class="sap-option-dot"></span><span>Already have a product</span></button>
+          <button type="button" class="sap-option" data-value="Need improvements to an existing product" role="radio" aria-checked="false"><span class="sap-option-dot"></span><span>Need improvements to an existing product</span></button>
+        </div>
+        <p class="sap-error" id="sapError-3">Please select where you are with the project.</p>
+      </div>
+
+      <!-- STEP 4 — budget -->
+      <div class="sap-step-panel" data-panel="4">
+        <span class="eyebrow">Step 04</span>
+        <h2 style="margin-top:14px;">What's your estimated budget?</h2>
+        <p class="body" style="margin-top:10px;">This just helps us recommend the right approach — there's no wrong answer.</p>
+        <div class="sap-option-list" id="sapBudgetList" role="radiogroup" aria-label="Estimated budget" style="margin-top:22px;">
+          <button type="button" class="sap-option" data-value="Under GHS 2,000" role="radio" aria-checked="false"><span class="sap-option-dot"></span><span>Under GHS 2,000</span></button>
+          <button type="button" class="sap-option" data-value="GHS 2,000 – 5,000" role="radio" aria-checked="false"><span class="sap-option-dot"></span><span>GHS 2,000 – 5,000</span></button>
+          <button type="button" class="sap-option" data-value="GHS 5,000 – 10,000" role="radio" aria-checked="false"><span class="sap-option-dot"></span><span>GHS 5,000 – 10,000</span></button>
+          <button type="button" class="sap-option" data-value="GHS 10,000 – 25,000" role="radio" aria-checked="false"><span class="sap-option-dot"></span><span>GHS 10,000 – 25,000</span></button>
+          <button type="button" class="sap-option" data-value="GHS 25,000+" role="radio" aria-checked="false"><span class="sap-option-dot"></span><span>GHS 25,000+</span></button>
+          <button type="button" class="sap-option" data-value="Not sure yet" role="radio" aria-checked="false"><span class="sap-option-dot"></span><span>Not sure yet</span></button>
+        </div>
+        <p class="sap-error" id="sapError-4">Please select an estimated budget.</p>
+      </div>
+
+      <!-- STEP 5 — timeline -->
+      <div class="sap-step-panel" data-panel="5">
+        <span class="eyebrow">Step 05</span>
+        <h2 style="margin-top:14px;">When would you like to get started?</h2>
+        <div class="sap-option-list" id="sapTimelineList" role="radiogroup" aria-label="Timeline" style="margin-top:26px;">
+          <button type="button" class="sap-option" data-value="As soon as possible" role="radio" aria-checked="false"><span class="sap-option-dot"></span><span>As soon as possible</span></button>
+          <button type="button" class="sap-option" data-value="Within 1 month" role="radio" aria-checked="false"><span class="sap-option-dot"></span><span>Within 1 month</span></button>
+          <button type="button" class="sap-option" data-value="1–3 months" role="radio" aria-checked="false"><span class="sap-option-dot"></span><span>1–3 months</span></button>
+          <button type="button" class="sap-option" data-value="3–6 months" role="radio" aria-checked="false"><span class="sap-option-dot"></span><span>3–6 months</span></button>
+          <button type="button" class="sap-option" data-value="Just exploring for now" role="radio" aria-checked="false"><span class="sap-option-dot"></span><span>Just exploring for now</span></button>
+        </div>
+        <p class="sap-error" id="sapError-5">Please select a timeline.</p>
+      </div>
+
+      <!-- STEP 6 — contact info -->
+      <div class="sap-step-panel" data-panel="6">
+        <span class="eyebrow">Step 06</span>
+        <h2 style="margin-top:14px;">Your details</h2>
+        <p class="body" style="margin-top:10px;">So we know who we're talking to and how to reach you.</p>
+        <div class="grid-2" style="margin-top:26px;">
+          <div class="form-row">
+            <label for="sapFullName">Full Name <span class="req">*</span></label>
+            <input type="text" id="sapFullName" autocomplete="name">
+          </div>
+          <div class="form-row">
+            <label for="sapEmail">Email Address <span class="req">*</span></label>
+            <input type="email" id="sapEmail" autocomplete="email">
+          </div>
+          <div class="form-row">
+            <label for="sapPhone">Phone / WhatsApp <span class="req">*</span></label>
+            <input type="tel" id="sapPhone" autocomplete="tel">
+          </div>
+          <div class="form-row">
+            <label for="sapCompany">Company / Organization <span class="opt">(optional)</span></label>
+            <input type="text" id="sapCompany" autocomplete="organization">
+          </div>
+        </div>
+        <p class="sap-error" id="sapError-6">Please fill in your name, a valid email and a phone number.</p>
+      </div>
+
+      <!-- REVIEW -->
+      <div class="sap-step-panel" data-panel="review">
+        <span class="eyebrow">Review</span>
+        <h2 style="margin-top:14px;">Project Summary</h2>
+        <p class="body" style="margin-top:10px;">Check everything below before you send it our way.</p>
+        <div class="sap-review-list" id="sapReviewList" style="margin-top:26px;">
+          <div class="sap-review-row">
+            <div><h4>Project</h4><p class="body" id="sapReviewType">—</p></div>
+            <button type="button" class="sap-edit" data-goto="1">Edit</button>
+          </div>
+          <div class="sap-review-row">
+            <div><h4>Project description</h4><p class="body" id="sapReviewDescription">—</p></div>
+            <button type="button" class="sap-edit" data-goto="2">Edit</button>
+          </div>
+          <div class="sap-review-row">
+            <div><h4>Project stage</h4><p class="body" id="sapReviewStage">—</p></div>
+            <button type="button" class="sap-edit" data-goto="3">Edit</button>
+          </div>
+          <div class="sap-review-row">
+            <div><h4>Estimated budget</h4><p class="body" id="sapReviewBudget">—</p></div>
+            <button type="button" class="sap-edit" data-goto="4">Edit</button>
+          </div>
+          <div class="sap-review-row">
+            <div><h4>Timeline</h4><p class="body" id="sapReviewTimeline">—</p></div>
+            <button type="button" class="sap-edit" data-goto="5">Edit</button>
+          </div>
+          <div class="sap-review-row">
+            <div><h4>Contact</h4><p class="body" id="sapReviewContact">—</p></div>
+            <button type="button" class="sap-edit" data-goto="6">Edit</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ===== step navigation ===== -->
+    <div class="sap-nav" id="sapNav">
+      <button type="button" class="btn btn-ghost" id="sapBack">Back</button>
+      <button type="button" class="btn btn-primary" id="sapNext">Continue
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2 7.5H13M13 7.5L8 2.5M13 7.5L8 12.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== success screen ===== -->
+<section class="section" id="sapSuccess" hidden>
+  <div class="wrap" style="max-width:620px;">
+    <div class="glass reveal in" style="padding:64px 48px;text-align:center;">
+      <span class="eyebrow" style="justify-content:center;">Request Received</span>
+      <h2 style="margin-top:20px;">Project request received.</h2>
+      <p class="body-lg" style="margin-top:16px;">
+        Thanks for reaching out to Ezeron Tech. We've received your project
+        details and will review them before getting back to you.
+      </p>
+      <div style="display:flex;gap:14px;justify-content:center;margin-top:36px;flex-wrap:wrap;">
+        <a href="index.html" class="btn btn-primary">Back to Ezeron Tech</a>
+        <button type="button" class="btn btn-ghost" id="sapRestart">Start another project</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+/* ===================================================================
+   START A PROJECT — flow styling
+=================================================================== */
+.req{color:var(--white);}
+.form-row{display:flex;flex-direction:column;gap:8px;margin-bottom:20px;}
+.form-row label{font-family:var(--font-mono);font-size:12px;letter-spacing:0.06em;text-transform:uppercase;color:var(--mist-500);}
+.form-row .opt{text-transform:none;letter-spacing:0;color:var(--mist-700);}
+.form-row input, .form-row select, .form-row textarea{
+  background:rgba(255,255,255,0.04);
+  border:1px solid var(--line-2);
+  border-radius:12px;
+  padding:13px 15px;
+  color:var(--white);
+  font-family:var(--font-body);
+  font-size:15px;
+  transition:border-color .3s ease, background .3s ease;
+  width:100%;
+}
+.form-row input:focus, .form-row select:focus, .form-row textarea:focus{
+  outline:none;border-color:var(--line-3);background:rgba(255,255,255,0.07);
+}
+.form-row textarea{resize:vertical;}
+.form-row input.sap-invalid, .form-row textarea.sap-invalid{border-color:rgba(255,255,255,0.55);background:rgba(255,255,255,0.06);}
+
+/* ---- progress ---- */
+.sap-progress{margin-bottom:34px;}
+.sap-progress-track{height:2px;background:var(--line-1);border-radius:2px;position:relative;overflow:hidden;}
+.sap-progress-fill{position:absolute;left:0;top:0;bottom:0;width:16.6%;background:var(--white);border-radius:2px;transition:width .6s var(--ease);}
+.sap-progress-steps{display:flex;justify-content:space-between;margin-top:16px;gap:6px;}
+.sap-step{
+  background:none;border:none;cursor:pointer;color:var(--mist-700);
+  display:flex;align-items:center;gap:7px;padding:4px 2px;
+  font-family:var(--font-mono);font-size:12px;letter-spacing:0.04em;
+  transition:color .3s ease;flex:1;justify-content:center;
+}
+.sap-step-num{font-weight:600;}
+.sap-step.active{color:var(--white);}
+.sap-step.done{color:var(--mist-300);}
+.sap-step:hover{color:var(--white);}
+@media (max-width:700px){
+  .sap-step-label{display:none;}
+  .sap-step{gap:0;}
+}
+
+/* ---- panel shell ---- */
+.sap-panel{padding:48px 52px;overflow:hidden;position:relative;min-height:420px;}
+.sap-step-panel{display:none;opacity:0;transform:translateY(14px);transition:opacity .45s var(--ease), transform .45s var(--ease);}
+.sap-step-panel.active{display:block;opacity:1;transform:translateY(0);}
+
+/* ---- error messaging ---- */
+.sap-error{
+  display:none;margin-top:16px;font-size:13.5px;color:var(--white);
+  font-weight:600;padding:10px 14px;border:1px solid var(--line-2);border-radius:10px;
+  background:rgba(255,255,255,0.04);
+}
+.sap-error.show{display:block;}
+
+/* ---- step 1 type cards ---- */
+.sap-type-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:28px;}
+.sap-type-card{
+  text-align:left;padding:22px;border-radius:var(--radius-m);cursor:pointer;
+  background:rgba(255,255,255,0.03);border:1px solid var(--line-1);color:var(--white);
+  transition:border-color .35s ease, background .35s ease, transform .35s var(--ease);
+}
+.sap-type-card:hover{border-color:var(--line-3);background:rgba(255,255,255,0.055);transform:translateY(-2px);}
+.sap-type-card.selected{border-color:var(--white);background:rgba(255,255,255,0.09);}
+.sap-type-icon{
+  width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;
+  background:rgba(255,255,255,0.06);border:1px solid var(--line-1);color:var(--mist-300);margin-bottom:14px;
+  transition:color .3s ease, border-color .3s ease;
+}
+.sap-type-card.selected .sap-type-icon{color:var(--white);border-color:var(--line-3);}
+.sap-type-card h3{font-size:17px;}
+.sap-type-card .body{margin-top:8px;font-size:13.5px;line-height:1.5;}
+@media (max-width:640px){.sap-type-grid{grid-template-columns:1fr;}}
+
+/* ---- single-select option rows (stage/budget/timeline) ---- */
+.sap-option-list{display:flex;flex-direction:column;gap:10px;}
+.sap-option{
+  display:flex;align-items:center;gap:14px;text-align:left;
+  padding:16px 18px;border-radius:var(--radius-m);cursor:pointer;
+  background:rgba(255,255,255,0.03);border:1px solid var(--line-1);color:var(--mist-300);
+  font-family:var(--font-body);font-size:15px;
+  transition:border-color .3s ease, background .3s ease, color .3s ease;
+}
+.sap-option:hover{border-color:var(--line-3);color:var(--white);}
+.sap-option.selected{border-color:var(--white);background:rgba(255,255,255,0.08);color:var(--white);}
+.sap-option-dot{
+  width:16px;height:16px;border-radius:50%;border:1px solid var(--line-3);flex:none;position:relative;
+}
+.sap-option.selected .sap-option-dot{border-color:var(--white);}
+.sap-option.selected .sap-option-dot::after{
+  content:"";position:absolute;inset:3px;border-radius:50%;background:var(--white);
+}
+
+/* ---- step nav ---- */
+.sap-nav{display:flex;justify-content:space-between;align-items:center;margin-top:24px;gap:14px;}
+.sap-nav .btn{min-width:130px;justify-content:center;}
+.sap-nav .btn[disabled]{opacity:0.35;pointer-events:none;}
+
+/* ---- review ---- */
+.sap-review-list{display:flex;flex-direction:column;}
+.sap-review-row{
+  display:flex;justify-content:space-between;align-items:flex-start;gap:20px;
+  padding:20px 0;border-top:1px solid var(--line-1);
+}
+.sap-review-row:first-child{border-top:none;}
+.sap-review-row h4{font-family:var(--font-mono);font-size:11.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--mist-700);margin-bottom:8px;}
+.sap-review-row p{white-space:pre-line;}
+.sap-edit{
+  flex:none;background:none;border:1px solid var(--line-2);color:var(--mist-300);
+  font-family:var(--font-mono);font-size:12px;letter-spacing:0.05em;text-transform:uppercase;
+  padding:8px 14px;border-radius:100px;cursor:pointer;transition:border-color .3s ease, color .3s ease;
+}
+.sap-edit:hover{border-color:var(--line-3);color:var(--white);}
+
+@media (max-width:700px){
+  .sap-panel{padding:34px 24px;min-height:0;}
+  .sap-nav{flex-direction:column-reverse;}
+  .sap-nav .btn{width:100%;}
+  .sap-review-row{flex-direction:column;gap:10px;}
+}
+</style>
+
+<script>
+(function(){
+  var TOTAL_STEPS = 6;
+  var state = {
+    projectType:'', projectDescription:'', projectStage:'',
+    budget:'', timeline:'', fullName:'', email:'', phone:'', company:''
+  };
+  var current = 1; // 1..6, then 'review'
+  var panels = document.querySelectorAll('.sap-step-panel');
+  var progressFill = document.getElementById('sapProgressFill');
+  var progressSteps = document.querySelectorAll('.sap-step');
+  var backBtn = document.getElementById('sapBack');
+  var nextBtn = document.getElementById('sapNext');
+  var navEl = document.getElementById('sapNav');
+  var progressEl = document.getElementById('sapProgress');
+  var sapSection = document.getElementById('sapSection');
+  var successEl = document.getElementById('sapSuccess');
+  var descEl = document.getElementById('sapDescription');
+  var nameEl = document.getElementById('sapFullName');
+  var emailEl = document.getElementById('sapEmail');
+  var phoneEl = document.getElementById('sapPhone');
+  var companyEl = document.getElementById('sapCompany');
+
+  if(!sapSection) return;
+
+  function showPanel(key){
+    panels.forEach(function(p){
+      var match = p.getAttribute('data-panel') === String(key);
+      p.classList.toggle('active', match);
+    });
+  }
+
+  function updateProgress(){
+    var stepNum = (current === 'review') ? TOTAL_STEPS : current;
+    var pct = (stepNum / TOTAL_STEPS) * 100;
+    progressFill.style.width = pct + '%';
+    progressSteps.forEach(function(s){
+      var n = parseInt(s.getAttribute('data-goto'), 10);
+      s.classList.remove('active','done');
+      if(current !== 'review' && n === current){ s.classList.add('active'); }
+      else if(current === 'review' || n < current){ s.classList.add('done'); }
+    });
+  }
+
+  function updateNav(){
+    backBtn.disabled = (current === 1);
+    if(current === 'review'){
+      nextBtn.textContent = '';
+      nextBtn.innerHTML = 'Submit Project Request';
+    } else if(current === TOTAL_STEPS){
+      nextBtn.innerHTML = 'Review <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2 7.5H13M13 7.5L8 2.5M13 7.5L8 12.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    } else {
+      nextBtn.innerHTML = 'Continue <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2 7.5H13M13 7.5L8 2.5M13 7.5L8 12.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    }
+  }
+
+  function hideError(step){
+    var el = document.getElementById('sapError-' + step);
+    if(el) el.classList.remove('show');
+  }
+  function showError(step){
+    var el = document.getElementById('sapError-' + step);
+    if(el) el.classList.add('show');
+  }
+
+  function goTo(step){
+    current = step;
+    showPanel(step);
+    updateProgress();
+    updateNav();
+    if(step === 'review') populateReview();
+    sapSection.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+
+  // ---- step 1: project type selection ----
+  var typeCards = document.querySelectorAll('.sap-type-card');
+  typeCards.forEach(function(card){
+    card.addEventListener('click', function(){
+      typeCards.forEach(function(c){ c.classList.remove('selected'); c.setAttribute('aria-checked','false'); });
+      card.classList.add('selected');
+      card.setAttribute('aria-checked','true');
+      state.projectType = card.getAttribute('data-value');
+      hideError(1);
+    });
+  });
+
+  // ---- generic single-select option list builder (stage/budget/timeline) ----
+  function wireOptionList(listId, stateKey, errorStep){
+    var list = document.getElementById(listId);
+    if(!list) return;
+    var opts = list.querySelectorAll('.sap-option');
+    opts.forEach(function(opt){
+      opt.addEventListener('click', function(){
+        opts.forEach(function(o){ o.classList.remove('selected'); o.setAttribute('aria-checked','false'); });
+        opt.classList.add('selected');
+        opt.setAttribute('aria-checked','true');
+        state[stateKey] = opt.getAttribute('data-value');
+        hideError(errorStep);
+      });
+    });
+  }
+  wireOptionList('sapStageList', 'projectStage', 3);
+  wireOptionList('sapBudgetList', 'budget', 4);
+  wireOptionList('sapTimelineList', 'timeline', 5);
+
+  // clear description/contact errors as user types
+  if(descEl) descEl.addEventListener('input', function(){ hideError(2); descEl.classList.remove('sap-invalid'); });
+  [nameEl, emailEl, phoneEl].forEach(function(el){
+    if(el) el.addEventListener('input', function(){ hideError(6); el.classList.remove('sap-invalid'); });
+  });
+
+  function isValidEmail(v){
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+  }
+
+  function validateCurrent(){
+    if(current === 1){
+      if(!state.projectType){ showError(1); return false; }
+      return true;
+    }
+    if(current === 2){
+      var val = descEl.value.trim();
+      if(!val){ descEl.classList.add('sap-invalid'); showError(2); return false; }
+      state.projectDescription = val;
+      return true;
+    }
+    if(current === 3){
+      if(!state.projectStage){ showError(3); return false; }
+      return true;
+    }
+    if(current === 4){
+      if(!state.budget){ showError(4); return false; }
+      return true;
+    }
+    if(current === 5){
+      if(!state.timeline){ showError(5); return false; }
+      return true;
+    }
+    if(current === 6){
+      var nameVal = nameEl.value.trim();
+      var emailVal = emailEl.value.trim();
+      var phoneVal = phoneEl.value.trim();
+      var ok = true;
+      if(!nameVal){ nameEl.classList.add('sap-invalid'); ok = false; }
+      if(!emailVal || !isValidEmail(emailVal)){ emailEl.classList.add('sap-invalid'); ok = false; }
+      if(!phoneVal){ phoneEl.classList.add('sap-invalid'); ok = false; }
+      if(!ok){ showError(6); return false; }
+      state.fullName = nameVal;
+      state.email = emailVal;
+      state.phone = phoneVal;
+      state.company = companyEl.value.trim();
+      return true;
+    }
+    return true;
+  }
+
+  function populateReview(){
+    document.getElementById('sapReviewType').textContent = state.projectType || '—';
+    document.getElementById('sapReviewDescription').textContent = state.projectDescription || '—';
+    document.getElementById('sapReviewStage').textContent = state.projectStage || '—';
+    document.getElementById('sapReviewBudget').textContent = state.budget || '—';
+    document.getElementById('sapReviewTimeline').textContent = state.timeline || '—';
+    var contactLines = [state.fullName, state.email, state.phone];
+    if(state.company) contactLines.push(state.company);
+    document.getElementById('sapReviewContact').textContent = contactLines.filter(Boolean).join('\n');
+  }
+
+  function submitRequest(){
+    // No backend currently exists on this site (see contact.html form).
+    // Structured payload is logged here so it can be wired into a backend/API later.
+    var payload = {
+      projectType: state.projectType,
+      projectDescription: state.projectDescription,
+      projectStage: state.projectStage,
+      budget: state.budget,
+      timeline: state.timeline,
+      fullName: state.fullName,
+      email: state.email,
+      phone: state.phone,
+      company: state.company
+    };
+    console.log('Ezeron Tech — project request payload (ready for backend integration):', payload);
+
+    sapSection.style.display = 'none';
+    progressEl.setAttribute('aria-hidden','true');
+    successEl.hidden = false;
+    successEl.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+
+  nextBtn.addEventListener('click', function(){
+    if(current === 'review'){
+      submitRequest();
+      return;
+    }
+    if(!validateCurrent()) return;
+    if(current < TOTAL_STEPS){
+      goTo(current + 1);
+    } else {
+      goTo('review');
+    }
+  });
+
+  backBtn.addEventListener('click', function(){
+    if(current === 'review'){ goTo(TOTAL_STEPS); return; }
+    if(current > 1){ goTo(current - 1); }
+  });
+
+  progressSteps.forEach(function(step){
+    step.addEventListener('click', function(){
+      var n = parseInt(step.getAttribute('data-goto'), 10);
+      // only allow jumping to a step already reached, or the very next one
+      var maxReachable = (current === 'review') ? TOTAL_STEPS : current;
+      if(n <= maxReachable) goTo(n);
+    });
+  });
+
+  document.querySelectorAll('.sap-edit').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      goTo(parseInt(btn.getAttribute('data-goto'), 10));
+    });
+  });
+
+  var restartBtn = document.getElementById('sapRestart');
+  if(restartBtn){
+    restartBtn.addEventListener('click', function(){
+      state = {
+        projectType:'', projectDescription:'', projectStage:'',
+        budget:'', timeline:'', fullName:'', email:'', phone:'', company:''
+      };
+      typeCards.forEach(function(c){ c.classList.remove('selected'); c.setAttribute('aria-checked','false'); });
+      document.querySelectorAll('.sap-option').forEach(function(o){ o.classList.remove('selected'); o.setAttribute('aria-checked','false'); });
+      if(descEl) descEl.value = '';
+      if(nameEl) nameEl.value = '';
+      if(emailEl) emailEl.value = '';
+      if(phoneEl) phoneEl.value = '';
+      if(companyEl) companyEl.value = '';
+      successEl.hidden = true;
+      sapSection.style.display = '';
+      progressEl.setAttribute('aria-hidden','false');
+      goTo(1);
+    });
+  }
+
+  updateProgress();
+  updateNav();
+})();
+</script>
+</main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-cta">
+        <div>
+          <span class="eyebrow">Let's Talk</span>
+          <h3 style="margin-top:14px;">Got a project in mind?</h3>
+        </div>
+        <a href="start-a-project.html" class="btn btn-primary">Start a Project <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2 7.5H13M13 7.5L8 2.5M13 7.5L8 12.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="mark logo-placeholder"><img src="logo.png" alt="Ezeron Tech logo — replace logo.png with your logo" class="logo-img"></span>
+          <p class="body" style="max-width:280px;color:var(--mist-500);">Technology for real-world problems &mdash; built through client services and Ezeron-owned products.</p>
+        </div>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h4>Sitemap</h4>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="products.html">Products</a>
+            <a href="work.html">Work</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="team.html">Team</a>
+            <a href="contact.html">Contact</a>
+          </div>
+          <div class="footer-col">
+            <h4>Products</h4>
+            <a href="products.html#campvibes">CampVibes</a>
+            <a href="products.html#ezeronpay">Ezeron Pay</a>
+          </div>
+          <div class="footer-col">
+            <h4>Studio</h4>
+            <p style="color:var(--mist-500);">Client technology services and Ezeron-owned digital products.</p>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <a href="https://wa.me/233557757831" target="_blank" rel="noopener">+233 55 775 7831</a>
+            <a href="https://wa.me/+233 50 944 9991" target="_blank" rel="noopener">+233 50 944 9991</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span id="year"></span> Ezeron Tech. All rights reserved.</span>
+        <span>Understand &rarr; Design &rarr; Build &rarr; Improve</span>
+      </div>
+    </div>
+  </footer>
+<script>
+// EZERON TECH — shared interactions
+(function(){
+  // nav scroll state
+  var navOuter = document.querySelector('.nav-outer');
+  var lastY = 0;
+  function onScroll(){
+    if(!navOuter) return;
+    var y = window.scrollY || 0;
+    if(y > 40){ navOuter.classList.add('scrolled'); } else { navOuter.classList.remove('scrolled'); }
+    lastY = y;
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  // mobile menu
+  var burger = document.querySelector('.nav-burger');
+  var menu = document.querySelector('.mobile-menu');
+  var closeBtn = document.querySelector('.mobile-menu-close');
+  function openMenu(){ if(menu){ menu.classList.add('open'); document.body.style.overflow='hidden'; } }
+  function closeMenu(){ if(menu){ menu.classList.remove('open'); document.body.style.overflow=''; } }
+  if(burger) burger.addEventListener('click', openMenu);
+  if(closeBtn) closeBtn.addEventListener('click', closeMenu);
+  if(menu){
+    menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
+  }
+
+  // reveal on scroll
+  var revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window && revealEls.length){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.15, rootMargin:'0px 0px -60px 0px'});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  // glass glow follow pointer
+  var glassEls = document.querySelectorAll('.glass, .card');
+  glassEls.forEach(function(el){
+    el.addEventListener('mousemove', function(e){
+      var r = el.getBoundingClientRect();
+      var mx = ((e.clientX - r.left) / r.width) * 100;
+      var my = ((e.clientY - r.top) / r.height) * 100;
+      el.style.setProperty('--mx', mx + '%');
+      el.style.setProperty('--my', my + '%');
+      el.style.setProperty('--glow', '1');
+    });
+    el.addEventListener('mouseleave', function(){
+      el.style.setProperty('--glow', '0');
+    });
+  });
+})();
+
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

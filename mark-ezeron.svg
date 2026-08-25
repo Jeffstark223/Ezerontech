@@ -1,0 +1,6 @@
+<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ezeron Tech mark">
+  <rect x="0.5" y="0.5" width="39" height="39" rx="11.5" stroke="currentColor" stroke-opacity="0.35"/>
+  <path d="M12 12H28V16.2H16.4V18.6H25.6V22.4H16.4V24.8H28V29H12V12Z" fill="currentColor"/>
+  <path d="M12 12H28V16.2H16.4V18.6H25.6" stroke="currentColor" stroke-opacity="0" stroke-width="0"/>
+  <circle cx="29.5" cy="11.5" r="1.5" fill="currentColor"/>
+</svg>

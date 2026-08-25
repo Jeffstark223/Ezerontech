@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Work — Ezeron Tech</title>
+<meta name="description" content="Real digital products and websites designed and built by Ezeron Tech, including WOD, Hangover, Joyful Smile Foundation, Cluster Homes and REVOOBIT.">
+<meta property="og:title" content="Work — Ezeron Tech">
+<meta property="og:description" content="Real digital products and websites designed and built by Ezeron Tech, including WOD, Hangover, Joyful Smile Foundation, Cluster Homes and REVOOBIT.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ezeron Tech">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ===================================================================
+   EZERON TECH — DESIGN SYSTEM
+   Black + White + Liquid Glass
+=================================================================== */
+:root{
+  --black:#000000;
+  --white:#ffffff;
+  --ink-950:#050505;
+  --ink-900:#0a0a0a;
+  --ink-800:#121212;
+  --ink-700:#1a1a1a;
+  --line-1:rgba(255,255,255,0.08);
+  --line-2:rgba(255,255,255,0.14);
+  --line-3:rgba(255,255,255,0.24);
+  --mist-300:#d4d4d4;
+  --mist-500:#9a9a9a;
+  --mist-700:#6b6b6b;
+  --glass-fill:rgba(255,255,255,0.045);
+  --glass-fill-strong:rgba(255,255,255,0.08);
+  --glass-hi:rgba(255,255,255,0.5);
+  --radius-s:10px;
+  --radius-m:18px;
+  --radius-l:28px;
+  --radius-xl:40px;
+  --ease:cubic-bezier(.16,.84,.32,1);
+  --container:1240px;
+  --font-display:'Bricolage Grotesque', 'Inter', sans-serif;
+  --font-body:'Inter', -apple-system, sans-serif;
+  --font-mono:'IBM Plex Mono', monospace;
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}
+}
+body{
+  margin:0;
+  background:var(--black);
+  color:var(--white);
+  font-family:var(--font-body);
+  font-size:16px;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  position:relative;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;}
+ul{margin:0;padding:0;list-style:none;}
+h1,h2,h3,h4,p{margin:0;}
+:focus-visible{outline:2px solid var(--white);outline-offset:4px;border-radius:4px;}
+
+/* grain texture, fixed over entire viewport */
+.grain{
+  position:fixed;inset:0;pointer-events:none;z-index:9998;
+  opacity:0.035;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ===== layout helpers ===== */
+.wrap{max-width:var(--container);margin:0 auto;padding:0 32px;}
+.section{padding:140px 0;position:relative;}
+.section-tight{padding:80px 0;}
+@media (max-width:900px){
+  .section{padding:96px 0;}
+  .wrap{padding:0 22px;}
+}
+
+/* ===== eyebrow / labels ===== */
+.eyebrow{
+  font-family:var(--font-mono);
+  font-size:12.5px;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--mist-500);
+  display:inline-flex;align-items:center;gap:10px;
+}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--white);display:inline-block;}
+
+/* ===== type scale ===== */
+h1,.h1{
+  font-family:var(--font-display);
+  font-weight:600;
+  letter-spacing:-0.03em;
+  line-height:0.98;
+  font-size:clamp(42px,6.6vw,94px);
+}
+h2,.h2{
+  font-family:var(--font-display);
+  font-weight:600;
+  letter-spacing:-0.025em;
+  line-height:1.03;
+  font-size:clamp(32px,4.4vw,58px);
+}
+h3,.h3{
+  font-family:var(--font-display);
+  font-weight:600;
+  letter-spacing:-0.015em;
+  line-height:1.12;
+  font-size:clamp(21px,2.2vw,28px);
+}
+.body-lg{font-size:clamp(17px,1.7vw,21px);line-height:1.55;color:var(--mist-300);font-weight:400;}
+.body{font-size:16px;line-height:1.65;color:var(--mist-300);}
+.caption{font-family:var(--font-mono);font-size:12px;letter-spacing:0.06em;color:var(--mist-700);}
+
+/* ===== buttons ===== */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:15px 26px;border-radius:100px;
+  font-family:var(--font-body);font-weight:600;font-size:14.5px;
+  letter-spacing:0.01em;
+  cursor:pointer;border:1px solid transparent;
+  transition:transform .5s var(--ease), background .4s ease, color .4s ease, border-color .4s ease, box-shadow .4s ease;
+  white-space:nowrap;
+}
+.btn svg{transition:transform .45s var(--ease);}
+.btn:hover svg{transform:translateX(4px);}
+.btn-primary{background:var(--white);color:var(--black);}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(255,255,255,0.15);}
+.btn-ghost{
+  background:var(--glass-fill);
+  color:var(--white);
+  border-color:var(--line-2);
+  backdrop-filter:blur(18px) saturate(140%);
+  -webkit-backdrop-filter:blur(18px) saturate(140%);
+}
+.btn-ghost:hover{background:var(--glass-fill-strong);border-color:var(--line-3);transform:translateY(-2px);}
+.btn-sm{padding:11px 20px;font-size:13.5px;}
+
+/* ===== glass surfaces ===== */
+.glass{
+  background:linear-gradient(155deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02));
+  border:1px solid var(--line-2);
+  backdrop-filter:blur(22px) saturate(160%);
+  -webkit-backdrop-filter:blur(22px) saturate(160%);
+  border-radius:var(--radius-l);
+  position:relative;
+  box-shadow:0 1px 0 rgba(255,255,255,0.06) inset, 0 30px 60px -30px rgba(0,0,0,0.7);
+}
+.glass::before{
+  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:radial-gradient(420px circle at var(--mx,50%) var(--my,0%), rgba(255,255,255,0.10), transparent 60%);
+  opacity:var(--glow,0);
+  transition:opacity .4s ease;
+}
+.glass:hover::before{opacity:1;}
+.final-cta{text-align:center;padding:80px 40px;}
+
+/* ===== floating nav ===== */
+.nav-outer{
+  position:fixed;top:20px;left:0;right:0;z-index:1000;
+  display:flex;justify-content:center;
+  padding:0 20px;
+  transition:top .5s var(--ease);
+}
+.nav{
+  width:100%;max-width:1120px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 14px 12px 20px;
+  border-radius:100px;
+  background:rgba(10,10,10,0.55);
+  border:1px solid var(--line-2);
+  backdrop-filter:blur(24px) saturate(180%);
+  -webkit-backdrop-filter:blur(24px) saturate(180%);
+  box-shadow:0 1px 0 rgba(255,255,255,0.08) inset, 0 20px 50px -20px rgba(0,0,0,0.8);
+  transition:padding .5s var(--ease), background .5s var(--ease), transform .5s var(--ease), max-width .5s var(--ease), width .5s var(--ease);
+}
+.nav-outer.scrolled{top:12px;}
+.nav-outer.scrolled .nav{padding:7px 10px 7px 16px;background:rgba(6,6,6,0.82);box-shadow:0 1px 0 rgba(255,255,255,0.08) inset, 0 16px 36px -16px rgba(0,0,0,0.9);width:auto;max-width:480px;gap:18px;}
+.nav-outer.scrolled .nav-brand .mark{width:42px;height:42px;}
+.nav-outer.scrolled .nav-links a{padding:7px 13px;font-size:13.5px;}
+.nav-outer.scrolled .nav-cta{padding:9px 16px;font-size:13px;}
+.nav{position:relative;}
+.nav-links{transition:opacity .3s ease,visibility .3s ease,max-width .5s var(--ease),margin .5s var(--ease);overflow:hidden;}
+.nav-outer.scrolled .nav-links{opacity:0;visibility:hidden;pointer-events:none;max-width:0;margin:0;}
+.nav-outer.scrolled .nav-burger{display:flex;}
+.brand-text{transition:opacity .3s ease,max-width .4s var(--ease),margin .4s var(--ease);overflow:hidden;white-space:nowrap;}
+.nav-outer.scrolled .brand-text{opacity:0;max-width:0;margin:0;}
+.nav-brand .mark{transition:width .5s var(--ease),height .5s var(--ease);}
+.nav-links a{transition:color .35s ease,padding .5s var(--ease),font-size .5s var(--ease);}
+.nav-cta{transition:padding .5s var(--ease),font-size .5s var(--ease);}
+.nav-brand{display:flex;align-items:center;gap:12px;font-family:var(--font-display);font-weight:600;font-size:16px;letter-spacing:-0.01em;}
+.nav-brand .mark{width:52px;height:52px;color:var(--white);flex:none;}
+/* ===== logo placeholder image ===== */
+.mark{display:inline-flex;align-items:center;justify-content:center;}
+.logo-img{width:100%;height:100%;display:block;object-fit:contain;}
+.logo-placeholder{border-radius:8px;overflow:hidden;}
+
+.nav-links{display:flex;align-items:center;gap:2px;}
+.nav-links a{
+  position:relative;padding:9px 16px;border-radius:100px;
+  font-size:14px;font-weight:500;color:var(--mist-300);
+  transition:color .35s ease;
+}
+.nav-links a:hover{color:var(--white);}
+.nav-links a::before{
+  content:"";position:absolute;inset:0;border-radius:100px;
+  background:var(--glass-fill-strong);
+  opacity:0;transform:scale(0.85);
+  transition:opacity .35s var(--ease), transform .35s var(--ease);
+  z-index:-1;
+}
+.nav-links a:hover::before{opacity:1;transform:scale(1);}
+.nav-links a.active{color:var(--white);}
+.nav-links a.active::after{
+  content:"";position:absolute;left:16px;right:16px;bottom:5px;height:1px;background:var(--white);
+}
+.nav-right{display:flex;align-items:center;gap:10px;}
+.nav-cta{padding:11px 20px;font-size:13.5px;}
+.nav-burger{
+  display:none;width:40px;height:40px;border-radius:50%;
+  background:var(--glass-fill-strong);border:1px solid var(--line-2);
+  align-items:center;justify-content:center;cursor:pointer;
+}
+.nav-burger span{display:block;width:15px;height:1px;background:var(--white);position:relative;}
+.nav-burger span::before,.nav-burger span::after{content:"";position:absolute;left:0;width:15px;height:1px;background:var(--white);transition:transform .3s ease;}
+.nav-burger span::before{top:-5px;}
+.nav-burger span::after{top:5px;}
+
+@media (max-width:900px){
+  .nav-links{display:none;}
+  .nav-right .btn-ghost.nav-cta{display:none;}
+  .nav-burger{display:flex;}
+  .nav{padding:10px 10px 10px 18px;}
+}
+
+/* ===== mobile menu ===== */
+.mobile-menu{
+  position:fixed;inset:0;z-index:1100;
+  display:flex;flex-direction:column;
+  padding:20px;
+  background:rgba(4,4,4,0.7);
+  backdrop-filter:blur(30px) saturate(180%);
+  -webkit-backdrop-filter:blur(30px) saturate(180%);
+  opacity:0;visibility:hidden;
+  transform:translateY(-8px);
+  transition:opacity .45s var(--ease), transform .45s var(--ease), visibility 0s linear .45s;
+}
+.mobile-menu.open{opacity:1;visibility:visible;transform:translateY(0);transition:opacity .45s var(--ease), transform .45s var(--ease), visibility 0s;}
+.mobile-menu-head{display:flex;align-items:center;justify-content:space-between;padding:6px 6px 0;}
+.mobile-menu-close{
+  width:42px;height:42px;border-radius:50%;background:var(--glass-fill-strong);
+  border:1px solid var(--line-2);display:flex;align-items:center;justify-content:center;cursor:pointer;
+}
+.mobile-links{flex:1;display:flex;flex-direction:column;justify-content:center;gap:6px;padding:20px 10px;}
+.mobile-links a{
+  font-family:var(--font-display);font-size:clamp(32px,10vw,48px);font-weight:600;
+  letter-spacing:-0.02em;color:var(--white);padding:10px 4px;border-bottom:1px solid var(--line-1);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.mobile-links a span{font-family:var(--font-mono);font-size:13px;color:var(--mist-700);}
+.mobile-menu-foot{padding:10px;}
+
+/* ===== cards ===== */
+.card{
+  padding:34px;
+  transition:transform .5s var(--ease), border-color .4s ease;
+}
+.card:hover{transform:translateY(-4px);border-color:var(--line-3);}
+
+/* ===== footer ===== */
+footer{
+  border-top:1px solid var(--line-1);
+  padding:0 0 34px;
+  background:linear-gradient(180deg, transparent, rgba(255,255,255,0.015));
+}
+.footer-cta{
+  display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;
+  padding:56px 0;border-bottom:1px solid var(--line-1);
+}
+.footer-cta h3{font-size:clamp(22px,3vw,30px);letter-spacing:-0.02em;}
+.footer-top{display:flex;justify-content:space-between;gap:60px;flex-wrap:wrap;padding:60px 0;}
+.footer-brand .mark{width:44px;height:44px;color:var(--white);margin-bottom:18px;}
+.footer-cols{display:flex;gap:70px;flex-wrap:wrap;}
+.footer-col h4{font-family:var(--font-mono);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mist-700);margin-bottom:16px;}
+.footer-col a,.footer-col p{display:block;color:var(--mist-300);font-size:14.5px;margin-bottom:11px;transition:color .3s ease;}
+.footer-col a:hover{color:var(--white);}
+.footer-bottom{
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;
+  padding-top:28px;border-top:1px solid var(--line-1);
+  font-family:var(--font-mono);font-size:12px;color:var(--mist-700);
+}
+@media (max-width:700px){
+  .footer-cta{flex-direction:column;align-items:flex-start;}
+  .footer-top{flex-direction:column;gap:40px;}
+  .footer-cols{gap:40px;}
+}
+
+/* ===== reveal on scroll ===== */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease), transform .9s var(--ease);}
+.reveal.in{opacity:1;transform:translateY(0);}
+
+/* ===== misc ===== */
+.divider{height:1px;background:var(--line-1);width:100%;}
+.tag{
+  font-family:var(--font-mono);font-size:11.5px;letter-spacing:0.08em;text-transform:uppercase;
+  padding:6px 12px;border-radius:100px;border:1px solid var(--line-2);color:var(--mist-500);
+  display:inline-block;
+}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+@media (max-width:900px){.grid-2,.grid-3{grid-template-columns:1fr;}}
+
+.ph-photo{
+  position:relative;overflow:hidden;border-radius:var(--radius-l);
+  border:1px solid var(--line-2);
+}
+.ph-photo img{
+  width:100%;height:100%;object-fit:cover;
+  filter:grayscale(1) contrast(1.08) brightness(0.9);
+  transition:transform .8s var(--ease), filter .5s ease;
+}
+.ph-photo:hover img{transform:scale(1.045);filter:grayscale(0.4) contrast(1.1) brightness(0.95);}
+.ph-photo::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.55) 100%);
+}
+
+.skip-link{
+  position:absolute;left:-999px;top:0;background:var(--white);color:var(--black);
+  padding:12px 20px;border-radius:8px;z-index:2000;
+}
+.skip-link:focus{left:20px;top:20px;}
+
+/* ===================================================================
+   WORKS PAGE — real project showcase
+=================================================================== */
+
+/* ---- filter bar ---- */
+.work-filter{
+  display:flex;flex-wrap:wrap;gap:10px;
+}
+.filter-chip{
+  font-family:var(--font-mono);font-size:12.5px;letter-spacing:0.05em;
+  padding:10px 18px;border-radius:100px;cursor:pointer;
+  background:var(--glass-fill);border:1px solid var(--line-2);color:var(--mist-300);
+  backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);
+  transition:background .4s ease, border-color .4s ease, color .4s ease, transform .4s var(--ease);
+}
+.filter-chip:hover{background:var(--glass-fill-strong);border-color:var(--line-3);color:var(--white);}
+.filter-chip.active{background:var(--white);color:var(--black);border-color:var(--white);}
+
+/* ---- shared fade/collapse for filtering ---- */
+.work-item{
+  transition:opacity .5s var(--ease), transform .5s var(--ease), max-height .6s var(--ease), margin .6s var(--ease);
+  max-height:2600px;overflow:hidden;
+}
+.work-item.work-hidden{opacity:0;transform:translateY(14px);max-height:0 !important;margin:0 !important;pointer-events:none;}
+
+/* ---- project visual placeholder (no fake screenshots) ---- */
+.work-visual{
+  position:relative;overflow:hidden;border-radius:var(--radius-l);
+  border:1px solid var(--line-2);
+  background:linear-gradient(155deg, rgba(255,255,255,0.06), rgba(255,255,255,0.015));
+  aspect-ratio:4/3;
+  display:flex;align-items:center;justify-content:center;
+  transition:transform .6s var(--ease), border-color .4s ease;
+}
+.work-visual::before{
+  content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:radial-gradient(140% 100% at 15% 0%, rgba(255,255,255,0.08), transparent 55%);
+}
+.work-visual-img{
+  position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:top center;z-index:1;
+  filter:grayscale(0.15) contrast(1.05);
+  transition:transform .8s var(--ease), filter .5s ease;
+}
+.work-visual:hover .work-visual-img{transform:scale(1.02);filter:grayscale(0) contrast(1.08);}
+.work-visual-img.wv-hide{display:none;}
+.work-visual-mark{
+  font-family:var(--font-display);font-weight:700;letter-spacing:-0.03em;
+  font-size:clamp(64px,10vw,140px);color:rgba(255,255,255,0.14);line-height:1;
+  position:relative;display:none;
+}
+.work-visual.wv-broken .work-visual-mark{display:block;}
+.work-visual-cap{
+  position:absolute;bottom:18px;left:20px;right:20px;z-index:3;
+  display:flex;align-items:center;justify-content:space-between;
+  font-family:var(--font-mono);font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mist-700);
+  opacity:0;transition:opacity .4s ease;
+}
+.work-visual.wv-broken .work-visual-cap{opacity:1;}
+.work-visual-cap span:last-child{width:6px;height:6px;border-radius:50%;background:var(--mist-700);}
+
+/* ---- featured project (large) ---- */
+.work-featured{
+  display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch;overflow:hidden;
+  padding:0;
+}
+.work-featured-visual{padding:20px;}
+.work-featured-visual .work-visual{aspect-ratio:auto;height:100%;min-height:340px;}
+.work-featured-body{padding:52px 56px 52px 20px;display:flex;flex-direction:column;justify-content:center;}
+.work-featured-body h2{margin-top:14px;}
+.work-featured-body .body-lg{margin-top:18px;max-width:460px;}
+.work-featured-body .work-toggle{margin-top:30px;align-self:flex-start;}
+
+/* ---- supporting project rows (alternating) ---- */
+.work-list{display:flex;flex-direction:column;gap:24px;}
+.work-row{
+  display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;
+  padding:44px;
+}
+.work-row.work-flip{grid-template-columns:1fr 1fr;}
+.work-row.work-flip .work-row-visual{order:2;}
+.work-row.work-flip .work-row-body{order:1;}
+.work-row-body h3{margin-top:14px;font-size:clamp(24px,3vw,32px);}
+.work-row-body .body{margin-top:14px;max-width:440px;}
+.work-row-body .work-toggle{margin-top:24px;}
+
+/* ---- case study toggle button ---- */
+.work-toggle{cursor:pointer;}
+.work-toggle svg{transition:transform .4s var(--ease);}
+.work-item.expanded .work-toggle svg{transform:rotate(90deg);}
+
+/* ---- detail / case study panel ---- */
+.work-detail{
+  margin-top:0;max-height:0;opacity:0;overflow:hidden;
+  transition:max-height .6s var(--ease), opacity .5s var(--ease), margin .6s var(--ease);
+}
+.work-item.expanded .work-detail{max-height:1400px;opacity:1;margin-top:22px;}
+.work-detail-inner{padding:40px 44px;}
+.work-detail-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:44px;}
+.work-detail h4{font-family:var(--font-mono);font-size:11.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mist-700);margin-bottom:10px;}
+.work-detail-block + .work-detail-block{margin-top:26px;}
+.work-detail-meta{display:flex;flex-direction:column;gap:22px;}
+.work-detail-note{font-size:13.5px;color:var(--mist-700);font-style:italic;}
+
+@media (max-width:900px){
+  .work-featured{grid-template-columns:1fr;}
+  .work-featured-visual{padding:20px 20px 0;}
+  .work-featured-body{padding:36px 28px 40px;}
+  .work-row{grid-template-columns:1fr;gap:26px;padding:30px;}
+  .work-row.work-flip .work-row-visual{order:1;}
+  .work-row.work-flip .work-row-body{order:2;}
+  .work-detail-grid{grid-template-columns:1fr;}
+  .work-detail-inner{padding:30px 26px;}
+}
+
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+<div class="grain" aria-hidden="true"></div>
+  <div class="nav-outer">
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html" class="nav-brand">
+        <span class="mark logo-placeholder"><img src="logo.png" alt="Ezeron Tech logo — replace logo.png with your logo" class="logo-img"></span>
+        <span class="brand-text">Ezeron Tech</span>
+      </a>
+      <div class="nav-links">
+      <a href="index.html" class="">Home</a>
+      <a href="about.html" class="">About</a>
+      <a href="services.html" class="">Services</a>
+      <a href="products.html" class="">Products</a>
+      <a href="work.html" class="active">Work</a>
+      <a href="pricing.html" class="">Pricing</a>
+      <a href="contact.html" class="">Contact</a>
+      </div>
+      <div class="nav-right">
+        <a href="start-a-project.html" class="btn btn-ghost nav-cta">Start a Project</a>
+        <button class="nav-burger" aria-label="Open menu" aria-expanded="false">
+          <span></span>
+        </button>
+      </div>
+    </nav>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-head">
+      <a href="index.html" class="nav-brand"><span class="mark logo-placeholder"><img src="logo.png" alt="Ezeron Tech logo — replace logo.png with your logo" class="logo-img"></span>Ezeron Tech</a>
+      <button class="mobile-menu-close" aria-label="Close menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 2L14 14M14 2L2 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+    </div>
+    <div class="mobile-links">
+      <a href="index.html"><span>Home</span><span>01</span></a>
+      <a href="about.html"><span>About</span><span>02</span></a>
+      <a href="services.html"><span>Services</span><span>03</span></a>
+      <a href="products.html"><span>Products</span><span>04</span></a>
+      <a href="work.html"><span>Work</span><span>05</span></a>
+      <a href="pricing.html"><span>Pricing</span><span>06</span></a>
+      <a href="contact.html"><span>Contact</span><span>07</span></a>
+    </div>
+    <div class="mobile-menu-foot">
+      <a href="start-a-project.html" class="btn btn-primary" style="width:100%;justify-content:center;">Start a Project <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2 7.5H13M13 7.5L8 2.5M13 7.5L8 12.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </div>
+<main id="main">
+<section class="section page-hero" style="padding-top:170px;padding-bottom:60px;">
+  <div class="page-hero-bg" aria-hidden="true">
+    <img src="https://images.unsplash.com/photo-1509966756634-9c23dd6e6815?w=2000&q=80&auto=format&fit=crop" alt="Laptop screen showing lines of code, representing project work" loading="lazy">
+  </div>
+  <div class="wrap" style="position:relative;">
+    <span class="eyebrow reveal in">Work</span>
+    <h1 class="reveal in" style="margin-top:20px;max-width:760px;">Things we've<br>actually built.</h1>
+    <p class="body-lg reveal in" style="margin-top:24px;max-width:560px;">
+      A collection of real digital products, websites and systems designed
+      and developed by Ezeron Tech &mdash; for clients, partners and our own
+      ideas.
+    </p>
+  </div>
+</section>
+<style>
+.page-hero{position:relative;overflow:hidden;}
+.page-hero-bg{position:absolute;inset:0;z-index:0;}
+.page-hero-bg img{width:100%;height:100%;object-fit:cover;filter:contrast(1.05) brightness(0.85) saturate(1.1);opacity:0.95;}
+.page-hero-bg::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg, rgba(0,0,0,0.15), var(--black) 92%);}
+</style>
+
+<section class="section-tight" style="padding-top:0;padding-bottom:0;">
+  <div class="wrap">
+    <div class="work-filter reveal" role="group" aria-label="Filter work by category">
+      <button type="button" class="filter-chip active" data-filter="all">All</button>
+      <button type="button" class="filter-chip" data-filter="websites">Websites</button>
+      <button type="button" class="filter-chip" data-filter="event">Event Technology</button>
+      <button type="button" class="filter-chip" data-filter="nonprofit">Foundation / Nonprofit</button>
+      <button type="button" class="filter-chip" data-filter="realestate">Property / Real Estate</button>
+      <button type="button" class="filter-chip" data-filter="ecommerce">Business / E-commerce</button>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FEATURED PROJECT — WOD ================= -->
+<section class="section-tight">
+  <div class="wrap">
+    <article class="work-item glass work-featured reveal" data-category="websites" id="wod">
+      <div class="work-featured-visual">
+        <div class="work-visual" id="wodVisual">
+          <img src="wod.png" alt="WOD website screenshot" class="work-visual-img" loading="lazy">
+          <span class="work-visual-mark">W</span>
+          <div class="work-visual-cap"><span>Add wod.png</span><span></span></div>
+        </div>
+      </div>
+      <div class="work-featured-body">
+        <span class="tag">Selected Work</span>
+        <span class="eyebrow" style="margin-top:18px;">Website</span>
+        <h2>WOD</h2>
+        <p class="body-lg">World of Discipline (WOD) is a website designed and built by Ezeron Tech.</p>
+        <button type="button" class="btn btn-ghost work-toggle" data-target="wod-detail" aria-expanded="false">
+          View Case Study
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2 7.5H13M13 7.5L8 2.5M13 7.5L8 12.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+      <div class="work-detail" id="wod-detail" style="grid-column:1 / -1;">
+        <div class="work-detail-inner">
+          <div class="work-detail-grid">
+            <div>
+              <div class="work-detail-block">
+                <h4>Project Overview</h4>
+                <p class="body">WOD (World of Discipline) is a website project designed and developed by Ezeron Tech.</p>
+              </div>
+              <div class="work-detail-block">
+                <h4>What We Built</h4>
+                <p class="body">Ezeron Tech handled the design and development of the WOD website.</p>
+              </div>
+            </div>
+            <div class="work-detail-meta">
+              <div class="work-detail-block">
+                <h4>Category</h4>
+                <span class="tag">Website</span>
+              </div>
+              <p class="work-detail-note">Additional details, features and a live link will be added here as they're confirmed.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ================= SUPPORTING PROJECTS ================= -->
+<section class="section">
+  <div class="wrap">
+    <div class="work-list">
+
+      <!-- HANGOVER — Event Technology -->
+      <article class="work-item glass work-row reveal" data-category="event" id="hangover">
+        <div class="work-row-visual">
+          <div class="work-visual" id="hangoverVisual">
+            <img src="hangover.png" alt="Hangover website screenshot" class="work-visual-img" loading="lazy">
+            <span class="work-visual-mark">H</span>
+            <div class="work-visual-cap"><span>Add hangover.png</span><span></span></div>
+          </div>
+        </div>
+        <div class="work-row-body">
+          <span class="eyebrow">Event Technology</span>
+          <h3>Hangover</h3>
+          <p class="body">Hangover is an event and ticketing website designed and built by Ezeron Tech, covering event listing and ticketing functionality.</p>
+          <button type="button" class="btn btn-ghost btn-sm work-toggle" data-target="hangover-detail" aria-expanded="false">
+            View Case Study
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2 7.5H13M13 7.5L8 2.5M13 7.5L8 12.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <div class="work-detail" id="hangover-detail" style="grid-column:1 / -1;">
+          <div class="work-detail-inner" style="padding-left:0;padding-right:0;">
+            <div class="work-detail-grid">
+              <div>
+                <div class="work-detail-block">
+                  <h4>Project Overview</h4>
+                  <p class="body">Hangover is an event/ticketing website built for organizing and promoting events online.</p>
+                </div>
+                <div class="work-detail-block">
+                  <h4>What We Built</h4>
+                  <p class="body">Ezeron Tech designed and developed the Hangover website, including its ticketing functionality.</p>
+                </div>
+              </div>
+              <div class="work-detail-meta">
+                <div class="work-detail-block">
+                  <h4>Category</h4>
+                  <span class="tag">Event / Ticketing Website</span>
+                </div>
+                <p class="work-detail-note">Additional details, features and a live link will be added here as they're confirmed.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- JOYFUL SMILE FOUNDATION — Nonprofit -->
+      <article class="work-item glass work-row work-flip reveal" data-category="nonprofit" id="joyful-smile-foundation">
+        <div class="work-row-visual">
+          <div class="work-visual" id="jsfVisual">
+            <img src="joyful-smile-foundation.png" alt="Joyful Smile Foundation website screenshot" class="work-visual-img" loading="lazy">
+            <span class="work-visual-mark">J</span>
+            <div class="work-visual-cap"><span>Add joyful-smile-foundation.png</span><span></span></div>
+          </div>
+        </div>
+        <div class="work-row-body">
+          <span class="eyebrow">Foundation / Nonprofit</span>
+          <h3>Joyful Smile Foundation</h3>
+          <p class="body">Joyful Smile Foundation is a foundation/charity website designed and built by Ezeron Tech.</p>
+          <button type="button" class="btn btn-ghost btn-sm work-toggle" data-target="jsf-detail" aria-expanded="false">
+            View Case Study
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2 7.5H13M13 7.5L8 2.5M13 7.5L8 12.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <div class="work-detail" id="jsf-detail" style="grid-column:1 / -1;">
+          <div class="work-detail-inner" style="padding-left:0;padding-right:0;">
+            <div class="work-detail-grid">
+              <div>
+                <div class="work-detail-block">
+                  <h4>Project Overview</h4>
+                  <p class="body">Joyful Smile Foundation is a website built for a nonprofit organization.</p>
+                </div>
+                <div class="work-detail-block">
+                  <h4>What We Built</h4>
+                  <p class="body">Ezeron Tech designed and developed the Joyful Smile Foundation website.</p>
+                </div>
+              </div>
+              <div class="work-detail-meta">
+                <div class="work-detail-block">
+                  <h4>Category</h4>
+                  <span class="tag">Foundation / Nonprofit Website</span>
+                </div>
+                <p class="work-detail-note">Additional details, features and a live link will be added here as they're confirmed.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- CLUSTER HOMES — Property / Real Estate -->
+      <article class="work-item glass work-row reveal" data-category="realestate" id="cluster-homes">
+        <div class="work-row-visual">
+          <div class="work-visual" id="clusterHomesVisual">
+            <img src="cluster-homes.png" alt="Cluster Homes website screenshot" class="work-visual-img" loading="lazy">
+            <span class="work-visual-mark">C</span>
+            <div class="work-visual-cap"><span>Add cluster-homes.png</span><span></span></div>
+          </div>
+        </div>
+        <div class="work-row-body">
+          <span class="eyebrow">Property / Real Estate</span>
+          <h3>Cluster Homes</h3>
+          <p class="body">Cluster Homes is a property/apartment website designed and built by Ezeron Tech.</p>
+          <button type="button" class="btn btn-ghost btn-sm work-toggle" data-target="cluster-homes-detail" aria-expanded="false">
+            View Case Study
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2 7.5H13M13 7.5L8 2.5M13 7.5L8 12.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <div class="work-detail" id="cluster-homes-detail" style="grid-column:1 / -1;">
+          <div class="work-detail-inner" style="padding-left:0;padding-right:0;">
+            <div class="work-detail-grid">
+              <div>
+                <div class="work-detail-block">
+                  <h4>Project Overview</h4>
+                  <p class="body">Cluster Homes is a website built for a property / apartment offering.</p>
+                </div>
+                <div class="work-detail-block">
+                  <h4>What We Built</h4>
+                  <p class="body">Ezeron Tech designed and developed the Cluster Homes website.</p>
+                </div>
+              </div>
+              <div class="work-detail-meta">
+                <div class="work-detail-block">
+                  <h4>Category</h4>
+                  <span class="tag">Property / Real Estate Website</span>
+                </div>
+                <p class="work-detail-note">Additional details, features and a live link will be added here as they're confirmed.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- REVOOBIT — Business / E-commerce -->
+      <article class="work-item glass work-row work-flip reveal" data-category="ecommerce" id="revoobit">
+        <div class="work-row-visual">
+          <div class="work-visual" id="revoobitVisual">
+            <img src="revoobit.png" alt="REVOOBIT website screenshot" class="work-visual-img" loading="lazy">
+            <span class="work-visual-mark">R</span>
+            <div class="work-visual-cap"><span>Add revoobit.png</span><span></span></div>
+          </div>
+        </div>
+        <div class="work-row-body">
+          <span class="eyebrow">Business / E-commerce</span>
+          <h3>REVOOBIT</h3>
+          <p class="body">REVOOBIT is a business/e-commerce website designed and built by Ezeron Tech.</p>
+          <button type="button" class="btn btn-ghost btn-sm work-toggle" data-target="revoobit-detail" aria-expanded="false">
+            View Case Study
+            <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2 7.5H13M13 7.5L8 2.5M13 7.5L8 12.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <div class="work-detail" id="revoobit-detail" style="grid-column:1 / -1;">
+          <div class="work-detail-inner" style="padding-left:0;padding-right:0;">
+            <div class="work-detail-grid">
+              <div>
+                <div class="work-detail-block">
+                  <h4>Project Overview</h4>
+                  <p class="body">REVOOBIT is a business / e-commerce website built by Ezeron Tech.</p>
+                </div>
+                <div class="work-detail-block">
+                  <h4>What We Built</h4>
+                  <p class="body">Ezeron Tech designed and developed the REVOOBIT website.</p>
+                </div>
+              </div>
+              <div class="work-detail-meta">
+                <div class="work-detail-block">
+                  <h4>Category</h4>
+                  <span class="tag">Business / E-commerce Website</span>
+                </div>
+                <p class="work-detail-note">Additional details, features and a live link will be added here as they're confirmed.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="glass final-cta reveal">
+      <span class="eyebrow" style="justify-content:center;">Have A Project In Mind?</span>
+      <h2 style="margin-top:20px;">Let's build the next one together.</h2>
+      <div style="display:flex;gap:14px;justify-content:center;margin-top:32px;flex-wrap:wrap;">
+        <a href="start-a-project.html" class="btn btn-primary">Start a Project <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2 7.5H13M13 7.5L8 2.5M13 7.5L8 12.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="services.html" class="btn btn-ghost">See Our Services <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2 7.5H13M13 7.5L8 2.5M13 7.5L8 12.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-cta">
+        <div>
+          <span class="eyebrow">Let's Talk</span>
+          <h3 style="margin-top:14px;">Got a project in mind?</h3>
+        </div>
+        <a href="start-a-project.html" class="btn btn-primary">Start a Project <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2 7.5H13M13 7.5L8 2.5M13 7.5L8 12.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="mark logo-placeholder"><img src="logo.png" alt="Ezeron Tech logo — replace logo.png with your logo" class="logo-img"></span>
+          <p class="body" style="max-width:280px;color:var(--mist-500);">Technology for real-world problems &mdash; built through client services and Ezeron-owned products.</p>
+        </div>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h4>Sitemap</h4>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="products.html">Products</a>
+            <a href="work.html">Work</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="team.html">Team</a>
+            <a href="contact.html">Contact</a>
+          </div>
+          <div class="footer-col">
+            <h4>Products</h4>
+            <a href="products.html#campvibes">CampVibes</a>
+            <a href="products.html#ezeronpay">Ezeron Pay</a>
+          </div>
+          <div class="footer-col">
+            <h4>Studio</h4>
+            <p style="color:var(--mist-500);">Client technology services and Ezeron-owned digital products.</p>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <a href="https://wa.me/233557757831" target="_blank" rel="noopener">+233 55 775 7831</a>
+            <a href="https://wa.me/+233 50 944 9991" target="_blank" rel="noopener">+233 50 944 9991</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span id="year"></span> Ezeron Tech. All rights reserved.</span>
+        <span>Understand &rarr; Design &rarr; Build &rarr; Improve</span>
+      </div>
+    </div>
+  </footer>
+<script>
+// EZERON TECH — shared interactions
+(function(){
+  // nav scroll state
+  var navOuter = document.querySelector('.nav-outer');
+  var lastY = 0;
+  function onScroll(){
+    if(!navOuter) return;
+    var y = window.scrollY || 0;
+    if(y > 40){ navOuter.classList.add('scrolled'); } else { navOuter.classList.remove('scrolled'); }
+    lastY = y;
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  // mobile menu
+  var burger = document.querySelector('.nav-burger');
+  var menu = document.querySelector('.mobile-menu');
+  var closeBtn = document.querySelector('.mobile-menu-close');
+  function openMenu(){ if(menu){ menu.classList.add('open'); document.body.style.overflow='hidden'; } }
+  function closeMenu(){ if(menu){ menu.classList.remove('open'); document.body.style.overflow=''; } }
+  if(burger) burger.addEventListener('click', openMenu);
+  if(closeBtn) closeBtn.addEventListener('click', closeMenu);
+  if(menu){
+    menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
+  }
+
+  // reveal on scroll
+  var revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window && revealEls.length){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.15, rootMargin:'0px 0px -60px 0px'});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  // glass glow follow pointer
+  var glassEls = document.querySelectorAll('.glass, .card');
+  glassEls.forEach(function(el){
+    el.addEventListener('mousemove', function(e){
+      var r = el.getBoundingClientRect();
+      var mx = ((e.clientX - r.left) / r.width) * 100;
+      var my = ((e.clientY - r.top) / r.height) * 100;
+      el.style.setProperty('--mx', mx + '%');
+      el.style.setProperty('--my', my + '%');
+      el.style.setProperty('--glow', '1');
+    });
+    el.addEventListener('mouseleave', function(){
+      el.style.setProperty('--glow', '0');
+    });
+  });
+
+  // works page — screenshot placeholders (fall back to monogram if image is missing)
+  var workVisualImgs = document.querySelectorAll('.work-visual-img');
+  workVisualImgs.forEach(function(img){
+    img.addEventListener('error', function(){
+      img.classList.add('wv-hide');
+      var wrap = img.closest('.work-visual');
+      if(wrap) wrap.classList.add('wv-broken');
+    });
+  });
+
+  // works page — category filter
+  var filterChips = document.querySelectorAll('.filter-chip');
+  var workItems = document.querySelectorAll('.work-item');
+  if(filterChips.length && workItems.length){
+    filterChips.forEach(function(chip){
+      chip.addEventListener('click', function(){
+        filterChips.forEach(function(c){ c.classList.remove('active'); });
+        chip.classList.add('active');
+        var f = chip.getAttribute('data-filter');
+        workItems.forEach(function(item){
+          var show = f === 'all' || item.getAttribute('data-category') === f;
+          item.classList.toggle('work-hidden', !show);
+        });
+      });
+    });
+  }
+
+  // works page — case study expand/collapse
+  var workToggles = document.querySelectorAll('.work-toggle');
+  workToggles.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var item = btn.closest('.work-item');
+      if(!item) return;
+      var willExpand = !item.classList.contains('expanded');
+      item.classList.toggle('expanded', willExpand);
+      btn.setAttribute('aria-expanded', willExpand ? 'true' : 'false');
+      if(willExpand){
+        var label = btn.childNodes[0];
+        if(label && label.nodeType === 3) label.textContent = 'Hide Case Study ';
+      } else {
+        var label2 = btn.childNodes[0];
+        if(label2 && label2.nodeType === 3) label2.textContent = 'View Case Study ';
+      }
+    });
+  });
+})();
+
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

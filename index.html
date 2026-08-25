@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ezeron Tech — Technology for Real-World Problems</title>
+<meta name="description" content="Ezeron Tech is a technology company building client technology solutions and its own digital products, including CampVibes and Ezeron Pay.">
+<meta property="og:title" content="Ezeron Tech — Technology for Real-World Problems">
+<meta property="og:description" content="Ezeron Tech is a technology company building client technology solutions and its own digital products, including CampVibes and Ezeron Pay.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ezeron Tech">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ===================================================================
+   EZERON TECH — DESIGN SYSTEM
+   Black + White + Liquid Glass
+=================================================================== */
+:root{
+  --black:#000000;
+  --white:#ffffff;
+  --ink-950:#050505;
+  --ink-900:#0a0a0a;
+  --ink-800:#121212;
+  --ink-700:#1a1a1a;
+  --line-1:rgba(255,255,255,0.08);
+  --line-2:rgba(255,255,255,0.14);
+  --line-3:rgba(255,255,255,0.24);
+  --mist-300:#d4d4d4;
+  --mist-500:#9a9a9a;
+  --mist-700:#6b6b6b;
+  --glass-fill:rgba(255,255,255,0.045);
+  --glass-fill-strong:rgba(255,255,255,0.08);
+  --glass-hi:rgba(255,255,255,0.5);
+  --radius-s:10px;
+  --radius-m:18px;
+  --radius-l:28px;
+  --radius-xl:40px;
+  --ease:cubic-bezier(.16,.84,.32,1);
+  --container:1240px;
+  --font-display:'Bricolage Grotesque', 'Inter', sans-serif;
+  --font-body:'Inter', -apple-system, sans-serif;
+  --font-mono:'IBM Plex Mono', monospace;
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}
+}
+body{
+  margin:0;
+  background:var(--black);
+  color:var(--white);
+  font-family:var(--font-body);
+  font-size:16px;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  position:relative;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;}
+ul{margin:0;padding:0;list-style:none;}
+h1,h2,h3,h4,p{margin:0;}
+:focus-visible{outline:2px solid var(--white);outline-offset:4px;border-radius:4px;}
+
+/* grain texture, fixed over entire viewport */
+.grain{
+  position:fixed;inset:0;pointer-events:none;z-index:9998;
+  opacity:0.035;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ===== layout helpers ===== */
+.wrap{max-width:var(--container);margin:0 auto;padding:0 32px;}
+.section{padding:140px 0;position:relative;}
+.section-tight{padding:80px 0;}
+@media (max-width:900px){
+  .section{padding:96px 0;}
+  .wrap{padding:0 22px;}
+}
+
+/* ===== eyebrow / labels ===== */
+.eyebrow{
+  font-family:var(--font-mono);
+  font-size:12.5px;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--mist-500);
+  display:inline-flex;align-items:center;gap:10px;
+}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--white);display:inline-block;}
+
+/* ===== type scale ===== */
+h1,.h1{
+  font-family:var(--font-display);
+  font-weight:600;
+  letter-spacing:-0.03em;
+  line-height:0.98;
+  font-size:clamp(42px,6.6vw,94px);
+}
+h2,.h2{
+  font-family:var(--font-display);
+  font-weight:600;
+  letter-spacing:-0.025em;
+  line-height:1.03;
+  font-size:clamp(32px,4.4vw,58px);
+}
+h3,.h3{
+  font-family:var(--font-display);
+  font-weight:600;
+  letter-spacing:-0.015em;
+  line-height:1.12;
+  font-size:clamp(21px,2.2vw,28px);
+}
+.body-lg{font-size:clamp(17px,1.7vw,21px);line-height:1.55;color:var(--mist-300);font-weight:400;}
+.body{font-size:16px;line-height:1.65;color:var(--mist-300);}
+.caption{font-family:var(--font-mono);font-size:12px;letter-spacing:0.06em;color:var(--mist-700);}
+
+/* ===== buttons ===== */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:15px 26px;border-radius:100px;
+  font-family:var(--font-body);font-weight:600;font-size:14.5px;
+  letter-spacing:0.01em;
+  cursor:pointer;border:1px solid transparent;
+  transition:transform .5s var(--ease), background .4s ease, color .4s ease, border-color .4s ease, box-shadow .4s ease;
+  white-space:nowrap;
+}
+.btn svg{transition:transform .45s var(--ease);}
+.btn:hover svg{transform:translateX(4px);}
+.btn-primary{background:var(--white);color:var(--black);}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(255,255,255,0.15);}
+.btn-ghost{
+  background:var(--glass-fill);
+  color:var(--white);
+  border-color:var(--line-2);
+  backdrop-filter:blur(18px) saturate(140%);
+  -webkit-backdrop-filter:blur(18px) saturate(140%);
+}
+.btn-ghost:hover{background:var(--glass-fill-strong);border-color:var(--line-3);transform:translateY(-2px);}
+.btn-sm{padding:11px 20px;font-size:13.5px;}
+
+/* ===== glass surfaces ===== */
+.glass{
+  background:linear-gradient(155deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02));
+  border:1px solid var(--line-2);
+  backdrop-filter:blur(22px) saturate(160%);
+  -webkit-backdrop-filter:blur(22px) saturate(160%);
+  border-radius:var(--radius-l);
+  position:relative;
+  box-shadow:0 1px 0 rgba(255,255,255,0.06) inset, 0 30px 60px -30px rgba(0,0,0,0.7);
+}
+.glass::before{
+  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:radial-gradient(420px circle at var(--mx,50%) var(--my,0%), rgba(255,255,255,0.10), transparent 60%);
+  opacity:var(--glow,0);
+  transition:opacity .4s ease;
+}
+.glass:hover::before{opacity:1;}
+
+/* ===== floating nav ===== */
+.nav-outer{
+  position:fixed;top:20px;left:0;right:0;z-index:1000;
+  display:flex;justify-content:center;
+  padding:0 20px;
+  transition:top .5s var(--ease);
+}
+.nav{
+  width:100%;max-width:1120px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 14px 12px 20px;
+  border-radius:100px;
+  background:rgba(10,10,10,0.55);
+  border:1px solid var(--line-2);
+  backdrop-filter:blur(24px) saturate(180%);
+  -webkit-backdrop-filter:blur(24px) saturate(180%);
+  box-shadow:0 1px 0 rgba(255,255,255,0.08) inset, 0 20px 50px -20px rgba(0,0,0,0.8);
+  transition:padding .5s var(--ease), background .5s var(--ease), transform .5s var(--ease), max-width .5s var(--ease), width .5s var(--ease);
+}
+.nav-outer.scrolled{top:12px;}
+.nav-outer.scrolled .nav{padding:7px 10px 7px 16px;background:rgba(6,6,6,0.82);box-shadow:0 1px 0 rgba(255,255,255,0.08) inset, 0 16px 36px -16px rgba(0,0,0,0.9);width:auto;max-width:480px;gap:18px;}
+.nav-outer.scrolled .nav-brand .mark{width:42px;height:42px;}
+.nav-outer.scrolled .nav-links a{padding:7px 13px;font-size:13.5px;}
+.nav-outer.scrolled .nav-cta{padding:9px 16px;font-size:13px;}
+.nav{position:relative;}
+.nav-links{transition:opacity .3s ease,visibility .3s ease,max-width .5s var(--ease),margin .5s var(--ease);overflow:hidden;}
+.nav-outer.scrolled .nav-links{opacity:0;visibility:hidden;pointer-events:none;max-width:0;margin:0;}
+.nav-outer.scrolled .nav-burger{display:flex;}
+.brand-text{transition:opacity .3s ease,max-width .4s var(--ease),margin .4s var(--ease);overflow:hidden;white-space:nowrap;}
+.nav-outer.scrolled .brand-text{opacity:0;max-width:0;margin:0;}
+.nav-brand .mark{transition:width .5s var(--ease),height .5s var(--ease);}
+.nav-links a{transition:color .35s ease,padding .5s var(--ease),font-size .5s var(--ease);}
+.nav-cta{transition:padding .5s var(--ease),font-size .5s var(--ease);}
+.nav-brand{display:flex;align-items:center;gap:12px;font-family:var(--font-display);font-weight:600;font-size:16px;letter-spacing:-0.01em;}
+.nav-brand .mark{width:52px;height:52px;color:var(--white);flex:none;}
+/* ===== logo placeholder image ===== */
+.mark{display:inline-flex;align-items:center;justify-content:center;}
+.logo-img{width:100%;height:100%;display:block;object-fit:contain;}
+.logo-placeholder{border-radius:8px;overflow:hidden;}
+
+.nav-links{display:flex;align-items:center;gap:2px;}
+.nav-links a{
+  position:relative;padding:9px 16px;border-radius:100px;
+  font-size:14px;font-weight:500;color:var(--mist-300);
+  transition:color .35s ease;
+}
+.nav-links a:hover{color:var(--white);}
+.nav-links a::before{
+  content:"";position:absolute;inset:0;border-radius:100px;
+  background:var(--glass-fill-strong);
+  opacity:0;transform:scale(0.85);
+  transition:opacity .35s var(--ease), transform .35s var(--ease);
+  z-index:-1;
+}
+.nav-links a:hover::before{opacity:1;transform:scale(1);}
+.nav-links a.active{color:var(--white);}
+.nav-links a.active::after{
+  content:"";position:absolute;left:16px;right:16px;bottom:5px;height:1px;background:var(--white);
+}
+.nav-right{display:flex;align-items:center;gap:10px;}
+.nav-cta{padding:11px 20px;font-size:13.5px;}
+.nav-burger{
+  display:none;width:40px;height:40px;border-radius:50%;
+  background:var(--glass-fill-strong);border:1px solid var(--line-2);
+  align-items:center;justify-content:center;cursor:pointer;
+}
+.nav-burger span{display:block;width:15px;height:1px;background:var(--white);position:relative;}
+.nav-burger span::before,.nav-burger span::after{content:"";position:absolute;left:0;width:15px;height:1px;background:var(--white);transition:transform .3s ease;}
+.nav-burger span::before{top:-5px;}
+.nav-burger span::after{top:5px;}
+
+@media (max-width:900px){
+  .nav-links{display:none;}
+  .nav-right .btn-ghost.nav-cta{display:none;}
+  .nav-burger{display:flex;}
+  .nav{padding:10px 10px 10px 18px;}
+}
+
+/* ===== mobile menu ===== */
+.mobile-menu{
+  position:fixed;inset:0;z-index:1100;
+  display:flex;flex-direction:column;
+  padding:20px;
+  background:rgba(4,4,4,0.7);
+  backdrop-filter:blur(30px) saturate(180%);
+  -webkit-backdrop-filter:blur(30px) saturate(180%);
+  opacity:0;visibility:hidden;
+  transform:translateY(-8px);
+  transition:opacity .45s var(--ease), transform .45s var(--ease), visibility 0s linear .45s;
+}
+.mobile-menu.open{opacity:1;visibility:visible;transform:translateY(0);transition:opacity .45s var(--ease), transform .45s var(--ease), visibility 0s;}
+.mobile-menu-head{display:flex;align-items:center;justify-content:space-between;padding:6px 6px 0;}
+.mobile-menu-close{
+  width:42px;height:42px;border-radius:50%;background:var(--glass-fill-strong);
+  border:1px solid var(--line-2);display:flex;align-items:center;justify-content:center;cursor:pointer;
+}
+.mobile-links{flex:1;display:flex;flex-direction:column;justify-content:center;gap:6px;padding:20px 10px;}
+.mobile-links a{
+  font-family:var(--font-display);font-size:clamp(32px,10vw,48px);font-weight:600;
+  letter-spacing:-0.02em;color:var(--white);padding:10px 4px;border-bottom:1px solid var(--line-1);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.mobile-links a span{font-family:var(--font-mono);font-size:13px;color:var(--mist-700);}
+.mobile-menu-foot{padding:10px;}
+
+/* ===== cards ===== */
+.card{
+  padding:34px;
+  transition:transform .5s var(--ease), border-color .4s ease;
+}
+.card:hover{transform:translateY(-4px);border-color:var(--line-3);}
+
+/* ===== footer ===== */
+footer{
+  border-top:1px solid var(--line-1);
+  padding:0 0 34px;
+  background:linear-gradient(180deg, transparent, rgba(255,255,255,0.015));
+}
+.footer-cta{
+  display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;
+  padding:56px 0;border-bottom:1px solid var(--line-1);
+}
+.footer-cta h3{font-size:clamp(22px,3vw,30px);letter-spacing:-0.02em;}
+.footer-top{display:flex;justify-content:space-between;gap:60px;flex-wrap:wrap;padding:60px 0;}
+.footer-brand .mark{width:44px;height:44px;color:var(--white);margin-bottom:18px;}
+.footer-cols{display:flex;gap:70px;flex-wrap:wrap;}
+.footer-col h4{font-family:var(--font-mono);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mist-700);margin-bottom:16px;}
+.footer-col a,.footer-col p{display:block;color:var(--mist-300);font-size:14.5px;margin-bottom:11px;transition:color .3s ease;}
+.footer-col a:hover{color:var(--white);}
+.footer-bottom{
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;
+  padding-top:28px;border-top:1px solid var(--line-1);
+  font-family:var(--font-mono);font-size:12px;color:var(--mist-700);
+}
+@media (max-width:700px){
+  .footer-cta{flex-direction:column;align-items:flex-start;}
+  .footer-top{flex-direction:column;gap:40px;}
+  .footer-cols{gap:40px;}
+}
+
+/* ===== reveal on scroll ===== */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease), transform .9s var(--ease);}
+.reveal.in{opacity:1;transform:translateY(0);}
+
+/* ===== misc ===== */
+.divider{height:1px;background:var(--line-1);width:100%;}
+.tag{
+  font-family:var(--font-mono);font-size:11.5px;letter-spacing:0.08em;text-transform:uppercase;
+  padding:6px 12px;border-radius:100px;border:1px solid var(--line-2);color:var(--mist-500);
+  display:inline-block;
+}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+@media (max-width:900px){.grid-2,.grid-3{grid-template-columns:1fr;}}
+
+.ph-photo{
+  position:relative;overflow:hidden;border-radius:var(--radius-l);
+  border:1px solid var(--line-2);
+}
+.ph-photo img{
+  width:100%;height:100%;object-fit:cover;
+  filter:grayscale(1) contrast(1.08) brightness(0.9);
+  transition:transform .8s var(--ease), filter .5s ease;
+}
+.ph-photo:hover img{transform:scale(1.045);filter:grayscale(0.4) contrast(1.1) brightness(0.95);}
+.ph-photo::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.55) 100%);
+}
+
+/* ===================================================================
+   EZERON TECH — CINEMATIC SPLASH SCREEN
+=================================================================== */
+html.ez-splash-lock, html.ez-splash-lock body{overflow:hidden;height:100%;}
+.ez-splash{
+  position:fixed;inset:0;z-index:5000;
+  display:flex;align-items:center;justify-content:center;
+  background:#000;cursor:pointer;
+  opacity:1;transition:opacity .75s var(--ease);
+}
+.ez-splash[hidden]{display:none;}
+.ez-splash.ez-splash-out{opacity:0;pointer-events:none;}
+
+.ez-splash-bg{position:absolute;inset:0;overflow:hidden;}
+.ez-splash-glow{
+  position:absolute;left:50%;top:50%;width:64vw;height:64vw;max-width:760px;max-height:760px;
+  transform:translate(-50%,-50%) scale(0.9);
+  background:radial-gradient(circle, rgba(255,255,255,0.11), transparent 70%);
+  filter:blur(70px);opacity:0;
+  transition:opacity 1.6s var(--ease);
+}
+.ez-splash.ez-splash-in .ez-splash-glow{opacity:1;animation:ezGlowPulse 4.5s ease-in-out infinite 1.6s;}
+@keyframes ezGlowPulse{0%,100%{transform:translate(-50%,-50%) scale(0.92);opacity:0.75;}50%{transform:translate(-50%,-50%) scale(1.04);opacity:1;}}
+
+.ez-splash-stage{position:relative;display:flex;align-items:center;justify-content:center;}
+
+.ez-splash-logo-wrap{
+  position:relative;z-index:1;overflow:hidden;border-radius:20px;
+  width:min(64vw,420px);aspect-ratio:1/1;
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transform:scale(0.9);filter:blur(16px) brightness(0.4);
+  transition:opacity 1.5s var(--ease), transform 1.5s var(--ease), filter 1.5s var(--ease);
+}
+.ez-splash.ez-splash-in .ez-splash-logo-wrap{opacity:1;transform:scale(1);filter:blur(0) brightness(1);}
+.ez-splash-logo{width:100%;height:100%;object-fit:contain;display:block;}
+.ez-splash-logo.ez-broken{display:none;}
+
+.ez-splash-fallback{
+  display:none;flex-direction:column;align-items:center;gap:6px;
+  font-family:var(--font-display);font-weight:700;letter-spacing:-0.01em;
+  font-size:clamp(30px,6vw,52px);color:var(--white);text-align:center;
+}
+.ez-splash-fallback span{font-family:var(--font-mono);font-weight:400;font-size:0.32em;letter-spacing:0.35em;color:var(--mist-500);}
+.ez-splash-fallback.ez-show{display:flex;}
+
+.ez-splash-sweep{
+  position:absolute;top:-30%;left:-60%;width:45%;height:160%;z-index:2;pointer-events:none;
+  background:linear-gradient(100deg, transparent, rgba(255,255,255,0.16) 45%, rgba(255,255,255,0.28) 50%, rgba(255,255,255,0.16) 55%, transparent);
+  transform:rotate(12deg) translateX(0);opacity:0;
+}
+.ez-splash-sweep.ez-sweep-play{animation:ezSweep 1.15s cubic-bezier(.4,0,.2,1) forwards;}
+@keyframes ezSweep{
+  0%{opacity:0;transform:rotate(12deg) translateX(0);}
+  12%{opacity:1;}
+  75%{opacity:1;}
+  100%{opacity:0;transform:rotate(12deg) translateX(340%);}
+}
+
+.ez-splash-hint{
+  position:absolute;bottom:34px;left:50%;transform:translateX(-50%);
+  font-family:var(--font-mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--mist-700);opacity:0;transition:opacity 1s var(--ease) 2.2s;
+}
+.ez-splash.ez-splash-in .ez-splash-hint{opacity:1;}
+
+@media (max-width:600px){
+  .ez-splash-logo-wrap{width:min(72vw,320px);}
+}
+
+.skip-link{
+  position:absolute;left:-999px;top:0;background:var(--white);color:var(--black);
+  padding:12px 20px;border-radius:8px;z-index:2000;
+}
+.skip-link:focus{left:20px;top:20px;}
+
+</style>
+</head>
+<body>
+<div id="ezSplash" class="ez-splash" role="presentation">
+  <div class="ez-splash-bg" aria-hidden="true"><div class="ez-splash-glow"></div></div>
+  <div class="ez-splash-stage">
+    <div class="ez-splash-logo-wrap" id="ezSplashLogoWrap">
+      <img src="logo.png" alt="Ezeron Tech" class="ez-splash-logo" id="ezSplashLogo">
+      <span class="ez-splash-fallback" id="ezSplashFallback">EZERON<span>TECH</span></span>
+      <span class="ez-splash-sweep" id="ezSplashSweep" aria-hidden="true"></span>
+    </div>
+  </div>
+  <span class="ez-splash-hint">Tap to skip</span>
+</div>
+<a href="#main" class="skip-link">Skip to content</a>
+<div class="grain" aria-hidden="true"></div>
+  <div class="nav-outer">
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html" class="nav-brand">
+        <span class="mark logo-placeholder"><img src="logo.png" alt="Ezeron Tech logo — replace logo.png with your logo" class="logo-img"></span>
+        <span class="brand-text">Ezeron Tech</span>
+      </a>
+      <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="about.html" class="">About</a>
+      <a href="services.html" class="">Services</a>
+      <a href="products.html" class="">Products</a>
+      <a href="work.html" class="">Work</a>
+      <a href="pricing.html" class="">Pricing</a>
+      <a href="contact.html" class="">Contact</a>
+      </div>
+      <div class="nav-right">
+        <a href="start-a-project.html" class="btn btn-ghost nav-cta">Start a Project</a>
+        <button class="nav-burger" aria-label="Open menu" aria-expanded="false">
+          <span></span>
+        </button>
+      </div>
+    </nav>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-head">
+      <a href="index.html" class="nav-brand"><span class="mark logo-placeholder"><img src="logo.png" alt="Ezeron Tech logo — replace logo.png with your logo" class="logo-img"></span>Ezeron Tech</a>
+      <button class="mobile-menu-close" aria-label="Close menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 2L14 14M14 2L2 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+    </div>
+    <div class="mobile-links">
+      <a href="index.html"><span>Home</span><span>01</span></a>
+      <a href="about.html"><span>About</span><span>02</span></a>
+      <a href="services.html"><span>Services</span><span>03</span></a>
+      <a href="products.html"><span>Products</span><span>04</span></a>
+      <a href="work.html"><span>Work</span><span>05</span></a>
+      <a href="pricing.html"><span>Pricing</span><span>06</span></a>
+      <a href="contact.html"><span>Contact</span><span>07</span></a>
+    </div>
+    <div class="mobile-menu-foot">
+      <a href="start-a-project.html" class="btn btn-primary" style="width:100%;justify-content:center;">Start a Project <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2 7.5H13M13 7.5L8 2.5M13 7.5L8 12.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </div>
+<main id="main">
+<section class="section home-hero" style="padding-top:170px;padding-bottom:100px;">
+  <div class="home-hero-bg" aria-hidden="true">
+    <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=2000&q=80&auto=format&fit=crop" alt="" loading="lazy">
+  </div>
+  <div class="wrap" style="position:relative;">
+    <span class="eyebrow reveal in">Ezeron Tech</span>
+    <h1 class="reveal in" style="margin-top:20px;max-width:780px;">Technology built<br>around real problems.</h1>
+    <p class="body-lg reveal in" style="margin-top:24px;max-width:560px;">
+      We're a technology company &mdash; not just an agency. We design and build
+      websites, apps, software and AI-powered features for clients, and we
+      build our own products alongside that work.
+    </p>
+    <div class="reveal in" style="display:flex;gap:14px;margin-top:34px;flex-wrap:wrap;">
+      <a href="start-a-project.html" class="btn btn-primary">Start a Project <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2 7.5H13M13 7.5L8 2.5M13 7.5L8 12.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <a href="work.html" class="btn btn-ghost">See Our Work <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2 7.5H13M13 7.5L8 2.5M13 7.5L8 12.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+  </div>
+</section>
+<style>
+.home-hero{position:relative;overflow:hidden;}
+.home-hero-bg{position:absolute;inset:0;z-index:0;}
+.home-hero-bg img{width:100%;height:100%;object-fit:cover;filter:contrast(1.05) brightness(0.8) saturate(1.05);opacity:0.9;}
+.home-hero-bg::after{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg, rgba(0,0,0,0.2), var(--black) 92%);}
+</style>
+
+<section class="section" style="padding-top:60px;">
+  <div class="wrap">
+    <div class="reveal" style="max-width:640px;">
+      <span class="eyebrow">What We Build</span>
+      <h2 style="margin-top:18px;">Two sides of one studio.</h2>
+    </div>
+    <div class="grid-2" style="margin-top:56px;">
+      <div class="glass card reveal">
+        <span class="tag">Client Work</span>
+        <h3 style="margin-top:22px;">Technology Services</h3>
+        <p class="body" style="margin-top:14px;">
+          We design and develop technology solutions for clients, businesses,
+          organizations and institutions &mdash; websites, mobile apps, custom
+          software, AI-powered features and business automation, built around
+          the problem in front of us.
+        </p>
+        <a href="services.html" class="btn btn-ghost btn-sm" style="margin-top:26px;">View Services <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2 7.5H13M13 7.5L8 2.5M13 7.5L8 12.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+      <div class="glass card reveal">
+        <span class="tag">Ezeron-Owned</span>
+        <h3 style="margin-top:22px;">Our Own Products</h3>
+        <p class="body" style="margin-top:14px;">
+          Alongside client work, we're building our own technology products &mdash;
+          designed around problems we've encountered directly. CampVibes and
+          Ezeron Pay are the first two products to come out of that effort.
+        </p>
+        <a href="products.html" class="btn btn-ghost btn-sm" style="margin-top:26px;">View Products <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2 7.5H13M13 7.5L8 2.5M13 7.5L8 12.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="reveal" style="display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;">
+      <div style="max-width:560px;">
+        <span class="eyebrow">Services</span>
+        <h2 style="margin-top:18px;">What we do.</h2>
+      </div>
+      <a href="services.html" class="btn btn-ghost">All Services <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2 7.5H13M13 7.5L8 2.5M13 7.5L8 12.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+    </div>
+    <div class="serv-grid" style="margin-top:56px;">
+      <div class="glass card serv-card reveal">
+          <span class="caption">01</span>
+          <h3 style="margin-top:16px;font-size:20px;">Web Development</h3>
+          <p class="body" style="margin-top:10px;font-size:14.5px;">Modern, responsive websites and web applications.</p>
+        </div><div class="glass card serv-card reveal">
+          <span class="caption">02</span>
+          <h3 style="margin-top:16px;font-size:20px;">Mobile App Development</h3>
+          <p class="body" style="margin-top:10px;font-size:14.5px;">Mobile apps designed around user and business needs.</p>
+        </div><div class="glass card serv-card reveal">
+          <span class="caption">03</span>
+          <h3 style="margin-top:16px;font-size:20px;">UI/UX Design</h3>
+          <p class="body" style="margin-top:10px;font-size:14.5px;">Modern, intuitive interfaces and user experiences.</p>
+        </div><div class="glass card serv-card reveal">
+          <span class="caption">04</span>
+          <h3 style="margin-top:16px;font-size:20px;">Custom Software</h3>
+          <p class="body" style="margin-top:10px;font-size:14.5px;">Software systems built around specific organizational needs.</p>
+        </div><div class="glass card serv-card reveal">
+          <span class="caption">05</span>
+          <h3 style="margin-top:16px;font-size:20px;">AI Solutions</h3>
+          <p class="body" style="margin-top:10px;font-size:14.5px;">AI-powered features where they provide genuine value.</p>
+        </div><div class="glass card serv-card reveal">
+          <span class="caption">06</span>
+          <h3 style="margin-top:16px;font-size:20px;">Business Automation</h3>
+          <p class="body" style="margin-top:10px;font-size:14.5px;">Technology that simplifies repetitive processes and workflows.</p>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="products-preview">
+  <div class="wrap">
+    <div class="reveal" style="max-width:640px;">
+      <span class="eyebrow">Products</span>
+      <h2 style="margin-top:18px;">Built by Ezeron Tech.</h2>
+    </div>
+    <div class="grid-2" style="margin-top:56px;">
+      <a href="products.html#campvibes" class="glass card product-mini reveal">
+        <span class="mark" style="width:44px;height:44px;color:var(--white);"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="CampVibes mark">
+  <rect x="0.5" y="0.5" width="39" height="39" rx="11.5" stroke="currentColor" stroke-opacity="0.35"/>
+  <path d="M20 10L28 27H12L20 10Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+  <path d="M9 22C11 19 13 25 15 22" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  <path d="M25 22C27 19 29 25 31 22" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+  <circle cx="20" cy="16.5" r="1.6" fill="currentColor"/>
+</svg>
+</span>
+        <h3 style="margin-top:20px;">CampVibes</h3>
+        <span class="tag" style="margin-top:10px;">In Development</span>
+        <p class="body" style="margin-top:14px;">An Ezeron Tech product focused on the campus and student environment.</p>
+        <span class="btn btn-ghost btn-sm" style="margin-top:22px;">Learn More <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2 7.5H13M13 7.5L8 2.5M13 7.5L8 12.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+      <a href="products.html#ezeronpay" class="glass card product-mini reveal">
+        <span class="mark" style="width:44px;height:44px;color:var(--white);"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ezeron Pay mark">
+  <rect x="0.5" y="0.5" width="39" height="39" rx="11.5" stroke="currentColor" stroke-opacity="0.35"/>
+  <rect x="9" y="14" width="22" height="14" rx="2.4" stroke="currentColor" stroke-width="1.8"/>
+  <path d="M9 18.5H31" stroke="currentColor" stroke-width="1.8"/>
+  <path d="M14 23.5H19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+</svg>
+</span>
+        <h3 style="margin-top:20px;">Ezeron Pay</h3>
+        <span class="tag" style="margin-top:10px;">In Development</span>
+        <p class="body" style="margin-top:14px;">Ezeron Tech's fintech and payments product, currently in development.</p>
+        <span class="btn btn-ghost btn-sm" style="margin-top:22px;">Learn More <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2 7.5H13M13 7.5L8 2.5M13 7.5L8 12.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="reveal" style="max-width:640px;">
+      <span class="eyebrow">Our Approach</span>
+      <h2 style="margin-top:18px;">Understand. Design. Build. Improve.</h2>
+    </div>
+    <div class="approach-strip glass reveal" style="margin-top:56px;">
+      <div class="approach-step">
+          <span class="caption">01</span>
+          <h3 style="margin-top:14px;font-size:20px;">Understand</h3>
+          <p class="body" style="margin-top:8px;font-size:14.5px;">We start with the real problem, not assumptions.</p>
+        </div><div class="approach-step">
+          <span class="caption">02</span>
+          <h3 style="margin-top:14px;font-size:20px;">Design</h3>
+          <p class="body" style="margin-top:8px;font-size:14.5px;">We shape systems around how people actually work.</p>
+        </div><div class="approach-step">
+          <span class="caption">03</span>
+          <h3 style="margin-top:14px;font-size:20px;">Build</h3>
+          <p class="body" style="margin-top:8px;font-size:14.5px;">We build carefully, with modern, dependable technology.</p>
+        </div><div class="approach-step">
+          <span class="caption">04</span>
+          <h3 style="margin-top:14px;font-size:20px;">Improve</h3>
+          <p class="body" style="margin-top:8px;font-size:14.5px;">Technology is never really finished &mdash; we keep refining it.</p>
+        </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="grid-2" style="align-items:center;">
+      <div class="reveal">
+        <span class="eyebrow">Selected Work</span>
+        <h2 style="margin-top:18px;">Our portfolio is<br>taking shape.</h2>
+        <p class="body-lg" style="margin-top:20px;max-width:480px;">
+          We're building our public portfolio alongside client and product work.
+          In the meantime, you can see the kinds of problems we focus on.
+        </p>
+        <a href="work.html" class="btn btn-primary" style="margin-top:28px;">View Our Work <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2 7.5H13M13 7.5L8 2.5M13 7.5L8 12.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+      <div class="ph-photo reveal" style="aspect-ratio:4/3;">
+        <img src="https://images.unsplash.com/photo-1758873268745-dd2cf0d677b5?auto=format&amp;fit=crop&amp;w=1400&amp;q=80" alt="A team collaborating around a laptop in an office setting" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="grid-2" style="align-items:center;">
+      <div class="ph-photo reveal" style="aspect-ratio:4/3;order:2;">
+        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&amp;fit=crop&amp;w=1400&amp;q=80" alt="Two colleagues shaking hands in an office in Nairobi, Kenya" loading="lazy">
+      </div>
+      <div class="reveal" style="order:1;">
+        <span class="eyebrow">About</span>
+        <h2 style="margin-top:18px;">Built around real problems,<br>not trends.</h2>
+        <p class="body-lg" style="margin-top:20px;max-width:480px;">
+          Ezeron Tech exists to build a sustainable technology company, create
+          products with lasting value, and address real inefficiencies &mdash;
+          particularly within African businesses and institutions.
+        </p>
+        <a href="about.html" class="btn btn-ghost" style="margin-top:28px;">Our Story <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2 7.5H13M13 7.5L8 2.5M13 7.5L8 12.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="glass final-cta reveal">
+      <span class="eyebrow" style="justify-content:center;">Let's Build Something</span>
+      <h2 style="margin-top:20px;">Have a problem<br>worth solving?</h2>
+      <p class="body-lg" style="margin:20px auto 0;max-width:460px;">
+        Tell us what you're working on. We'll figure out the right approach together.
+      </p>
+      <div style="display:flex;gap:14px;justify-content:center;margin-top:32px;flex-wrap:wrap;">
+        <a href="start-a-project.html" class="btn btn-primary">Start a Project <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2 7.5H13M13 7.5L8 2.5M13 7.5L8 12.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a href="services.html" class="btn btn-ghost">See Our Services <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2 7.5H13M13 7.5L8 2.5M13 7.5L8 12.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.hero-grid{display:grid;grid-template-columns:1fr;gap:40px;align-items:center;}
+.serv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.serv-card{padding:30px;}
+.product-mini{display:block;padding:34px;}
+.approach-strip{display:grid;grid-template-columns:repeat(4,1fr);}
+.approach-step{padding:32px 28px;border-right:1px solid var(--line-1);}
+.approach-step:last-child{border-right:none;}
+.final-cta{text-align:center;padding:80px 40px;}
+@media (max-width:1000px){
+  .serv-grid{grid-template-columns:1fr 1fr;}
+  .approach-strip{grid-template-columns:1fr 1fr;}
+  .approach-step{border-right:none;border-bottom:1px solid var(--line-1);}
+}
+@media (max-width:600px){
+  .serv-grid{grid-template-columns:1fr;}
+  .approach-strip{grid-template-columns:1fr;}
+}
+</style>
+</main>
+
+  <footer>
+    <div class="wrap">
+      <div class="footer-cta">
+        <div>
+          <span class="eyebrow">Let's Talk</span>
+          <h3 style="margin-top:14px;">Got a project in mind?</h3>
+        </div>
+        <a href="start-a-project.html" class="btn btn-primary">Start a Project <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2 7.5H13M13 7.5L8 2.5M13 7.5L8 12.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+      <div class="footer-top">
+        <div class="footer-brand">
+          <span class="mark logo-placeholder"><img src="logo.png" alt="Ezeron Tech logo — replace logo.png with your logo" class="logo-img"></span>
+          <p class="body" style="max-width:280px;color:var(--mist-500);">Technology for real-world problems &mdash; built through client services and Ezeron-owned products.</p>
+        </div>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h4>Sitemap</h4>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="products.html">Products</a>
+            <a href="work.html">Work</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="team.html">Team</a>
+            <a href="contact.html">Contact</a>
+          </div>
+          <div class="footer-col">
+            <h4>Products</h4>
+            <a href="products.html#campvibes">CampVibes</a>
+            <a href="products.html#ezeronpay">Ezeron Pay</a>
+          </div>
+          <div class="footer-col">
+            <h4>Studio</h4>
+            <p style="color:var(--mist-500);">Client technology services and Ezeron-owned digital products.</p>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <a href="https://wa.me/233557757831" target="_blank" rel="noopener">+233 55 775 7831</a>
+            <a href="https://wa.me/+233 50 944 9991" target="_blank" rel="noopener">+233 50 944 9991</a>
+            <!-- <a href="mailto:hello@ezerontech.com">hello@ezerontech.com</a> -->
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span id="year"></span> Ezeron Tech. All rights reserved.</span>
+        <span>Understand &rarr; Design &rarr; Build &rarr; Improve</span>
+      </div>
+    </div>
+  </footer>
+<script>
+// EZERON TECH — shared interactions
+(function(){
+  // nav scroll state
+  var navOuter = document.querySelector('.nav-outer');
+  var lastY = 0;
+  function onScroll(){
+    if(!navOuter) return;
+    var y = window.scrollY || 0;
+    if(y > 40){ navOuter.classList.add('scrolled'); } else { navOuter.classList.remove('scrolled'); }
+    lastY = y;
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  // mobile menu
+  var burger = document.querySelector('.nav-burger');
+  var menu = document.querySelector('.mobile-menu');
+  var closeBtn = document.querySelector('.mobile-menu-close');
+  function openMenu(){ if(menu){ menu.classList.add('open'); document.body.style.overflow='hidden'; } }
+  function closeMenu(){ if(menu){ menu.classList.remove('open'); document.body.style.overflow=''; } }
+  if(burger) burger.addEventListener('click', openMenu);
+  if(closeBtn) closeBtn.addEventListener('click', closeMenu);
+  if(menu){
+    menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
+  }
+
+  // reveal on scroll
+  var revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window && revealEls.length){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.15, rootMargin:'0px 0px -60px 0px'});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  // glass glow follow pointer
+  var glassEls = document.querySelectorAll('.glass, .card');
+  glassEls.forEach(function(el){
+    el.addEventListener('mousemove', function(e){
+      var r = el.getBoundingClientRect();
+      var mx = ((e.clientX - r.left) / r.width) * 100;
+      var my = ((e.clientY - r.top) / r.height) * 100;
+      el.style.setProperty('--mx', mx + '%');
+      el.style.setProperty('--my', my + '%');
+      el.style.setProperty('--glow', '1');
+    });
+    el.addEventListener('mouseleave', function(){
+      el.style.setProperty('--glow', '0');
+    });
+  });
+})();
+
+document.getElementById('year').textContent = new Date().getFullYear();
+
+// ===================================================================
+// EZERON TECH — cinematic splash screen
+// ===================================================================
+(function(){
+  var splash = document.getElementById('ezSplash');
+  if(!splash) return;
+
+  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var html = document.documentElement;
+  var finished = false;
+
+  html.classList.add('ez-splash-lock');
+
+  var logoImg = document.getElementById('ezSplashLogo');
+  var fallback = document.getElementById('ezSplashFallback');
+  var sweep = document.getElementById('ezSplashSweep');
+
+  if(logoImg){
+    logoImg.addEventListener('error', function(){
+      logoImg.classList.add('ez-broken');
+      if(fallback) fallback.classList.add('ez-show');
+    });
+  }
+
+  function finish(){
+    if(finished) return;
+    finished = true;
+    splash.classList.add('ez-splash-out');
+    setTimeout(function(){
+      splash.setAttribute('hidden', '');
+      splash.setAttribute('aria-hidden', 'true');
+      html.classList.remove('ez-splash-lock');
+    }, reduceMotion ? 60 : 760);
+  }
+
+  function skip(){ finish(); }
+  splash.addEventListener('click', skip);
+  window.addEventListener('keydown', function(e){
+    if(e.key === 'Enter' || e.key === ' ' || e.key === 'Escape') skip();
+  });
+
+  if(reduceMotion){
+    splash.classList.add('ez-splash-in');
+    setTimeout(finish, 280);
+    return;
+  }
+
+  requestAnimationFrame(function(){
+    setTimeout(function(){ splash.classList.add('ez-splash-in'); }, 120);
+    setTimeout(function(){ if(sweep) sweep.classList.add('ez-sweep-play'); }, 1500);
+    setTimeout(finish, 3200);
+  });
+})();
+
+</script>
+</body>
+</html>
