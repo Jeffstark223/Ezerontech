@@ -337,74 +337,22 @@ footer{
   background:linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.55) 100%);
 }
 
-/* ===================================================================
-   EZERON TECH — CINEMATIC SPLASH SCREEN
-=================================================================== */
-html.ez-splash-lock, html.ez-splash-lock body{overflow:hidden;height:100%;}
-.ez-splash{
-  position:fixed;inset:0;z-index:5000;
-  display:flex;align-items:center;justify-content:center;
-  background:#000;cursor:pointer;
-  opacity:1;transition:opacity .75s var(--ease);
-}
+/* ===== EZERON TECH — SPLASH: the logo rolls in, the name unfolds, the screen lifts ===== */
+html.ez-splash-lock,html.ez-splash-lock body{overflow:hidden;height:100%;}
+.ez-splash{position:fixed;inset:0;z-index:5000;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#000;cursor:pointer;transition:transform .95s cubic-bezier(.76,0,.24,1),border-radius .95s cubic-bezier(.76,0,.24,1);}
 .ez-splash[hidden]{display:none;}
-.ez-splash.ez-splash-out{opacity:0;pointer-events:none;}
-
-.ez-splash-bg{position:absolute;inset:0;overflow:hidden;}
-.ez-splash-glow{
-  position:absolute;left:50%;top:50%;width:64vw;height:64vw;max-width:760px;max-height:760px;
-  transform:translate(-50%,-50%) scale(0.9);
-  background:radial-gradient(circle, rgba(255,255,255,0.11), transparent 70%);
-  filter:blur(70px);opacity:0;
-  transition:opacity 1.6s var(--ease);
-}
-.ez-splash.ez-splash-in .ez-splash-glow{opacity:1;animation:ezGlowPulse 4.5s ease-in-out infinite 1.6s;}
-@keyframes ezGlowPulse{0%,100%{transform:translate(-50%,-50%) scale(0.92);opacity:0.75;}50%{transform:translate(-50%,-50%) scale(1.04);opacity:1;}}
-
-.ez-splash-stage{position:relative;display:flex;align-items:center;justify-content:center;}
-
-.ez-splash-logo-wrap{
-  position:relative;z-index:1;overflow:hidden;border-radius:20px;
-  width:min(64vw,420px);aspect-ratio:1/1;
-  display:flex;align-items:center;justify-content:center;
-  opacity:0;transform:scale(0.9);filter:blur(16px) brightness(0.4);
-  transition:opacity 1.5s var(--ease), transform 1.5s var(--ease), filter 1.5s var(--ease);
-}
-.ez-splash.ez-splash-in .ez-splash-logo-wrap{opacity:1;transform:scale(1);filter:blur(0) brightness(1);}
-.ez-splash-logo{width:100%;height:100%;object-fit:contain;display:block;}
-.ez-splash-logo.ez-broken{display:none;}
-
-.ez-splash-fallback{
-  display:none;flex-direction:column;align-items:center;gap:6px;
-  font-family:var(--font-display);font-weight:700;letter-spacing:-0.01em;
-  font-size:clamp(30px,6vw,52px);color:var(--white);text-align:center;
-}
-.ez-splash-fallback span{font-family:var(--font-mono);font-weight:400;font-size:0.32em;letter-spacing:0.35em;color:var(--mist-500);}
-.ez-splash-fallback.ez-show{display:flex;}
-
-.ez-splash-sweep{
-  position:absolute;top:-30%;left:-60%;width:45%;height:160%;z-index:2;pointer-events:none;
-  background:linear-gradient(100deg, transparent, rgba(255,255,255,0.16) 45%, rgba(255,255,255,0.28) 50%, rgba(255,255,255,0.16) 55%, transparent);
-  transform:rotate(12deg) translateX(0);opacity:0;
-}
-.ez-splash-sweep.ez-sweep-play{animation:ezSweep 1.15s cubic-bezier(.4,0,.2,1) forwards;}
-@keyframes ezSweep{
-  0%{opacity:0;transform:rotate(12deg) translateX(0);}
-  12%{opacity:1;}
-  75%{opacity:1;}
-  100%{opacity:0;transform:rotate(12deg) translateX(340%);}
-}
-
-.ez-splash-hint{
-  position:absolute;bottom:34px;left:50%;transform:translateX(-50%);
-  font-family:var(--font-mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;
-  color:var(--mist-700);opacity:0;transition:opacity 1s var(--ease) 2.2s;
-}
-.ez-splash.ez-splash-in .ez-splash-hint{opacity:1;}
-
-@media (max-width:600px){
-  .ez-splash-logo-wrap{width:min(72vw,320px);}
-}
+.ez-splash.ez-splash-out{transform:translateY(-101%);border-radius:0 0 50% 50% / 0 0 110px 110px;pointer-events:none;}
+.sp-row{display:flex;align-items:center;}
+.sp-logo{position:relative;flex:none;width:92px;height:92px;border-radius:50%;background:#fff;color:#000;display:grid;place-items:center;overflow:hidden;font:700 38px var(--font-display);opacity:0;transform:translateX(-45vw) rotate(-720deg);}
+.sp-logo img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff;}
+.ez-splash.sp-land .sp-logo{opacity:1;transform:none;transition:transform 1.15s cubic-bezier(.2,.8,.2,1),opacity .3s;}
+.sp-name{max-width:0;overflow:hidden;white-space:nowrap;opacity:0;transform:translateX(-14px);font:600 clamp(34px,7vw,56px)/1.1 var(--font-display);letter-spacing:-.03em;color:#fff;transition:max-width .9s cubic-bezier(.2,.7,.2,1),opacity .6s,transform .9s cubic-bezier(.2,.7,.2,1),margin .9s cubic-bezier(.2,.7,.2,1);}
+.ez-splash.sp-name-in .sp-name{max-width:420px;opacity:1;transform:none;margin-left:20px;}
+.ez-splash.sp-land .sp-tag{margin-top:40px;font:500 11px var(--font-mono);letter-spacing:.18em;text-transform:uppercase;color:var(--mist-700);opacity:0;transition:opacity .8s ease .9s;text-align:center;padding:0 20px;}
+.ez-splash.sp-name-in .sp-tag{opacity:1;}
+.sp-hint{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);font:500 11px var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#444;}
+@media (max-width:600px){.sp-logo{width:72px;height:72px;font-size:30px;}.sp-name{font-size:32px;}.ez-splash.sp-name-in .sp-name{margin-left:14px;}}
+@media (prefers-reduced-motion:reduce){.ez-splash,.ez-splash *{transition:none!important;}}
 
 .skip-link{
   position:absolute;left:-999px;top:0;background:var(--white);color:var(--black);
@@ -413,62 +361,85 @@ html.ez-splash-lock, html.ez-splash-lock body{overflow:hidden;height:100%;}
 .skip-link:focus{left:20px;top:20px;}
 
 </style>
+<style id="zn-css">
+/* ===== Ezeron navbar (Spacefs-style three pills) ===== */
+.zn{position:fixed;top:16px;left:20px;right:20px;z-index:1000;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;pointer-events:none}
+.zn>*{pointer-events:auto}
+.zn-pill{display:inline-flex;align-items:center;height:50px;border-radius:100px;background:rgba(18,18,18,.55);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(22px) saturate(180%);-webkit-backdrop-filter:blur(22px) saturate(180%);box-shadow:0 1px 0 rgba(255,255,255,.1) inset,0 12px 32px rgba(0,0,0,.35);color:#fff;font:500 15px/1 var(--font-body,Inter,sans-serif);cursor:pointer;transition:background .3s,transform .3s,box-shadow .3s}
+.zn-pill:hover{background:rgba(34,34,34,.7)}
+.zn-pill:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.zn-brand{justify-self:start;padding:5px;gap:0}
+.zn-logo{position:relative;width:40px;height:40px;border-radius:50%;overflow:hidden;flex:none;display:grid;place-items:center;background:#fff;color:#000;font-weight:700}
+.zn-logo img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff}
+@keyframes znRoll{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.zn-brand:hover .zn-logo,.zn-brand:focus-visible .zn-logo{animation:znRoll .8s cubic-bezier(.3,.7,.2,1)}
+.zn-name{max-width:0;opacity:0;transform:translateX(-8px);overflow:hidden;white-space:nowrap;font-weight:600;font-size:17px;letter-spacing:-.02em;transition:max-width .45s cubic-bezier(.2,.7,.2,1),opacity .3s,transform .45s cubic-bezier(.2,.7,.2,1),margin .45s cubic-bezier(.2,.7,.2,1),padding .45s}
+.zn-brand:hover .zn-name,.zn-brand:focus-visible .zn-name{max-width:130px;opacity:1;transform:none;margin:0 12px 0 10px}
+.zn-mid{position:relative;justify-self:center}
+.zn-menu{padding:0 22px;gap:12px;border:1px solid rgba(255,255,255,.16)}
+.zn-ham{position:relative;width:16px;height:10px;display:block}
+.zn-ham i{position:absolute;left:0;width:16px;height:1.5px;background:#fff;border-radius:2px;transition:transform .35s cubic-bezier(.2,.7,.2,1),top .35s cubic-bezier(.2,.7,.2,1)}
+.zn-ham i:first-child{top:0}.zn-ham i:last-child{top:8px}
+.zn-menu[aria-expanded=true] .zn-ham i:first-child{top:4px;transform:rotate(45deg)}
+.zn-menu[aria-expanded=true] .zn-ham i:last-child{top:4px;transform:rotate(-45deg)}
+.zn-panel{position:absolute;top:calc(100% + 10px);left:50%;width:280px;transform:translate(-50%,-8px) scale(.97);transform-origin:top center;padding:10px;border-radius:26px;background:rgba(14,14,14,.78);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(26px) saturate(180%);-webkit-backdrop-filter:blur(26px) saturate(180%);box-shadow:0 24px 60px rgba(0,0,0,.5);opacity:0;visibility:hidden;transition:opacity .3s,transform .4s cubic-bezier(.2,.7,.2,1),visibility .3s}
+.zn-panel.open{opacity:1;visibility:visible;transform:translate(-50%,0) scale(1)}
+.zn-panel a{display:flex;justify-content:space-between;align-items:center;padding:13px 16px;border-radius:16px;color:#fff;font-size:16px;font-weight:500;transition:background .25s,padding .3s}
+.zn-panel a span{font:500 12px/1 'IBM Plex Mono',monospace;color:#9a9a9a}
+.zn-panel a:hover,.zn-panel a:focus-visible{background:rgba(255,255,255,.09);padding-left:20px;outline:none}
+.zn-panel a[aria-current=page]{background:rgba(255,255,255,.12)}
+.zn-cta{justify-self:end;padding:0 24px;background:#fff;color:#000;border-color:#fff;font-weight:600}
+.zn-cta:hover{background:#e9e9e9;transform:translateY(-1px)}
+.zn-cta .s{display:none}
+@media(max-width:600px){.zn{left:12px;right:12px;top:12px;gap:8px}.zn-pill{height:46px;font-size:14px}.zn-logo{width:36px;height:36px}.zn-menu{padding:0 16px;gap:9px}.zn-cta{padding:0 16px}.zn-cta .f{display:none}.zn-cta .s{display:inline}.zn-panel{position:fixed;top:68px;left:12px;right:12px;width:auto;transform:translateY(-8px) scale(.98)}.zn-panel.open{transform:none}}
+@media(prefers-reduced-motion:reduce){.zn *,.zn-panel{transition:none!important;animation:none!important}}
+</style>
+<style id="zf-css">
+/* ===== Ezeron footer ===== */
+.zf{position:relative;background:#000;border-top:1px solid rgba(255,255,255,.1);padding:110px 0 0;overflow:hidden}
+.zf-top{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;padding-bottom:84px}
+.zf-statement{font-family:var(--font-display);font-weight:600;font-size:clamp(40px,7vw,92px);line-height:1;letter-spacing:-.04em;margin:0;max-width:780px;color:#fff}
+.zf-statement span{color:#6b6b6b}
+.zf-cta p{color:#9a9a9a;margin:0 0 16px;font-size:15px}
+.zf-btn{display:inline-flex;align-items:center;gap:12px;height:56px;padding:0 30px;border-radius:100px;background:#fff;color:#000;font-weight:600;transition:transform .3s,box-shadow .3s}
+.zf-btn:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(255,255,255,.18)}
+.zf-btn svg{transition:transform .3s}.zf-btn:hover svg{transform:translateX(4px)}
+.zf-grid{display:grid;grid-template-columns:1.5fr repeat(4,1fr);gap:40px;padding:60px 0;border-top:1px solid rgba(255,255,255,.1)}
+.zf-brand p{color:#9a9a9a;font-size:15px;max-width:290px;margin:20px 0 0;line-height:1.6}
+.zf-logo{display:inline-flex;align-items:center;gap:12px;font-family:var(--font-display);font-weight:600;font-size:20px;color:#fff}
+.zf-mark{position:relative;width:44px;height:44px;border-radius:50%;background:#fff;color:#000;display:grid;place-items:center;font-weight:700;overflow:hidden;flex:none;transition:transform .8s cubic-bezier(.3,.7,.2,1)}
+.zf-logo:hover .zf-mark{transform:rotate(360deg)}
+.zf-mark img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff}
+.zf-col h4{font-family:var(--font-mono);font-weight:500;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6b6b6b;margin:0 0 18px}
+.zf-col a{position:relative;display:block;width:fit-content;color:#d4d4d4;font-size:15px;padding:5px 0;transition:color .25s}
+.zf-col a::after{content:"";position:absolute;left:0;bottom:3px;height:1px;width:100%;background:#fff;transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.zf-col a:hover{color:#fff}.zf-col a:hover::after{transform:scaleX(1)}
+.zf-word{font-family:var(--font-display);font-weight:700;font-size:clamp(70px,22vw,340px);line-height:.78;letter-spacing:-.05em;text-align:center;white-space:nowrap;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.18);background:linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,255,255,0) 82%);-webkit-background-clip:text;background-clip:text;user-select:none;margin:16px 0 0;padding-bottom:.06em}
+.zf-bottom{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:26px 0 34px;border-top:1px solid rgba(255,255,255,.1);color:#6b6b6b;font-size:13.5px}
+.zf-bottom nav{display:flex;gap:26px}
+.zf-bottom a{color:#9a9a9a;transition:color .25s}.zf-bottom a:hover{color:#fff}
+@media(max-width:960px){.zf-grid{grid-template-columns:1fr 1fr 1fr}.zf-brand{grid-column:1/-1}}
+@media(max-width:560px){.zf{padding-top:80px}.zf-top{padding-bottom:56px}.zf-grid{grid-template-columns:1fr 1fr;gap:34px 20px}.zf-bottom{flex-direction:column;align-items:flex-start}}
+@media(prefers-reduced-motion:reduce){.zf *{transition:none!important}}
+</style>
 </head>
 <body>
 <div id="ezSplash" class="ez-splash" role="presentation">
-  <div class="ez-splash-bg" aria-hidden="true"><div class="ez-splash-glow"></div></div>
-  <div class="ez-splash-stage">
-    <div class="ez-splash-logo-wrap" id="ezSplashLogoWrap">
-      <img src="logo.png" alt="Ezeron Tech" class="ez-splash-logo" id="ezSplashLogo">
-      <span class="ez-splash-fallback" id="ezSplashFallback">EZERON<span>TECH</span></span>
-      <span class="ez-splash-sweep" id="ezSplashSweep" aria-hidden="true"></span>
-    </div>
+  <div class="sp-row">
+    <span class="sp-logo" aria-hidden="true">E<img src="logo.png" alt="" onerror="this.remove()"></span>
+    <span class="sp-name">Ezeron Tech</span>
   </div>
-  <span class="ez-splash-hint">Tap to skip</span>
+  <span class="sp-tag">Technology for real-world problems</span>
+  <span class="sp-hint">Tap to skip</span>
 </div>
 <a href="#main" class="skip-link">Skip to content</a>
 <div class="grain" aria-hidden="true"></div>
-  <div class="nav-outer">
-    <nav class="nav" aria-label="Primary">
-      <a href="index.html" class="nav-brand">
-        <span class="mark logo-placeholder"><img src="logo.png" alt="Ezeron Tech logo — replace logo.png with your logo" class="logo-img"></span>
-        <span class="brand-text">Ezeron Tech</span>
-      </a>
-      <div class="nav-links">
-      <a href="index.html" class="active">Home</a>
-      <a href="about.html" class="">About</a>
-      <a href="services.html" class="">Services</a>
-      <a href="products.html" class="">Products</a>
-      <a href="work.html" class="">Work</a>
-      <a href="pricing.html" class="">Pricing</a>
-      <a href="contact.html" class="">Contact</a>
-      </div>
-      <div class="nav-right">
-        <a href="start-a-project.html" class="btn btn-ghost nav-cta">Start a Project</a>
-        <button class="nav-burger" aria-label="Open menu" aria-expanded="false">
-          <span></span>
-        </button>
-      </div>
-    </nav>
-  </div>
-  <div class="mobile-menu" id="mobileMenu">
-    <div class="mobile-menu-head">
-      <a href="index.html" class="nav-brand"><span class="mark logo-placeholder"><img src="logo.png" alt="Ezeron Tech logo — replace logo.png with your logo" class="logo-img"></span>Ezeron Tech</a>
-      <button class="mobile-menu-close" aria-label="Close menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 2L14 14M14 2L2 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
-    </div>
-    <div class="mobile-links">
-      <a href="index.html"><span>Home</span><span>01</span></a>
-      <a href="about.html"><span>About</span><span>02</span></a>
-      <a href="services.html"><span>Services</span><span>03</span></a>
-      <a href="products.html"><span>Products</span><span>04</span></a>
-      <a href="work.html"><span>Work</span><span>05</span></a>
-      <a href="pricing.html"><span>Pricing</span><span>06</span></a>
-      <a href="contact.html"><span>Contact</span><span>07</span></a>
-    </div>
-    <div class="mobile-menu-foot">
-      <a href="start-a-project.html" class="btn btn-primary" style="width:100%;justify-content:center;">Start a Project <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2 7.5H13M13 7.5L8 2.5M13 7.5L8 12.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-    </div>
-  </div>
+  <header class="zn" role="banner">
+  <a class="zn-pill zn-brand" href="index.html" aria-label="Ezeron Tech — home"><span class="zn-logo">E<img src="logo.png" alt="Ezeron Tech logo" onerror="this.remove()"></span><span class="zn-name">Ezeron Tech</span></a>
+  <div class="zn-mid"><button class="zn-pill zn-menu" type="button" aria-expanded="false" aria-controls="znPanel" aria-label="Open menu"><span class="zn-ham" aria-hidden="true"><i></i><i></i></span>Menu</button>
+  <nav class="zn-panel" id="znPanel" aria-label="Primary"><a href="index.html" aria-current="page">Home<span>01</span></a><a href="about.html">About<span>02</span></a><a href="services.html">Services<span>03</span></a><a href="products.html">Products<span>04</span></a><a href="work.html">Work<span>05</span></a><a href="pricing.html">Pricing<span>06</span></a><a href="contact.html">Contact<span>07</span></a></nav></div>
+  <a class="zn-pill zn-cta" href="start-a-project.html"><span class="f">Start a Project</span><span class="s">Start</span></a>
+</header>
 <main id="main">
 <section class="section home-hero" style="padding-top:170px;padding-bottom:100px;">
   <div class="home-hero-bg" aria-hidden="true">
@@ -708,52 +679,26 @@ html.ez-splash-lock, html.ez-splash-lock body{overflow:hidden;height:100%;}
 </style>
 </main>
 
-  <footer>
+  <footer class="zf">
     <div class="wrap">
-      <div class="footer-cta">
-        <div>
-          <span class="eyebrow">Let's Talk</span>
-          <h3 style="margin-top:14px;">Got a project in mind?</h3>
-        </div>
-        <a href="start-a-project.html" class="btn btn-primary">Start a Project <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2 7.5H13M13 7.5L8 2.5M13 7.5L8 12.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      <div class="zf-top">
+        <h2 class="zf-statement">Technology for <span>real-world problems.</span></h2>
+        <div class="zf-cta"><p>Got a project in mind?</p><a class="zf-btn" href="start-a-project.html">Start a Project <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2 7.5H13M13 7.5L8 2.5M13 7.5L8 12.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
       </div>
-      <div class="footer-top">
-        <div class="footer-brand">
-          <span class="mark logo-placeholder"><img src="logo.png" alt="Ezeron Tech logo — replace logo.png with your logo" class="logo-img"></span>
-          <p class="body" style="max-width:280px;color:var(--mist-500);">Technology for real-world problems &mdash; built through client services and Ezeron-owned products.</p>
+      <div class="zf-grid">
+        <div class="zf-brand">
+          <a class="zf-logo" href="index.html" aria-label="Ezeron Tech — home"><span class="zf-mark">E<img src="logo.png" alt="" onerror="this.remove()"></span>Ezeron Tech</a>
+          <p>Client technology services and Ezeron-owned digital products.</p>
         </div>
-        <div class="footer-cols">
-          <div class="footer-col">
-            <h4>Navigate</h4>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="services.html">Services</a>
-            <a href="products.html">Products</a>
-            <a href="work.html">Work</a>
-            <a href="pricing.html">Pricing</a>
-            <a href="team.html">Team</a>
-            <a href="contact.html">Contact</a>
-          </div>
-          <div class="footer-col">
-            <h4>Products</h4>
-            <a href="products.html#Wave">Wave</a>
-            <a href="products.html#Tera">Tera</a>
-          </div>
-          <div class="footer-col">
-            <h4>Studio</h4>
-            <p style="color:var(--mist-500);">Client technology services and Ezeron-owned digital products.</p>
-          </div>
-          <div class="footer-col">
-            <h4>Contact</h4>
-            <a href="https://wa.me/233557757831" target="_blank" rel="noopener">+233 55 775 7831</a>
-            <a href="https://wa.me/+233 50 944 9991" target="_blank" rel="noopener">+233 50 944 9991</a>
-            <!-- <a href="mailto:hello@ezerontech.com">hello@ezerontech.com</a> -->
-          </div>
-        </div>
+        <div class="zf-col"><h4>Company</h4><a href="about.html">About</a><a href="team.html">Team</a><a href="work.html">Work</a><a href="pricing.html">Pricing</a></div>
+        <div class="zf-col"><h4>Products</h4><a href="products.html#Wave">Wave</a><a href="products.html#Tera">Tera</a></div>
+        <div class="zf-col"><h4>Services</h4><a href="services.html">Web Development</a><a href="services.html">Mobile Apps</a><a href="services.html">UI/UX Design</a><a href="services.html">Custom Software</a><a href="services.html">AI Solutions</a><a href="services.html">Business Automation</a></div>
+        <div class="zf-col"><h4>Contact</h4><a href="contact.html">Contact page</a><a href="start-a-project.html">Start a Project</a><a href="https://wa.me/233557757831" target="_blank" rel="noopener">+233 55 775 7831</a><a href="https://wa.me/233509449991" target="_blank" rel="noopener">+233 50 944 9991</a></div>
       </div>
-      <div class="footer-bottom">
+      <div class="zf-word" aria-hidden="true">EZERON</div>
+      <div class="zf-bottom">
         <span>&copy; <span id="year"></span> Ezeron Tech. All rights reserved.</span>
-        <span>Understand &rarr; Design &rarr; Build &rarr; Improve</span>
+        <nav aria-label="Legal"><a href="terms.html">Terms &amp; Conditions</a><a href="privacy.html">Privacy Policy</a></nav>
       </div>
     </div>
   </footer>
@@ -820,59 +765,41 @@ html.ez-splash-lock, html.ez-splash-lock body{overflow:hidden;height:100%;}
 document.getElementById('year').textContent = new Date().getFullYear();
 
 // ===================================================================
-// EZERON TECH — cinematic splash screen
+// EZERON TECH — splash: logo rolls in, name unfolds, screen lifts
 // ===================================================================
 (function(){
-  var splash = document.getElementById('ezSplash');
+  var splash=document.getElementById('ezSplash');
   if(!splash) return;
-
-  var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var html = document.documentElement;
-  var finished = false;
-
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var html=document.documentElement,done=false;
   html.classList.add('ez-splash-lock');
-
-  var logoImg = document.getElementById('ezSplashLogo');
-  var fallback = document.getElementById('ezSplashFallback');
-  var sweep = document.getElementById('ezSplashSweep');
-
-  if(logoImg){
-    logoImg.addEventListener('error', function(){
-      logoImg.classList.add('ez-broken');
-      if(fallback) fallback.classList.add('ez-show');
-    });
-  }
-
   function finish(){
-    if(finished) return;
-    finished = true;
+    if(done) return; done=true;
     splash.classList.add('ez-splash-out');
-    setTimeout(function(){
-      splash.setAttribute('hidden', '');
-      splash.setAttribute('aria-hidden', 'true');
-      html.classList.remove('ez-splash-lock');
-    }, reduceMotion ? 60 : 760);
+    setTimeout(function(){splash.setAttribute('hidden','');splash.setAttribute('aria-hidden','true');html.classList.remove('ez-splash-lock');},reduce?60:980);
   }
-
-  function skip(){ finish(); }
-  splash.addEventListener('click', skip);
-  window.addEventListener('keydown', function(e){
-    if(e.key === 'Enter' || e.key === ' ' || e.key === 'Escape') skip();
-  });
-
-  if(reduceMotion){
-    splash.classList.add('ez-splash-in');
-    setTimeout(finish, 280);
-    return;
-  }
-
+  splash.addEventListener('click',finish);
+  window.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '||e.key==='Escape') finish();});
+  if(reduce){splash.classList.add('sp-land','sp-name-in');setTimeout(finish,300);return;}
   requestAnimationFrame(function(){
-    setTimeout(function(){ splash.classList.add('ez-splash-in'); }, 120);
-    setTimeout(function(){ if(sweep) sweep.classList.add('ez-sweep-play'); }, 1500);
-    setTimeout(finish, 3200);
+    setTimeout(function(){splash.classList.add('sp-land');},120);
+    setTimeout(function(){splash.classList.add('sp-name-in');},1100);
+    setTimeout(finish,2600);
   });
 })();
 
+</script>
+
+<script>
+(function(){
+  var btn=document.querySelector('.zn-menu'),panel=document.getElementById('znPanel');
+  if(!btn||!panel)return;
+  function set(o){panel.classList.toggle('open',o);btn.setAttribute('aria-expanded',o?'true':'false');btn.setAttribute('aria-label',o?'Close menu':'Open menu');}
+  btn.addEventListener('click',function(e){e.stopPropagation();set(!panel.classList.contains('open'));});
+  panel.addEventListener('click',function(e){if(e.target.closest('a'))set(false);});
+  document.addEventListener('click',function(e){if(!e.target.closest('.zn-mid'))set(false);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&panel.classList.contains('open')){set(false);btn.focus();}});
+})();
 </script>
 </body>
 </html>

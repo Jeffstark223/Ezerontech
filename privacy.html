@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Ezeron Tech</title>
+<meta name="description" content="How Ezeron Tech handles personal information when you use our website or contact us.">
+<meta property="og:title" content="Privacy Policy — Ezeron Tech">
+<meta property="og:description" content="How Ezeron Tech handles personal information when you use our website or contact us.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ezeron Tech">
+<link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="favicon-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:image" content="favicon-512.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ===================================================================
+   EZERON TECH — DESIGN SYSTEM
+   Black + White + Liquid Glass
+=================================================================== */
+:root{
+  --black:#000000;
+  --white:#ffffff;
+  --ink-950:#050505;
+  --ink-900:#0a0a0a;
+  --ink-800:#121212;
+  --ink-700:#1a1a1a;
+  --line-1:rgba(255,255,255,0.08);
+  --line-2:rgba(255,255,255,0.14);
+  --line-3:rgba(255,255,255,0.24);
+  --mist-300:#d4d4d4;
+  --mist-500:#9a9a9a;
+  --mist-700:#6b6b6b;
+  --glass-fill:rgba(255,255,255,0.045);
+  --glass-fill-strong:rgba(255,255,255,0.08);
+  --glass-hi:rgba(255,255,255,0.5);
+  --radius-s:10px;
+  --radius-m:18px;
+  --radius-l:28px;
+  --radius-xl:40px;
+  --ease:cubic-bezier(.16,.84,.32,1);
+  --container:1240px;
+  --font-display:'Bricolage Grotesque', 'Inter', sans-serif;
+  --font-body:'Inter', -apple-system, sans-serif;
+  --font-mono:'IBM Plex Mono', monospace;
+}
+
+*,*::before,*::after{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;scroll-behavior:auto !important;}
+}
+body{
+  margin:0;
+  background:var(--black);
+  color:var(--white);
+  font-family:var(--font-body);
+  font-size:16px;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+  position:relative;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;}
+ul{margin:0;padding:0;list-style:none;}
+h1,h2,h3,h4,p{margin:0;}
+:focus-visible{outline:2px solid var(--white);outline-offset:4px;border-radius:4px;}
+
+/* grain texture, fixed over entire viewport */
+.grain{
+  position:fixed;inset:0;pointer-events:none;z-index:9998;
+  opacity:0.035;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ===== layout helpers ===== */
+.wrap{max-width:var(--container);margin:0 auto;padding:0 32px;}
+.section{padding:140px 0;position:relative;}
+.section-tight{padding:80px 0;}
+@media (max-width:900px){
+  .section{padding:96px 0;}
+  .wrap{padding:0 22px;}
+}
+
+/* ===== eyebrow / labels ===== */
+.eyebrow{
+  font-family:var(--font-mono);
+  font-size:12.5px;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--mist-500);
+  display:inline-flex;align-items:center;gap:10px;
+}
+.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--white);display:inline-block;}
+
+/* ===== type scale ===== */
+h1,.h1{
+  font-family:var(--font-display);
+  font-weight:600;
+  letter-spacing:-0.03em;
+  line-height:0.98;
+  font-size:clamp(42px,6.6vw,94px);
+}
+h2,.h2{
+  font-family:var(--font-display);
+  font-weight:600;
+  letter-spacing:-0.025em;
+  line-height:1.03;
+  font-size:clamp(32px,4.4vw,58px);
+}
+h3,.h3{
+  font-family:var(--font-display);
+  font-weight:600;
+  letter-spacing:-0.015em;
+  line-height:1.12;
+  font-size:clamp(21px,2.2vw,28px);
+}
+.body-lg{font-size:clamp(17px,1.7vw,21px);line-height:1.55;color:var(--mist-300);font-weight:400;}
+.body{font-size:16px;line-height:1.65;color:var(--mist-300);}
+.caption{font-family:var(--font-mono);font-size:12px;letter-spacing:0.06em;color:var(--mist-700);}
+
+/* ===== buttons ===== */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:15px 26px;border-radius:100px;
+  font-family:var(--font-body);font-weight:600;font-size:14.5px;
+  letter-spacing:0.01em;
+  cursor:pointer;border:1px solid transparent;
+  transition:transform .5s var(--ease), background .4s ease, color .4s ease, border-color .4s ease, box-shadow .4s ease;
+  white-space:nowrap;
+}
+.btn svg{transition:transform .45s var(--ease);}
+.btn:hover svg{transform:translateX(4px);}
+.btn-primary{background:var(--white);color:var(--black);}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(255,255,255,0.15);}
+.btn-ghost{
+  background:var(--glass-fill);
+  color:var(--white);
+  border-color:var(--line-2);
+  backdrop-filter:blur(18px) saturate(140%);
+  -webkit-backdrop-filter:blur(18px) saturate(140%);
+}
+.btn-ghost:hover{background:var(--glass-fill-strong);border-color:var(--line-3);transform:translateY(-2px);}
+.btn-sm{padding:11px 20px;font-size:13.5px;}
+
+/* ===== glass surfaces ===== */
+.glass{
+  background:linear-gradient(155deg, rgba(255,255,255,0.07), rgba(255,255,255,0.02));
+  border:1px solid var(--line-2);
+  backdrop-filter:blur(22px) saturate(160%);
+  -webkit-backdrop-filter:blur(22px) saturate(160%);
+  border-radius:var(--radius-l);
+  position:relative;
+  box-shadow:0 1px 0 rgba(255,255,255,0.06) inset, 0 30px 60px -30px rgba(0,0,0,0.7);
+}
+.glass::before{
+  content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;
+  background:radial-gradient(420px circle at var(--mx,50%) var(--my,0%), rgba(255,255,255,0.10), transparent 60%);
+  opacity:var(--glow,0);
+  transition:opacity .4s ease;
+}
+.glass:hover::before{opacity:1;}
+.final-cta{text-align:center;padding:80px 40px;}
+
+/* ===== floating nav ===== */
+.nav-outer{
+  position:fixed;top:20px;left:0;right:0;z-index:1000;
+  display:flex;justify-content:center;
+  padding:0 20px;
+  transition:top .5s var(--ease);
+}
+.nav{
+  width:100%;max-width:1120px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 14px 12px 20px;
+  border-radius:100px;
+  background:rgba(10,10,10,0.55);
+  border:1px solid var(--line-2);
+  backdrop-filter:blur(24px) saturate(180%);
+  -webkit-backdrop-filter:blur(24px) saturate(180%);
+  box-shadow:0 1px 0 rgba(255,255,255,0.08) inset, 0 20px 50px -20px rgba(0,0,0,0.8);
+  transition:padding .5s var(--ease), background .5s var(--ease), transform .5s var(--ease), max-width .5s var(--ease), width .5s var(--ease);
+}
+.nav-outer.scrolled{top:12px;}
+.nav-outer.scrolled .nav{padding:7px 10px 7px 16px;background:rgba(6,6,6,0.82);box-shadow:0 1px 0 rgba(255,255,255,0.08) inset, 0 16px 36px -16px rgba(0,0,0,0.9);width:auto;max-width:480px;gap:18px;}
+.nav-outer.scrolled .nav-brand .mark{width:42px;height:42px;}
+.nav-outer.scrolled .nav-links a{padding:7px 13px;font-size:13.5px;}
+.nav-outer.scrolled .nav-cta{padding:9px 16px;font-size:13px;}
+.nav{position:relative;}
+.nav-links{transition:opacity .3s ease,visibility .3s ease,max-width .5s var(--ease),margin .5s var(--ease);overflow:hidden;}
+.nav-outer.scrolled .nav-links{opacity:0;visibility:hidden;pointer-events:none;max-width:0;margin:0;}
+.nav-outer.scrolled .nav-burger{display:flex;}
+.brand-text{transition:opacity .3s ease,max-width .4s var(--ease),margin .4s var(--ease);overflow:hidden;white-space:nowrap;}
+.nav-outer.scrolled .brand-text{opacity:0;max-width:0;margin:0;}
+.nav-brand .mark{transition:width .5s var(--ease),height .5s var(--ease);}
+.nav-links a{transition:color .35s ease,padding .5s var(--ease),font-size .5s var(--ease);}
+.nav-cta{transition:padding .5s var(--ease),font-size .5s var(--ease);}
+.nav-brand{display:flex;align-items:center;gap:12px;font-family:var(--font-display);font-weight:600;font-size:16px;letter-spacing:-0.01em;}
+.nav-brand .mark{width:52px;height:52px;color:var(--white);flex:none;}
+/* ===== logo placeholder image ===== */
+.mark{display:inline-flex;align-items:center;justify-content:center;}
+.logo-img{width:100%;height:100%;display:block;object-fit:contain;}
+.logo-placeholder{border-radius:50%;overflow:hidden;}
+
+.nav-links{display:flex;align-items:center;gap:2px;}
+.nav-links a{
+  position:relative;padding:9px 16px;border-radius:100px;
+  font-size:14px;font-weight:500;color:var(--mist-300);
+  transition:color .35s ease;
+}
+.nav-links a:hover{color:var(--white);}
+.nav-links a::before{
+  content:"";position:absolute;inset:0;border-radius:100px;
+  background:var(--glass-fill-strong);
+  opacity:0;transform:scale(0.85);
+  transition:opacity .35s var(--ease), transform .35s var(--ease);
+  z-index:-1;
+}
+.nav-links a:hover::before{opacity:1;transform:scale(1);}
+.nav-links a.active{color:var(--white);}
+.nav-links a.active::after{
+  content:"";position:absolute;left:16px;right:16px;bottom:5px;height:1px;background:var(--white);
+}
+.nav-right{display:flex;align-items:center;gap:10px;}
+.nav-cta{padding:11px 20px;font-size:13.5px;}
+.nav-burger{
+  display:none;width:40px;height:40px;border-radius:50%;
+  background:var(--glass-fill-strong);border:1px solid var(--line-2);
+  align-items:center;justify-content:center;cursor:pointer;
+}
+.nav-burger span{display:block;width:15px;height:1px;background:var(--white);position:relative;}
+.nav-burger span::before,.nav-burger span::after{content:"";position:absolute;left:0;width:15px;height:1px;background:var(--white);transition:transform .3s ease;}
+.nav-burger span::before{top:-5px;}
+.nav-burger span::after{top:5px;}
+
+@media (max-width:900px){
+  .nav-links{display:none;}
+  .nav-right .btn-ghost.nav-cta{display:none;}
+  .nav-burger{display:flex;}
+  .nav{padding:10px 10px 10px 18px;}
+}
+
+/* ===== mobile menu ===== */
+.mobile-menu{
+  position:fixed;inset:0;z-index:1100;
+  display:flex;flex-direction:column;
+  padding:20px;
+  background:rgba(4,4,4,0.7);
+  backdrop-filter:blur(30px) saturate(180%);
+  -webkit-backdrop-filter:blur(30px) saturate(180%);
+  opacity:0;visibility:hidden;
+  transform:translateY(-8px);
+  transition:opacity .45s var(--ease), transform .45s var(--ease), visibility 0s linear .45s;
+}
+.mobile-menu.open{opacity:1;visibility:visible;transform:translateY(0);transition:opacity .45s var(--ease), transform .45s var(--ease), visibility 0s;}
+.mobile-menu-head{display:flex;align-items:center;justify-content:space-between;padding:6px 6px 0;}
+.mobile-menu-close{
+  width:42px;height:42px;border-radius:50%;background:var(--glass-fill-strong);
+  border:1px solid var(--line-2);display:flex;align-items:center;justify-content:center;cursor:pointer;
+}
+.mobile-links{flex:1;display:flex;flex-direction:column;justify-content:center;gap:6px;padding:20px 10px;}
+.mobile-links a{
+  font-family:var(--font-display);font-size:clamp(32px,10vw,48px);font-weight:600;
+  letter-spacing:-0.02em;color:var(--white);padding:10px 4px;border-bottom:1px solid var(--line-1);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.mobile-links a span{font-family:var(--font-mono);font-size:13px;color:var(--mist-700);}
+.mobile-menu-foot{padding:10px;}
+
+/* ===== cards ===== */
+.card{
+  padding:34px;
+  transition:transform .5s var(--ease), border-color .4s ease;
+}
+.card:hover{transform:translateY(-4px);border-color:var(--line-3);}
+
+/* ===== footer ===== */
+footer{
+  border-top:1px solid var(--line-1);
+  padding:0 0 34px;
+  background:linear-gradient(180deg, transparent, rgba(255,255,255,0.015));
+}
+.footer-cta{
+  display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;
+  padding:56px 0;border-bottom:1px solid var(--line-1);
+}
+.footer-cta h3{font-size:clamp(22px,3vw,30px);letter-spacing:-0.02em;}
+.footer-top{display:flex;justify-content:space-between;gap:60px;flex-wrap:wrap;padding:60px 0;}
+.footer-brand .mark{width:44px;height:44px;color:var(--white);margin-bottom:18px;}
+.footer-cols{display:flex;gap:70px;flex-wrap:wrap;}
+.footer-col h4{font-family:var(--font-mono);font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mist-700);margin-bottom:16px;}
+.footer-col a,.footer-col p{display:block;color:var(--mist-300);font-size:14.5px;margin-bottom:11px;transition:color .3s ease;}
+.footer-col a:hover{color:var(--white);}
+.footer-bottom{
+  display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;
+  padding-top:28px;border-top:1px solid var(--line-1);
+  font-family:var(--font-mono);font-size:12px;color:var(--mist-700);
+}
+@media (max-width:700px){
+  .footer-cta{flex-direction:column;align-items:flex-start;}
+  .footer-top{flex-direction:column;gap:40px;}
+  .footer-cols{gap:40px;}
+}
+
+/* ===== reveal on scroll ===== */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease), transform .9s var(--ease);}
+.reveal.in{opacity:1;transform:translateY(0);}
+
+/* ===== misc ===== */
+.divider{height:1px;background:var(--line-1);width:100%;}
+.tag{
+  font-family:var(--font-mono);font-size:11.5px;letter-spacing:0.08em;text-transform:uppercase;
+  padding:6px 12px;border-radius:100px;border:1px solid var(--line-2);color:var(--mist-500);
+  display:inline-block;
+}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:28px;}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+@media (max-width:900px){.grid-2,.grid-3{grid-template-columns:1fr;}}
+
+.ph-photo{
+  position:relative;overflow:hidden;border-radius:var(--radius-l);
+  border:1px solid var(--line-2);
+}
+.ph-photo img{
+  width:100%;height:100%;object-fit:cover;
+  filter:grayscale(1) contrast(1.08) brightness(0.9);
+  transition:transform .8s var(--ease), filter .5s ease;
+}
+.ph-photo:hover img{transform:scale(1.045);filter:grayscale(0.4) contrast(1.1) brightness(0.95);}
+.ph-photo::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.55) 100%);
+}
+
+.skip-link{
+  position:absolute;left:-999px;top:0;background:var(--white);color:var(--black);
+  padding:12px 20px;border-radius:8px;z-index:2000;
+}
+.skip-link:focus{left:20px;top:20px;}
+
+</style>
+<style id="zn-css">
+/* ===== Ezeron navbar (Spacefs-style three pills) ===== */
+.zn{position:fixed;top:16px;left:20px;right:20px;z-index:1000;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;pointer-events:none}
+.zn>*{pointer-events:auto}
+.zn-pill{display:inline-flex;align-items:center;height:50px;border-radius:100px;background:rgba(18,18,18,.55);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(22px) saturate(180%);-webkit-backdrop-filter:blur(22px) saturate(180%);box-shadow:0 1px 0 rgba(255,255,255,.1) inset,0 12px 32px rgba(0,0,0,.35);color:#fff;font:500 15px/1 var(--font-body,Inter,sans-serif);cursor:pointer;transition:background .3s,transform .3s,box-shadow .3s}
+.zn-pill:hover{background:rgba(34,34,34,.7)}
+.zn-pill:focus-visible{outline:2px solid #fff;outline-offset:3px}
+.zn-brand{justify-self:start;padding:5px;gap:0}
+.zn-logo{position:relative;width:40px;height:40px;border-radius:50%;overflow:hidden;flex:none;display:grid;place-items:center;background:#fff;color:#000;font-weight:700}
+.zn-logo img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff}
+@keyframes znRoll{from{transform:rotate(0)}to{transform:rotate(360deg)}}
+.zn-brand:hover .zn-logo,.zn-brand:focus-visible .zn-logo{animation:znRoll .8s cubic-bezier(.3,.7,.2,1)}
+.zn-name{max-width:0;opacity:0;transform:translateX(-8px);overflow:hidden;white-space:nowrap;font-weight:600;font-size:17px;letter-spacing:-.02em;transition:max-width .45s cubic-bezier(.2,.7,.2,1),opacity .3s,transform .45s cubic-bezier(.2,.7,.2,1),margin .45s cubic-bezier(.2,.7,.2,1),padding .45s}
+.zn-brand:hover .zn-name,.zn-brand:focus-visible .zn-name{max-width:130px;opacity:1;transform:none;margin:0 12px 0 10px}
+.zn-mid{position:relative;justify-self:center}
+.zn-menu{padding:0 22px;gap:12px;border:1px solid rgba(255,255,255,.16)}
+.zn-ham{position:relative;width:16px;height:10px;display:block}
+.zn-ham i{position:absolute;left:0;width:16px;height:1.5px;background:#fff;border-radius:2px;transition:transform .35s cubic-bezier(.2,.7,.2,1),top .35s cubic-bezier(.2,.7,.2,1)}
+.zn-ham i:first-child{top:0}.zn-ham i:last-child{top:8px}
+.zn-menu[aria-expanded=true] .zn-ham i:first-child{top:4px;transform:rotate(45deg)}
+.zn-menu[aria-expanded=true] .zn-ham i:last-child{top:4px;transform:rotate(-45deg)}
+.zn-panel{position:absolute;top:calc(100% + 10px);left:50%;width:280px;transform:translate(-50%,-8px) scale(.97);transform-origin:top center;padding:10px;border-radius:26px;background:rgba(14,14,14,.78);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(26px) saturate(180%);-webkit-backdrop-filter:blur(26px) saturate(180%);box-shadow:0 24px 60px rgba(0,0,0,.5);opacity:0;visibility:hidden;transition:opacity .3s,transform .4s cubic-bezier(.2,.7,.2,1),visibility .3s}
+.zn-panel.open{opacity:1;visibility:visible;transform:translate(-50%,0) scale(1)}
+.zn-panel a{display:flex;justify-content:space-between;align-items:center;padding:13px 16px;border-radius:16px;color:#fff;font-size:16px;font-weight:500;transition:background .25s,padding .3s}
+.zn-panel a span{font:500 12px/1 'IBM Plex Mono',monospace;color:#9a9a9a}
+.zn-panel a:hover,.zn-panel a:focus-visible{background:rgba(255,255,255,.09);padding-left:20px;outline:none}
+.zn-panel a[aria-current=page]{background:rgba(255,255,255,.12)}
+.zn-cta{justify-self:end;padding:0 24px;background:#fff;color:#000;border-color:#fff;font-weight:600}
+.zn-cta:hover{background:#e9e9e9;transform:translateY(-1px)}
+.zn-cta .s{display:none}
+@media(max-width:600px){.zn{left:12px;right:12px;top:12px;gap:8px}.zn-pill{height:46px;font-size:14px}.zn-logo{width:36px;height:36px}.zn-menu{padding:0 16px;gap:9px}.zn-cta{padding:0 16px}.zn-cta .f{display:none}.zn-cta .s{display:inline}.zn-panel{position:fixed;top:68px;left:12px;right:12px;width:auto;transform:translateY(-8px) scale(.98)}.zn-panel.open{transform:none}}
+@media(prefers-reduced-motion:reduce){.zn *,.zn-panel{transition:none!important;animation:none!important}}
+</style>
+<style id="zf-css">
+/* ===== Ezeron footer ===== */
+.zf{position:relative;background:#000;border-top:1px solid rgba(255,255,255,.1);padding:110px 0 0;overflow:hidden}
+.zf-top{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap;padding-bottom:84px}
+.zf-statement{font-family:var(--font-display);font-weight:600;font-size:clamp(40px,7vw,92px);line-height:1;letter-spacing:-.04em;margin:0;max-width:780px;color:#fff}
+.zf-statement span{color:#6b6b6b}
+.zf-cta p{color:#9a9a9a;margin:0 0 16px;font-size:15px}
+.zf-btn{display:inline-flex;align-items:center;gap:12px;height:56px;padding:0 30px;border-radius:100px;background:#fff;color:#000;font-weight:600;transition:transform .3s,box-shadow .3s}
+.zf-btn:hover{transform:translateY(-3px);box-shadow:0 14px 40px rgba(255,255,255,.18)}
+.zf-btn svg{transition:transform .3s}.zf-btn:hover svg{transform:translateX(4px)}
+.zf-grid{display:grid;grid-template-columns:1.5fr repeat(4,1fr);gap:40px;padding:60px 0;border-top:1px solid rgba(255,255,255,.1)}
+.zf-brand p{color:#9a9a9a;font-size:15px;max-width:290px;margin:20px 0 0;line-height:1.6}
+.zf-logo{display:inline-flex;align-items:center;gap:12px;font-family:var(--font-display);font-weight:600;font-size:20px;color:#fff}
+.zf-mark{position:relative;width:44px;height:44px;border-radius:50%;background:#fff;color:#000;display:grid;place-items:center;font-weight:700;overflow:hidden;flex:none;transition:transform .8s cubic-bezier(.3,.7,.2,1)}
+.zf-logo:hover .zf-mark{transform:rotate(360deg)}
+.zf-mark img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff}
+.zf-col h4{font-family:var(--font-mono);font-weight:500;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6b6b6b;margin:0 0 18px}
+.zf-col a{position:relative;display:block;width:fit-content;color:#d4d4d4;font-size:15px;padding:5px 0;transition:color .25s}
+.zf-col a::after{content:"";position:absolute;left:0;bottom:3px;height:1px;width:100%;background:#fff;transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.zf-col a:hover{color:#fff}.zf-col a:hover::after{transform:scaleX(1)}
+.zf-word{font-family:var(--font-display);font-weight:700;font-size:clamp(70px,22vw,340px);line-height:.78;letter-spacing:-.05em;text-align:center;white-space:nowrap;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.18);background:linear-gradient(180deg,rgba(255,255,255,.16),rgba(255,255,255,0) 82%);-webkit-background-clip:text;background-clip:text;user-select:none;margin:16px 0 0;padding-bottom:.06em}
+.zf-bottom{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:26px 0 34px;border-top:1px solid rgba(255,255,255,.1);color:#6b6b6b;font-size:13.5px}
+.zf-bottom nav{display:flex;gap:26px}
+.zf-bottom a{color:#9a9a9a;transition:color .25s}.zf-bottom a:hover{color:#fff}
+@media(max-width:960px){.zf-grid{grid-template-columns:1fr 1fr 1fr}.zf-brand{grid-column:1/-1}}
+@media(max-width:560px){.zf{padding-top:80px}.zf-top{padding-bottom:56px}.zf-grid{grid-template-columns:1fr 1fr;gap:34px 20px}.zf-bottom{flex-direction:column;align-items:flex-start}}
+@media(prefers-reduced-motion:reduce){.zf *{transition:none!important}}
+</style>
+<link rel="canonical" href="https://ezerontech.com/privacy.html">
+<style id="lg-css">
+.lg-hero{padding:170px 0 56px}
+.lg-hero h1{margin-top:20px;max-width:760px}
+.lg-hero .meta{margin-top:22px;color:var(--mist-500);font-family:var(--font-mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase}
+.lg-wrap{display:grid;grid-template-columns:250px minmax(0,1fr);gap:72px;padding-bottom:120px}
+.lg-toc{position:sticky;top:110px;align-self:start;display:flex;flex-direction:column;gap:4px;border-left:1px solid var(--line-2);padding-left:18px}
+.lg-toc a{color:var(--mist-500);font-size:14px;padding:5px 0;transition:color .25s}
+.lg-toc a:hover{color:var(--white)}
+.lg-body{max-width:760px}
+.lg-body section{scroll-margin-top:110px;padding-top:44px}
+.lg-body section:first-child{padding-top:0}
+.lg-body h2{font-size:clamp(22px,2.6vw,28px);letter-spacing:-.02em;margin:0 0 14px}
+.lg-body h2 span{font-family:var(--font-mono);font-size:12.5px;color:var(--mist-700);margin-right:12px;letter-spacing:.08em}
+.lg-body p,.lg-body li{color:var(--mist-300);line-height:1.78;font-size:16px}
+.lg-body p{margin:0 0 14px}
+.lg-body ul{margin:0 0 14px;padding-left:20px;list-style:disc}
+.lg-body li{margin-bottom:8px}
+.lg-body a{color:var(--white);text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--line-3)}
+.lg-note{margin-top:56px;padding:26px 28px;border-radius:20px}
+@media(max-width:900px){.lg-wrap{grid-template-columns:1fr;gap:36px}.lg-toc{position:static;flex-direction:row;flex-wrap:wrap;gap:6px 18px;border-left:none;padding-left:0;padding-bottom:22px;border-bottom:1px solid var(--line-2)}.lg-hero{padding-top:140px}}
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Skip to content</a>
+<div class="grain" aria-hidden="true"></div>
+  <header class="zn" role="banner">
+  <a class="zn-pill zn-brand" href="index.html" aria-label="Ezeron Tech — home"><span class="zn-logo">E<img src="logo.png" alt="Ezeron Tech logo" onerror="this.remove()"></span><span class="zn-name">Ezeron Tech</span></a>
+  <div class="zn-mid"><button class="zn-pill zn-menu" type="button" aria-expanded="false" aria-controls="znPanel" aria-label="Open menu"><span class="zn-ham" aria-hidden="true"><i></i><i></i></span>Menu</button>
+  <nav class="zn-panel" id="znPanel" aria-label="Primary"><a href="index.html">Home<span>01</span></a><a href="about.html">About<span>02</span></a><a href="services.html">Services<span>03</span></a><a href="products.html">Products<span>04</span></a><a href="work.html">Work<span>05</span></a><a href="pricing.html">Pricing<span>06</span></a><a href="contact.html">Contact<span>07</span></a></nav></div>
+  <a class="zn-pill zn-cta" href="start-a-project.html"><span class="f">Start a Project</span><span class="s">Start</span></a>
+</header>
+<main id="main">
+<section class="lg-hero"><div class="wrap">
+  <span class="eyebrow reveal in">Legal</span>
+  <h1 class="reveal in">Privacy Policy</h1>
+  <p class="meta reveal in">Last updated: 20 October 2026</p>
+</div></section>
+<div class="wrap lg-wrap">
+  <nav class="lg-toc" aria-label="On this page"><a href="#s1">Who we are</a><a href="#s2">Information we collect</a><a href="#s3">How our forms work</a><a href="#s4">Cookies and analytics</a><a href="#s5">How we use information</a><a href="#s6">Sharing information</a><a href="#s7">How long we keep it</a><a href="#s8">Security</a><a href="#s9">Your rights</a><a href="#s10">Third-party services</a><a href="#s11">Children</a><a href="#s12">Changes to this policy</a><a href="#s13">Contact</a></nav>
+  <article class="lg-body"><section id="s1"><h2><span>01</span>Who we are</h2><p>This Privacy Policy explains how Ezeron Tech (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;) handles personal information when you use our website or contact us through it.</p></section><section id="s2"><h2><span>02</span>Information we collect</h2><p><b>Information you give us.</b> When you use the Contact or Start a Project form, or message us on WhatsApp, we receive what you choose to share. This can include:</p><ul><li>your name, email address and phone number</li><li>your company or organisation, if you add it</li><li>the type of project, a description of what you want to build, and your message</li><li>for Start a Project: where you are with the project, your estimated budget and your preferred timeline</li></ul><p><b>Technical information.</b> When you open the Website, your browser connects to services that load fonts and images for the pages (see &ldquo;Third-party services&rdquo; below). Those services can see technical details such as your IP address and browser type.</p></section><section id="s3"><h2><span>03</span>How our forms work</h2><p>Our forms do not send your details to a server of ours. When you submit one, the Website builds a message from what you entered and opens WhatsApp so that you can review and send it. We receive the information only if you send that message.</p><p>Messages sent through WhatsApp are handled by WhatsApp, which is operated by Meta, under its own terms and privacy policy.</p></section><section id="s4"><h2><span>04</span>Cookies and analytics</h2><p>At the time of writing, the Website does not use analytics or advertising trackers and does not set cookies of its own. If that changes, we will update this policy.</p></section><section id="s5"><h2><span>05</span>How we use information</h2><p>We use the information you send us to:</p><ul><li>reply to your enquiry and discuss your project</li><li>prepare quotations and deliver services you ask for</li><li>keep a record of our correspondence</li><li>meet legal obligations</li></ul><p>We do not sell your personal information.</p></section><section id="s6"><h2><span>06</span>Sharing information</h2><p>We share personal information only where needed to handle your enquiry or deliver a service, for example with tools we use to communicate or host work, or where the law requires it. Anyone we share it with is expected to protect it appropriately.</p></section><section id="s7"><h2><span>07</span>How long we keep it</h2><p>We keep enquiry messages and project records only for as long as we need them for the purposes above, including record-keeping, and then delete or anonymise them.</p></section><section id="s8"><h2><span>08</span>Security</h2><p>We take reasonable steps to protect the information we hold, but no method of sending or storing data is completely secure. Please do not send passwords, card numbers or other highly sensitive information through the forms or in a first message.</p></section><section id="s9"><h2><span>09</span>Your rights</h2><p>Under Ghana&rsquo;s Data Protection Act, 2012 (Act 843), you may have rights over your personal information, such as asking what we hold about you, asking us to correct it, and asking us to delete it or stop using it. To make a request, message us on WhatsApp using the numbers below.</p><p>If you are unhappy with how we handle your information, you can also complain to the Data Protection Commission of Ghana.</p></section><section id="s10"><h2><span>10</span>Third-party services</h2><p>The Website uses Google Fonts for typefaces and loads some images from third-party image hosts. It also links to WhatsApp. These services receive technical information such as your IP address when your browser requests content from them, and they handle it under their own policies.</p></section><section id="s11"><h2><span>11</span>Children</h2><p>The Website is not aimed at children, and we do not knowingly collect personal information from anyone under 18.</p></section><section id="s12"><h2><span>12</span>Changes to this policy</h2><p>We may update this policy from time to time. The date at the top of this page shows when it was last changed.</p></section><section id="s13"><h2><span>13</span>Contact</h2><p>Questions about privacy? Message us on WhatsApp at <a href="https://wa.me/233557757831" target="_blank" rel="noopener">+233 55 775 7831</a> or <a href="https://wa.me/233509449991" target="_blank" rel="noopener">+233 50 944 9991</a>.</p></section></article>
+</div>
+</main>
+
+  <footer class="zf">
+    <div class="wrap">
+      <div class="zf-top">
+        <h2 class="zf-statement">Technology for <span>real-world problems.</span></h2>
+        <div class="zf-cta"><p>Got a project in mind?</p><a class="zf-btn" href="start-a-project.html">Start a Project <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2 7.5H13M13 7.5L8 2.5M13 7.5L8 12.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+      </div>
+      <div class="zf-grid">
+        <div class="zf-brand">
+          <a class="zf-logo" href="index.html" aria-label="Ezeron Tech — home"><span class="zf-mark">E<img src="logo.png" alt="" onerror="this.remove()"></span>Ezeron Tech</a>
+          <p>Client technology services and Ezeron-owned digital products.</p>
+        </div>
+        <div class="zf-col"><h4>Company</h4><a href="about.html">About</a><a href="team.html">Team</a><a href="work.html">Work</a><a href="pricing.html">Pricing</a></div>
+        <div class="zf-col"><h4>Products</h4><a href="products.html#Wave">Wave</a><a href="products.html#Tera">Tera</a></div>
+        <div class="zf-col"><h4>Services</h4><a href="services.html">Web Development</a><a href="services.html">Mobile Apps</a><a href="services.html">UI/UX Design</a><a href="services.html">Custom Software</a><a href="services.html">AI Solutions</a><a href="services.html">Business Automation</a></div>
+        <div class="zf-col"><h4>Contact</h4><a href="contact.html">Contact page</a><a href="start-a-project.html">Start a Project</a><a href="https://wa.me/233557757831" target="_blank" rel="noopener">+233 55 775 7831</a><a href="https://wa.me/233509449991" target="_blank" rel="noopener">+233 50 944 9991</a></div>
+      </div>
+      <div class="zf-word" aria-hidden="true">EZERON</div>
+      <div class="zf-bottom">
+        <span>&copy; <span id="year"></span> Ezeron Tech. All rights reserved.</span>
+        <nav aria-label="Legal"><a href="terms.html">Terms &amp; Conditions</a><a href="privacy.html">Privacy Policy</a></nav>
+      </div>
+    </div>
+  </footer>
+<script>
+// EZERON TECH — shared interactions
+(function(){
+  // nav scroll state
+  var navOuter = document.querySelector('.nav-outer');
+  var lastY = 0;
+  function onScroll(){
+    if(!navOuter) return;
+    var y = window.scrollY || 0;
+    if(y > 40){ navOuter.classList.add('scrolled'); } else { navOuter.classList.remove('scrolled'); }
+    lastY = y;
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  // mobile menu
+  var burger = document.querySelector('.nav-burger');
+  var menu = document.querySelector('.mobile-menu');
+  var closeBtn = document.querySelector('.mobile-menu-close');
+  function openMenu(){ if(menu){ menu.classList.add('open'); document.body.style.overflow='hidden'; } }
+  function closeMenu(){ if(menu){ menu.classList.remove('open'); document.body.style.overflow=''; } }
+  if(burger) burger.addEventListener('click', openMenu);
+  if(closeBtn) closeBtn.addEventListener('click', closeMenu);
+  if(menu){
+    menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
+  }
+
+  // reveal on scroll
+  var revealEls = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window && revealEls.length){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, {threshold:0.15, rootMargin:'0px 0px -60px 0px'});
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  // glass glow follow pointer
+  var glassEls = document.querySelectorAll('.glass, .card');
+  glassEls.forEach(function(el){
+    el.addEventListener('mousemove', function(e){
+      var r = el.getBoundingClientRect();
+      var mx = ((e.clientX - r.left) / r.width) * 100;
+      var my = ((e.clientY - r.top) / r.height) * 100;
+      el.style.setProperty('--mx', mx + '%');
+      el.style.setProperty('--my', my + '%');
+      el.style.setProperty('--glow', '1');
+    });
+    el.addEventListener('mouseleave', function(){
+      el.style.setProperty('--glow', '0');
+    });
+  });
+})();
+
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+<script>
+(function(){
+  var btn=document.querySelector('.zn-menu'),panel=document.getElementById('znPanel');
+  if(!btn||!panel)return;
+  function set(o){panel.classList.toggle('open',o);btn.setAttribute('aria-expanded',o?'true':'false');btn.setAttribute('aria-label',o?'Close menu':'Open menu');}
+  btn.addEventListener('click',function(e){e.stopPropagation();set(!panel.classList.contains('open'));});
+  panel.addEventListener('click',function(e){if(e.target.closest('a'))set(false);});
+  document.addEventListener('click',function(e){if(!e.target.closest('.zn-mid'))set(false);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&panel.classList.contains('open')){set(false);btn.focus();}});
+})();
+</script>
+</body>
+</html>
