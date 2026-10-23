@@ -500,7 +500,7 @@ html.ez-splash-lock,html.ez-splash-lock body{overflow:hidden;height:100%;}
 .final h2{font-size:clamp(44px,8vw,120px);letter-spacing:-.045em;line-height:.95}
 .final p{color:var(--mist-300);margin:22px auto 0;max-width:480px}
 .final .btn{margin-top:34px}
-/* wishlist dialog */
+/* waitlistdialog */
 dialog.wl{border:1px solid var(--line-3);border-radius:var(--radius-l);padding:0;width:min(520px,calc(100vw - 28px));max-height:calc(100svh - 28px);overflow:auto;background:rgba(16,16,16,.88);backdrop-filter:blur(28px) saturate(170%);-webkit-backdrop-filter:blur(28px) saturate(170%);color:#fff;box-shadow:0 40px 100px rgba(0,0,0,.7)}
 dialog.wl[open]{animation:wlIn .45s var(--ease)}
 dialog.wl::backdrop{background:rgba(0,0,0,.6);backdrop-filter:blur(6px);animation:bdIn .35s ease}
@@ -590,7 +590,7 @@ html.fx-on .steps li::before{transition:color .6s}
     <p class="hero-tag">Restaurant management, simplified.</p>
     <p class="status"><i aria-hidden="true"></i>Launching Soon</p>
     <p class="hero-sub">Dinevo is an upcoming restaurant management product, built by Ezeron Tech.</p>
-    <button type="button" class="btn btn-primary" data-wishlist>Join the Wishlist <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M2 7.5H13M13 7.5L8 2.5M13 7.5L8 12.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <button type="button" class="btn btn-primary" data-wishlist>Join the waitlist<svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M2 7.5H13M13 7.5L8 2.5M13 7.5L8 12.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
   </div>
   <a class="hero-scroll" href="#intro-t" aria-label="Scroll to content">Scroll</a>
 </section>
@@ -636,8 +636,8 @@ html.fx-on .steps li::before{transition:color .6s}
       <span class="chip">Launching Soon</span>
       <h2 id="dv-t">Dinevo</h2>
       <p class="sub">Restaurant management, simplified.</p>
-      <p class="d">An upcoming restaurant management product from Ezeron Tech. No launch date has been announced. Join the wishlist to get launch updates.</p>
-      <button type="button" class="btn btn-primary" data-wishlist>Join the Wishlist <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M2 7.5H13M13 7.5L8 2.5M13 7.5L8 12.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <p class="d">An upcoming restaurant management product from Ezeron Tech. No launch date has been announced. Join the waitlistto get launch updates.</p>
+      <button type="button" class="btn btn-primary" data-wishlist>Join the waitlist<svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M2 7.5H13M13 7.5L8 2.5M13 7.5L8 12.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
     </div>
     <div class="stage" data-tilt><div class="shot" data-note="Add assets/dinevo-2.png (Dinevo screenshot)"><img src="dinevo-1.png" alt="Dinevo interface" loading="lazy"></div></div>
   </div>
@@ -695,7 +695,7 @@ html.fx-on .steps li::before{transition:color .6s}
   <div class="wl-in" style="position:relative">
     <button type="button" class="wl-x" data-close aria-label="Close">&times;</button>
     <h2 id="wl-t">Join the Dinevo wishlist</h2>
-    <p class="note">Dinevo is upcoming and hasn't launched. Joining the wishlist registers your interest in receiving launch updates. It doesn't create an account.</p>
+    <p class="note">Dinevo is upcoming and hasn't launched. Joining the waitlistregisters your interest in receiving launch updates. It doesn't create an account.</p>
     <form id="wlForm" novalidate>
       <label for="wlName">Full name</label><input id="wlName" name="fullName" autocomplete="name" required>
       <label for="wlRest">Restaurant name</label><input id="wlRest" name="restaurant" autocomplete="organization" required>
@@ -762,7 +762,7 @@ html.fx-on .steps li::before{transition:color .6s}
   }
   // wishlist
   var dlg=document.getElementById('wishlist'),form=document.getElementById('wlForm'),st=document.getElementById('wlStatus');
-  // Set this to a secure endpoint that stores wishlist entries (it must accept a JSON POST).
+  // Set this to a secure endpoint that stores waitlistentries (it must accept a JSON POST).
   // While empty, the form never reports success because nothing can be saved.
   var WISHLIST_ENDPOINT='';
   var WA='233557757831';
@@ -777,8 +777,8 @@ html.fx-on .steps li::before{transition:color .6s}
     if(!form.checkValidity()){form.reportValidity();return;}
     var d={fullName:form.fullName.value.trim(),restaurant:form.restaurant.value.trim(),email:form.email.value.trim(),phone:form.phone.value.trim(),source:'ezerontech.com'};
     if(!WISHLIST_ENDPOINT){
-      var msg='Dinevo wishlist request:\nName: '+d.fullName+'\nRestaurant: '+d.restaurant+'\nEmail: '+d.email+(d.phone?'\nPhone: '+d.phone:'');
-      show('Wishlist sign-ups aren\'t connected to storage yet, so nothing has been saved. To register your interest now, <a href="https://wa.me/'+WA+'?text='+encodeURIComponent(msg)+'" target="_blank" rel="noopener">send these details on WhatsApp</a>.');
+      var msg='Dinevo waitlistrequest:\nName: '+d.fullName+'\nRestaurant: '+d.restaurant+'\nEmail: '+d.email+(d.phone?'\nPhone: '+d.phone:'');
+      show('waitlistsign-ups aren\'t connected to storage yet, so nothing has been saved. To register your interest now, <a href="https://wa.me/'+WA+'?text='+encodeURIComponent(msg)+'" target="_blank" rel="noopener">send these details on WhatsApp</a>.');
       return;
     }
     var sub=form.querySelector('[type=submit]');sub.disabled=true;
