@@ -338,21 +338,7 @@ footer{
 }
 
 /* ===== EZERON TECH — SPLASH: the logo rolls in, the name unfolds, the screen lifts ===== */
-html.ez-splash-lock,html.ez-splash-lock body{overflow:hidden;height:100%;}
-.ez-splash{position:fixed;inset:0;z-index:5000;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#000;cursor:pointer;transition:transform .95s cubic-bezier(.76,0,.24,1),border-radius .95s cubic-bezier(.76,0,.24,1);}
-.ez-splash[hidden]{display:none;}
-.ez-splash.ez-splash-out{transform:translateY(-101%);border-radius:0 0 50% 50% / 0 0 110px 110px;pointer-events:none;}
-.sp-row{display:flex;align-items:center;}
-.sp-logo{position:relative;flex:none;width:92px;height:92px;border-radius:50%;background:#fff;color:#000;display:grid;place-items:center;overflow:hidden;font:700 38px var(--font-display);opacity:0;transform:translateX(-45vw) rotate(-720deg);}
-.sp-logo img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff;}
-.ez-splash.sp-land .sp-logo{opacity:1;transform:none;transition:transform 1.15s cubic-bezier(.2,.8,.2,1),opacity .3s;}
-.sp-name{max-width:0;overflow:hidden;white-space:nowrap;opacity:0;transform:translateX(-14px);font:600 clamp(34px,7vw,56px)/1.1 var(--font-display);letter-spacing:-.03em;color:#fff;transition:max-width .9s cubic-bezier(.2,.7,.2,1),opacity .6s,transform .9s cubic-bezier(.2,.7,.2,1),margin .9s cubic-bezier(.2,.7,.2,1);}
-.ez-splash.sp-name-in .sp-name{max-width:420px;opacity:1;transform:none;margin-left:20px;}
-.ez-splash.sp-land .sp-tag{margin-top:40px;font:500 11px var(--font-mono);letter-spacing:.18em;text-transform:uppercase;color:var(--mist-700);opacity:0;transition:opacity .8s ease .9s;text-align:center;padding:0 20px;}
-.ez-splash.sp-name-in .sp-tag{opacity:1;}
-.sp-hint{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);font:500 11px var(--font-mono);letter-spacing:.14em;text-transform:uppercase;color:#444;}
-@media (max-width:600px){.sp-logo{width:72px;height:72px;font-size:30px;}.sp-name{font-size:32px;}.ez-splash.sp-name-in .sp-name{margin-left:14px;}}
-@media (prefers-reduced-motion:reduce){.ez-splash,.ez-splash *{transition:none!important;}}
+
 
 .skip-link{
   position:absolute;left:-999px;top:0;background:var(--white);color:var(--black);
@@ -563,17 +549,114 @@ html.fx-on .proj .shot img{transform:translate3d(0,calc((var(--pp,.5) - .5)*-48p
 html.fx-on .proj:hover .shot img{transform:translate3d(0,calc((var(--pp,.5) - .5)*-48px),0) scale(1.2)}
 html.fx-on .steps li::before{transition:color .6s}
 </style>
+<noscript><style>.ez-splash{display:none!important}</style></noscript>
+
+<style id="ez-splash-css">
+html.ez-splash-lock,html.ez-splash-lock body{overflow:hidden;height:100%}
+.ez-splash{position:fixed;inset:0;z-index:5000;overflow:hidden;cursor:pointer;perspective:900px}
+.ez-splash[hidden]{display:none}
+.sp-panel{position:absolute;top:0;bottom:0;width:50.5%;background:#000;z-index:0;transition:transform 1s cubic-bezier(.76,0,.24,1)}
+.sp-l{left:0}.sp-r{right:0}
+.ez-splash.sp-out .sp-l{transform:translateX(-101%)}.ez-splash.sp-out .sp-r{transform:translateX(101%)}
+.sp-cv{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;transition:opacity .5s}
+.sp-flash{position:absolute;left:50%;top:44%;width:80vmin;height:80vmin;margin:-40vmin 0 0 -40vmin;z-index:1;pointer-events:none;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.75),rgba(255,255,255,.12) 40%,transparent 70%);opacity:0;animation:spFlash 1.5s ease-out .95s both}
+.sp-stack{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;transition:opacity .45s,transform 1s cubic-bezier(.76,0,.24,1)}
+.ez-splash.sp-out .sp-stack,.ez-splash.sp-out .sp-cv,.ez-splash.sp-out .sp-flash,.ez-splash.sp-out .sp-skip{opacity:0}
+.ez-splash.sp-out .sp-stack{transform:scale(1.12)}
+.sp-mark{position:relative;width:104px;height:104px;border-radius:50%;background:#fff;color:#000;display:grid;place-items:center;overflow:hidden;font:700 44px var(--font-display);opacity:0;animation:spMark 1.3s cubic-bezier(.2,.8,.2,1) .9s both;box-shadow:0 0 90px rgba(255,255,255,.35)}
+.sp-mark img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#fff}
+.sp-word{display:block;margin-top:34px;font:600 clamp(26px,5.4vw,50px)/1 var(--font-display);letter-spacing:.3em;margin-right:-.3em;color:#fff;white-space:nowrap;perspective:700px}
+.sp-ch{display:inline-block;opacity:0;animation:spCh .9s cubic-bezier(.2,.8,.2,1) both}
+.sp-line{display:block;height:1px;width:min(300px,56vw);margin-top:26px;background:linear-gradient(90deg,transparent,#fff,transparent);transform:scaleX(0);animation:spLine 1.2s cubic-bezier(.2,.8,.2,1) 2.3s both}
+.sp-tag{display:block;margin-top:20px;font:500 11px var(--font-mono);letter-spacing:.22em;text-transform:uppercase;color:#9a9a9a;text-align:center;padding:0 20px;opacity:0;animation:spFade 1s ease 2.55s both}
+.sp-skip{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);z-index:3;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.28);color:#fff;border-radius:999px;padding:10px 22px;font:500 12px var(--font-mono);letter-spacing:.14em;text-transform:uppercase;cursor:pointer;backdrop-filter:blur(8px);transition:opacity .3s,background .2s,color .2s}
+.sp-skip:hover,.sp-skip:focus-visible{background:#fff;color:#000}
+@keyframes spMark{0%{opacity:0;transform:scale(.25) rotateY(-150deg);filter:blur(14px)}55%{opacity:1;filter:blur(0)}100%{opacity:1;transform:none;filter:none}}
+@keyframes spCh{0%{opacity:0;transform:translateY(46px) rotateX(-95deg);filter:blur(8px)}100%{opacity:1;transform:none;filter:none}}
+@keyframes spLine{to{transform:scaleX(1)}}
+@keyframes spFade{to{opacity:1}}
+@keyframes spFlash{0%{opacity:0;transform:scale(.3)}25%{opacity:1}100%{opacity:0;transform:scale(1.5)}}
+.ez-splash.sp-rm *{animation:none!important;opacity:1!important;transition:none!important}
+.ez-splash.sp-rm .sp-flash,.ez-splash.sp-rm .sp-line{opacity:0!important}.ez-splash.sp-rm .sp-line{transform:none}
+@media (max-width:600px){.sp-mark{width:84px;height:84px;font-size:36px}.sp-word{letter-spacing:.2em;margin-right:-.2em}}
+</style>
+<style id="ez3d-css">
+@keyframes ezIn{from{opacity:0}to{opacity:1}}
+body{animation:ezIn .55s ease both}
+.ez-cv{position:fixed;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none;opacity:0;transition:opacity 1.4s ease}
+.hero>.ez-cv{position:absolute}
+.ez-cv.on{opacity:.5}.hero>.ez-cv.on{opacity:.85}
+html.ez-seen .ez-splash{display:none}
+.work-visual{transition:transform .25s ease-out;transform-style:preserve-3d;will-change:transform}
+@media (prefers-reduced-motion:reduce){body{animation:none}.ez-cv{display:none}}
+@media (prefers-reduced-motion:no-preference){
+html.ez-3d section:not(.hero):not(.page-hero),html.ez-3d footer{perspective:1400px}
+html.ez-3d .hero,html.ez-3d .page-hero{perspective:1200px}
+html.ez-3d .reveal{transform:translate3d(0,50px,-170px) rotateX(15deg);transform-origin:50% 100%;transition:opacity 1s var(--ease),transform 1.25s var(--ease)}
+html.ez-3d .reveal.in{transform:none}
+html.ez-3d.fx-on .fx{transform:translate3d(0,40px,-130px) rotateX(11deg);transform-origin:50% 100%}
+html.ez-3d.fx-on .fx.in{transform:none}
+html.ez-3d .glass,html.ez-3d .work-item,html.ez-3d .proj{rotate:x calc(var(--e,0)*9deg*var(--k,1));translate:0 0 calc(var(--e,0)*var(--e,0)*-50px*var(--k,1))}
+html.ez-3d .hero .wrap,html.ez-3d .page-hero .wrap{transform-origin:50% 100%;rotate:x calc(var(--he,0)*16deg*var(--k,1));translate:0 0 calc(var(--he,0)*-140px*var(--k,1))}
+}
+</style>
 </head>
 <body>
 
+<script>try{if(sessionStorage.getItem("ezNav")){document.documentElement.classList.add("ez-seen");sessionStorage.removeItem("ezNav")}}catch(e){}</script>
 <div id="ezSplash" class="ez-splash" role="presentation">
-  <div class="sp-row">
-    <span class="sp-logo" aria-hidden="true">E<img src="logo.png" alt="" onerror="this.remove()"></span>
-    <span class="sp-name">Ezeron Tech</span>
+  <div class="sp-panel sp-l"></div><div class="sp-panel sp-r"></div>
+  <div class="sp-flash"></div>
+  <div class="sp-stack">
+    <span class="sp-mark" aria-hidden="true">E<img src="logo.png" alt="" onerror="this.remove()"></span>
+    <span class="sp-word" role="img" aria-label="Ezeron Tech">EZERON TECH</span>
+    <span class="sp-line"></span>
+    <span class="sp-tag">Technology for real-world problems</span>
   </div>
-  <span class="sp-tag">Technology for real-world problems</span>
-  <span class="sp-hint">Tap to skip</span>
+  <button type="button" class="sp-skip" id="spSkip">Skip intro</button>
 </div>
+<script id="ez-splash-js">
+(function(){
+var sp=document.getElementById('ezSplash');if(!sp)return;
+var H=document.documentElement;if(H.classList.contains('ez-seen'))return;
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches,done=false,endAt=0;
+var w=sp.querySelector('.sp-word'),txt=w.textContent;w.textContent='';
+txt.split('').forEach(function(c,i){var s=document.createElement('span');s.className='sp-ch';s.setAttribute('aria-hidden','true');s.style.animationDelay=(1.55+i*.055)+'s';s.textContent=c===' '?'\u00a0':c;w.appendChild(s);});
+H.classList.add('ez-splash-lock');
+if(RM)sp.classList.add('sp-rm');
+function finish(){if(done)return;done=true;endAt=performance.now();sp.classList.add('sp-out');
+ setTimeout(function(){sp.hidden=true;sp.setAttribute('aria-hidden','true');H.classList.remove('ez-splash-lock');},RM?60:1050);}
+sp.addEventListener('click',finish);
+addEventListener('keydown',function(e){if(!done&&(e.key==='Escape'||e.key==='Enter'||e.key===' '))finish();});
+setTimeout(finish,RM?700:4000);
+/* 3D warp-speed streaks that rush toward the viewer, then settle into drifting dust */
+window.ezSplash3D=function(THREE){
+ if(done||RM||sp.hidden)return;
+ var cv=document.createElement('canvas');cv.className='sp-cv';cv.setAttribute('aria-hidden','true');sp.insertBefore(cv,sp.children[2]);
+ try{
+  var small=innerWidth<760||(navigator.hardwareConcurrency||4)<4,px=0,py=0,i;
+  addEventListener('pointermove',function(e){px=e.clientX/innerWidth*2-1;py=e.clientY/innerHeight*2-1;},{passive:true});
+  var r=new THREE.WebGLRenderer({canvas:cv,alpha:true,antialias:!small});r.setPixelRatio(Math.min(devicePixelRatio,small?1:1.75));
+  var sc=new THREE.Scene(),cam=new THREE.PerspectiveCamera(70,1,.1,100);
+  var N=small?190:440,P=new Float32Array(N*6),X=[],Y=[],Z=[],S=[];
+  for(i=0;i<N;i++){var a=Math.random()*6.283,rad=.7+Math.random()*7.5;X[i]=Math.cos(a)*rad;Y[i]=Math.sin(a)*rad;Z[i]=-Math.random()*60;S[i]=.6+Math.random()*.8;}
+  var g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.BufferAttribute(P,3));
+  sc.add(new THREE.LineSegments(g,new THREE.LineBasicMaterial({color:0xffffff,transparent:true,opacity:.8})));
+  function size(){var W=sp.clientWidth,Hh=sp.clientHeight;r.setSize(W,Hh,false);cam.aspect=W/Hh;cam.updateProjectionMatrix();}
+  size();addEventListener('resize',size);
+  var t0=performance.now();
+  (function loop(){
+   if(sp.hidden){r.dispose();cv.remove();return;}
+   var t=(performance.now()-t0)/1000,v=.12+3.4*Math.pow(Math.max(0,1-t/2.2),2.2),len=v*2.4;
+   for(i=0;i<N;i++){Z[i]+=v*S[i]*.9;if(Z[i]>-.5)Z[i]=-60;
+    P[i*6]=X[i];P[i*6+1]=Y[i];P[i*6+2]=Z[i];P[i*6+3]=X[i];P[i*6+4]=Y[i];P[i*6+5]=Z[i]-len*S[i];}
+   g.attributes.position.needsUpdate=true;cam.position.x=px*.35;cam.position.y=-py*.25;
+   r.render(sc,cam);requestAnimationFrame(loop);
+  })();
+ }catch(e){cv.remove();}
+};
+})();
+</script>
 <a href="#main" class="skip-link">Skip to content</a>
 <header class="zn" role="banner">
   <a class="zn-pill zn-brand" href="index.html" aria-label="Ezeron Tech — home"><span class="zn-logo">E<img src="logo.png" alt="Ezeron Tech logo" onerror="this.remove()"></span><span class="zn-name">Ezeron Tech</span></a>
@@ -790,26 +873,7 @@ html.fx-on .steps li::before{transition:color .6s}
   var y=document.getElementById('year');if(y)y.textContent=new Date().getFullYear();
 })();
 
-(function(){
-  var splash=document.getElementById('ezSplash');
-  if(!splash) return;
-  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var html=document.documentElement,done=false;
-  html.classList.add('ez-splash-lock');
-  function finish(){
-    if(done) return; done=true;
-    splash.classList.add('ez-splash-out');
-    setTimeout(function(){splash.setAttribute('hidden','');splash.setAttribute('aria-hidden','true');html.classList.remove('ez-splash-lock');},reduce?60:980);
-  }
-  splash.addEventListener('click',finish);
-  window.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '||e.key==='Escape') finish();});
-  if(reduce){splash.classList.add('sp-land','sp-name-in');setTimeout(finish,300);return;}
-  requestAnimationFrame(function(){
-    setTimeout(function(){splash.classList.add('sp-land');},120);
-    setTimeout(function(){splash.classList.add('sp-name-in');},1100);
-    setTimeout(finish,2600);
-  });
-})();
+
 </script>
 <script id="fx-js">(function(){
   if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -898,6 +962,169 @@ html.fx-on .steps li::before{transition:color .6s}
   window.addEventListener('scroll',onScroll,{passive:true});
   window.addEventListener('resize',onScroll);
   update();
+})();
+</script>
+
+<script id="ez3d-js">
+/* Ezeron 3D layer: loads Three.js from cdnjs; if WebGL/script fails the page works exactly as before. */
+(function(){
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var SMALL=innerWidth<760||(navigator.hardwareConcurrency||4)<4;
+var mx=0,my=0;
+addEventListener('pointermove',function(e){mx=e.clientX/innerWidth*2-1;my=e.clientY/innerHeight*2-1;},{passive:true});
+
+/* ---------- smooth page transitions ---------- */
+if(!RM){
+ document.addEventListener('click',function(e){
+  var a=e.target.closest&&e.target.closest('a[href]');
+  if(!a||e.defaultPrevented||e.metaKey||e.ctrlKey||e.shiftKey||e.button||a.target==='_blank'||a.hasAttribute('download'))return;
+  var u;try{u=new URL(a.href,location.href);}catch(x){return;}
+  if(u.origin!==location.origin||!/\.html?$|\/$/.test(u.pathname)||(u.pathname===location.pathname&&u.hash))return;
+  e.preventDefault();if(/(^\/$|index\.html?$)/.test(u.pathname)){try{sessionStorage.setItem('ezNav','1')}catch(x){}}document.body.style.transition='opacity .25s';document.body.style.opacity='0';
+  setTimeout(function(){location.href=u.href;},240);
+ });
+ addEventListener('pageshow',function(e){if(e.persisted){document.body.style.opacity='1';}});
+}
+
+/* ---------- tilt on project visuals (pointer devices only) ---------- */
+if(!RM&&matchMedia('(hover:hover)').matches){
+ document.querySelectorAll('.work-visual').forEach(function(el){
+  el.addEventListener('pointermove',function(e){var r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.transform='perspective(900px) rotateY('+(x*7)+'deg) rotateX('+(-y*7)+'deg) scale(1.02)';});
+  el.addEventListener('pointerleave',function(){el.style.transform='';});
+ });
+}
+/* ---------- scroll-driven 3D: depth, tilt and perspective on every page ---------- */
+if(!RM){
+ var root=document.documentElement;root.classList.add('ez-3d');
+ root.style.setProperty('--k',SMALL?'.5':'1');
+ var cards=[].slice.call(document.querySelectorAll('.glass,.work-item,.proj')),heroes=[].slice.call(document.querySelectorAll('.hero,.page-hero')),tick=false;
+ function upd(){
+  tick=false;var vh=innerHeight;
+  cards.forEach(function(el){var r=el.getBoundingClientRect();if(r.bottom<-200||r.top>vh+200)return;var e=((r.top+r.height/2)-vh/2)/vh;el.style.setProperty('--e',Math.max(-1,Math.min(1,e)).toFixed(3));});
+  heroes.forEach(function(h){var r=h.getBoundingClientRect(),p=Math.max(0,Math.min(1,-r.top/Math.max(1,r.height)));h.style.setProperty('--he',p.toFixed(3));});
+ }
+ addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(upd);}},{passive:true});
+ addEventListener('resize',upd);upd();
+}
+if(RM)return;
+try{var t=document.createElement('canvas');if(!(t.getContext('webgl')||t.getContext('experimental-webgl')))return;}catch(x){return;}
+
+function loadThree(cb){
+ if(window.THREE)return cb(window.THREE);
+ var s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
+ s.onload=function(){cb(window.THREE);};s.onerror=function(){};document.head.appendChild(s);
+}
+
+/* ---------- cinematic splash (index only) ---------- */
+function splash3d(T){if(window.ezSplash3D)window.ezSplash3D(T);}
+
+/* ---------- interactive 3D object: hero on home, ambient elsewhere ---------- */
+function scene3d(THREE){
+ try{
+  var hero=document.querySelector('.hero'),host=hero||document.body;if(hero)return; /* homepage hero: background image only, no 3D object */
+  var cv=document.createElement('canvas');cv.className='ez-cv';cv.setAttribute('aria-hidden','true');host.insertBefore(cv,host.firstChild);
+  var r=new THREE.WebGLRenderer({canvas:cv,alpha:true,antialias:!SMALL});r.setPixelRatio(Math.min(devicePixelRatio,SMALL?1:1.75));
+  var sc=new THREE.Scene(),cam=new THREE.PerspectiveCamera(45,1,.1,60);cam.position.z=6;
+  sc.add(new THREE.AmbientLight(0xffffff,.35));
+  var d1=new THREE.DirectionalLight(0xffffff,1.2);d1.position.set(3,4,5);sc.add(d1);
+  var d2=new THREE.DirectionalLight(0x8899ff,.6);d2.position.set(-4,-2,2);sc.add(d2);
+  var pl=new THREE.PointLight(0xffffff,1.6,12);pl.position.set(0,0,3);sc.add(pl);
+  var obj=new THREE.Group();sc.add(obj);
+  var geo=new THREE.IcosahedronGeometry(1.3,SMALL?0:1);
+  obj.add(new THREE.Mesh(geo,new THREE.MeshPhysicalMaterial({color:0x151515,metalness:.85,roughness:.22,clearcoat:1,clearcoatRoughness:.15,flatShading:true})));
+  obj.add(new THREE.LineSegments(new THREE.EdgesGeometry(geo),new THREE.LineBasicMaterial({color:0xffffff,transparent:true,opacity:.35})));
+  var ring=new THREE.Mesh(new THREE.TorusGeometry(2.1,.012,8,140),new THREE.MeshBasicMaterial({color:0xffffff,transparent:true,opacity:.35}));ring.rotation.x=1.2;obj.add(ring);
+  var N=SMALL?120:360,p=new Float32Array(N*3);for(var i=0;i<N*3;i++)p[i]=(Math.random()-.5)*(i%3==2?8:16);
+  var pg=new THREE.BufferGeometry();pg.setAttribute('position',new THREE.BufferAttribute(p,3));
+  var pts=new THREE.Points(pg,new THREE.PointsMaterial({color:0xffffff,size:.03,transparent:true,opacity:.6,depthWrite:false}));sc.add(pts);
+  function size(){var w=host===document.body?innerWidth:host.clientWidth,h=host===document.body?innerHeight:host.clientHeight;r.setSize(w,h,false);cam.aspect=w/h;cam.updateProjectionMatrix();
+   var wide=w>900&&!hero;obj.position.x=wide?2.6:0;obj.scale.setScalar(hero?(w<700?.8:1.25):(wide?1:.7));}
+  size();addEventListener('resize',size);
+  var vis=true;if('IntersectionObserver' in window&&hero){new IntersectionObserver(function(e){vis=e[0].isIntersecting;}).observe(hero);}
+  var rx=0,ry=0,t0=performance.now();
+  (function loop(){
+   requestAnimationFrame(loop);if(document.hidden||!vis)return;
+   var t=(performance.now()-t0)/1000;
+   ry+=(mx*.6-ry)*.05;rx+=(my*.4-rx)*.05;
+   obj.rotation.y=t*.18+ry+(hero?0:scrollY*.0006);obj.rotation.x=rx+Math.sin(t*.3)*.12;
+   obj.position.y=Math.sin(t*.7)*.12+(hero?0:Math.min(scrollY*.0008,1.2));
+   pts.rotation.y=t*.02+mx*.05;pl.position.set(mx*3,-my*2,3);
+   r.render(sc,cam);
+  })();
+  requestAnimationFrame(function(){cv.classList.add('on');});
+ }catch(x){}
+}
+loadThree(function(T){splash3d(T);scene3d(T);});
+})();
+</script>
+
+<script id="ez-motion">
+/* Scroll motion engine (GSAP + ScrollTrigger from cdnjs): scrubbed 3D reveals, split-text headings,
+   image parallax, progress bar, magnetic buttons and a cursor ring. If GSAP can't load, the page still works. */
+(function(){
+if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+function load(src,cb){var s=document.createElement('script');s.src=src;s.onload=cb;s.onerror=function(){};document.head.appendChild(s);}
+load('https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js',function(){
+ load('https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js',go);
+});
+function go(){
+ var gsap=window.gsap,ST=window.ScrollTrigger;if(!gsap||!ST)return;
+ try{gsap.registerPlugin(ST);}catch(e){return;}
+ var root=document.documentElement,hover=matchMedia('(hover:hover) and (pointer:fine)').matches,small=innerWidth<760;
+ var st=document.createElement('style');
+ st.textContent='html.gs .reveal,html.gs .fx{transition:none!important}'
+ +'.gs-w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.14em;margin-bottom:-.14em}.gs-wi{display:inline-block;will-change:transform}'
+
+ +'.gs-cur{position:fixed;left:0;top:0;width:34px;height:34px;margin:-17px 0 0 -17px;border:1px solid rgba(255,255,255,.7);border-radius:50%;pointer-events:none;z-index:9999;mix-blend-mode:difference;transition:width .25s,height .25s,margin .25s,background .25s}'
+ +'.gs-cur{opacity:0;transition:opacity .3s,width .25s,height .25s,margin .25s,background .25s}.gs-cur.vis{opacity:1}'
+ +'.gs-cur::after{content:"";position:absolute;left:50%;top:50%;width:6px;height:6px;margin:-3px 0 0 -3px;border-radius:50%;background:#fff}'
+ +'html.gs-cur-on,html.gs-cur-on *{cursor:none!important}'
+ +'.gs-cur.h{width:66px;height:66px;margin:-33px 0 0 -33px;background:rgba(255,255,255,.14)}';
+ document.head.appendChild(st);root.classList.add('gs');
+
+ /* 1. scrubbed 3D reveals: rise from depth, tilt flat */
+ var els=[].slice.call(document.querySelectorAll('.reveal,.fx')).filter(function(el){
+  return el.offsetParent&&!el.classList.contains('rule')&&!el.classList.contains('lead')&&!el.classList.contains('fx-w')&&!el.closest('.fx-w,.zn-panel,dialog,header');});
+ els.forEach(function(el){
+  gsap.fromTo(el,{opacity:0,y:small?50:90,z:small?-90:-220,rotateX:small?8:18,transformPerspective:1100,transformOrigin:'50% 100%'},
+   {opacity:1,y:0,z:0,rotateX:0,ease:'power2.out',immediateRender:true,
+    scrollTrigger:{trigger:el,start:'top 94%',end:'top 58%',scrub:.7}});
+ });
+
+ /* 2. split-text headings: words flip up from a mask */
+ document.querySelectorAll('h2,h3.big').forEach(function(h){
+  if(h.children.length||h.closest('.hero,.page-hero,.final,header')||!h.textContent.trim())return;
+  var words=h.textContent.trim().split(/\s+/);h.textContent='';var inner=[];
+  words.forEach(function(w,i){var o=document.createElement('span'),n=document.createElement('span');o.className='gs-w';n.className='gs-wi';n.textContent=w;o.appendChild(n);h.appendChild(o);if(i<words.length-1)h.appendChild(document.createTextNode(' '));inner.push(n);});
+  gsap.from(inner,{yPercent:115,rotateX:-80,opacity:0,transformOrigin:'0% 100%',duration:1.1,ease:'power4.out',stagger:.07,scrollTrigger:{trigger:h,start:'top 90%',once:true}});
+ });
+
+ /* 3. image parallax inside project frames */
+ document.querySelectorAll('.work-visual-img,.proj .shot img').forEach(function(img){
+  var box=img.closest('.work-visual,.shot')||img.parentNode;
+  gsap.fromTo(img,{yPercent:-7,scale:1.14},{yPercent:7,scale:1.14,ease:'none',scrollTrigger:{trigger:box,start:'top bottom',end:'bottom top',scrub:true}});
+ });
+
+
+ /* 5. magnetic buttons + cursor ring (mouse devices only) */
+ if(hover){
+  var cur=document.createElement('div');cur.className='gs-cur';cur.setAttribute('aria-hidden','true');document.body.appendChild(cur);
+  var cx=gsap.quickTo(cur,'x',{duration:.35,ease:'power3'}),cy=gsap.quickTo(cur,'y',{duration:.35,ease:'power3'});
+  addEventListener('pointermove',function(e){cx(e.clientX);cy(e.clientY);if(!cur.classList.contains('vis')){cur.classList.add('vis');root.classList.add('gs-cur-on');}},{passive:true});
+  document.addEventListener('pointerleave',function(){cur.classList.remove('vis');root.classList.remove('gs-cur-on');});
+  document.addEventListener('pointerover',function(e){cur.classList.toggle('h',!!(e.target.closest&&e.target.closest('a,button,[role=button]')));});
+  document.querySelectorAll('.btn').forEach(function(b){
+   var bx=gsap.quickTo(b,'x',{duration:.4,ease:'power3'}),by=gsap.quickTo(b,'y',{duration:.4,ease:'power3'});
+   b.addEventListener('pointermove',function(e){var r=b.getBoundingClientRect();bx((e.clientX-r.left-r.width/2)*.25);by((e.clientY-r.top-r.height/2)*.35);});
+   b.addEventListener('pointerleave',function(){bx(0);by(0);});
+  });
+ }
+
+ /* keep trigger positions right after images/fonts load or cards expand */
+ addEventListener('load',function(){ST.refresh();});
+ if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){ST.refresh();});
+ document.addEventListener('click',function(e){if(e.target.closest&&e.target.closest('.work-toggle,.filter-chip,summary,[aria-expanded]'))setTimeout(function(){ST.refresh();},800);});
+}
 })();
 </script>
 </body>
